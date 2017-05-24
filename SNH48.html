@@ -1,0 +1,1043 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNH48 GROUP 第三届偶像年度人气总决选</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <style type="text/css">
+        .row {
+            margin-bottom: 4em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart1"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div id="chart3"></div>
+            </div>
+            <div class="col-xs-4">
+                <div id="chart4"></div>
+            </div>
+            <div class="col-xs-4">
+                <div id="chart5"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart6"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart7"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart8"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart9"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart10"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart11"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var team = [
+            { name: "SII", color: "#91CCEA", index: 0 },
+            { name: "NII", color: "#AE86BA", index: 1 },
+            { name: "HII", color: "#F49600", index: 2 },
+            { name: "X", color: "#94D401", index: 3 },
+            { name: "XII", color: "#03C070", index: 4 },
+            { name: "B", color: "#EF1B52", index: 5 },
+            { name: "E", color: "#00C8C3", index: 6 },
+            { name: "J", color: "#006AB6", index: 7 },
+            { name: "G", color: "#9FBF40", index: 8 },
+            { name: "NIII", color: "#FFE249", index: 9 },
+            { name: "Z", color: "#EA617B", index: 10 },
+            { name: "SIII", color: "#E200CD", index: 11 }
+        ];
+
+        function getTeam(name) {
+            switch (name.toUpperCase()) {
+                case "SII":
+                    return team[0];
+                case "NII":
+                    return team[1];
+                case "HII":
+                    return team[2];
+                case "X":
+                    return team[3];
+                case "XII":
+                    return team[4];
+                case "B":
+                    return team[5];
+                case "E":
+                    return team[6];
+                case "J":
+                    return team[7];
+                case "G":
+                    return team[8];
+                case "NIII":
+                    return team[9];
+                case "Z":
+                    return team[10];
+                case "SIII":
+                    return team[11];
+                default:
+                    return team[0];
+            }
+        }
+
+        $(document).ready(function () {
+
+            var finalData = [
+                {
+                    name: "邵雪聪",
+                    rank: 48,
+                    vote: 4595.3,
+                    team: 3,
+                    rank1st: 49,
+                    rank2nd: 19
+                },
+                {
+                    name: "陈观慧",
+                    rank: 47,
+                    vote: 4615.2,
+                    team: 0,
+                    rank1st: 10,
+                    rank2nd: 22
+                },
+                {
+                    name: "胡晓慧",
+                    rank: 46,
+                    vote: 4751.9,
+                    team: 5,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "孙芮",
+                    rank: 45,
+                    vote: 4794.1,
+                    team: 0,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "卢静",
+                    rank: 44,
+                    vote: 4845.7,
+                    team: 8,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "袁雨桢",
+                    rank: 43,
+                    vote: 4967.5,
+                    team: 0,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "陈怡馨",
+                    rank: 42,
+                    vote: 5030.9,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "洪珮雲",
+                    rank: 41,
+                    vote: 5070.8,
+                    team: 4,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "孙珊",
+                    rank: 40,
+                    vote: 5099.1,
+                    team: 5,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "张怡",
+                    rank: 39,
+                    vote: 5112.5,
+                    team: 4,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "徐晗",
+                    rank: 38,
+                    vote: 5135.9,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 31
+                },
+                {
+                    name: "易嘉爱",
+                    rank: 37,
+                    vote: 5456.6,
+                    team: 1,
+                    rank1st: 14,
+                    rank2nd: 8
+                },
+                {
+                    name: "段艺璇",
+                    rank: 36,
+                    vote: 5560.3,
+                    team: 5,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "许杨玉琢",
+                    rank: 35,
+                    vote: 5638.8,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "王璐",
+                    rank: 34,
+                    vote: 5717.4,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "钱蓓婷",
+                    rank: 33,
+                    vote: 6095.8,
+                    team: 0,
+                    rank1st: 49,
+                    rank2nd: 26
+                },
+                {
+                    name: "杨蕙婷",
+                    rank: 32,
+                    vote: 6129.1,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "徐子轩",
+                    rank: 31,
+                    vote: 6186.9,
+                    team: 0,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "王晓佳",
+                    rank: 30,
+                    vote: 6284.6,
+                    team: 3,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "杨韫玉",
+                    rank: 29,
+                    vote: 6339.1,
+                    team: 3,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "刘佩鑫",
+                    rank: 28,
+                    vote: 6651.9,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 27
+                },
+                {
+                    name: "严佼君",
+                    rank: 27,
+                    vote: 6811.6,
+                    team: 4,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "李宇琪",
+                    rank: 26,
+                    vote: 6977.0,
+                    team: 0,
+                    rank1st: 11,
+                    rank2nd: 7
+                },
+                {
+                    name: "杨冰怡",
+                    rank: 25,
+                    vote: 7226.3,
+                    team: 3,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "谢蕾蕾",
+                    rank: 24,
+                    vote: 7405.4,
+                    team: 7,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "吴哲晗",
+                    rank: 23,
+                    vote: 7808.2,
+                    team: 0,
+                    rank1st: 1,
+                    rank2nd: 49
+                },
+                {
+                    name: "龚诗淇",
+                    rank: 22,
+                    vote: 7969.9,
+                    team: 1,
+                    rank1st: 12,
+                    rank2nd: 18
+                },
+                {
+                    name: "戴萌",
+                    rank: 21,
+                    vote: 8141.9,
+                    team: 0,
+                    rank1st: 13,
+                    rank2nd: 15
+                },
+                {
+                    name: "孔肖吟",
+                    rank: 20,
+                    vote: 8185.2,
+                    team: 0,
+                    rank1st: 15,
+                    rank2nd: 16
+                },
+                {
+                    name: "万丽娜",
+                    rank: 19,
+                    vote: 8893.9,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 6
+                },
+                {
+                    name: "林思意",
+                    rank: 18,
+                    vote: 9078.0,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 17
+                },
+                {
+                    name: "谢妮",
+                    rank: 17,
+                    vote: 9534.6,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "张丹三",
+                    rank: 16,
+                    vote: 11270.2,
+                    team: 3,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "宋昕冉",
+                    rank: 15,
+                    vote: 11372.5,
+                    team: 3,
+                    rank1st: 49,
+                    rank2nd: 23
+                },
+                {
+                    name: "费沁源",
+                    rank: 14,
+                    vote: 11711.9,
+                    team: 4,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "许佳琪",
+                    rank: 13,
+                    vote: 12060.6,
+                    team: 0,
+                    rank1st: 8,
+                    rank2nd: 20
+                },
+                {
+                    name: "陆婷",
+                    rank: 12,
+                    vote: 12119.7,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 10
+                },
+                {
+                    name: "冯薪朵",
+                    rank: 11,
+                    vote: 12265.9,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 12
+                },
+                {
+                    name: "刘炅然",
+                    rank: 10,
+                    vote: 13715.9,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 25
+                },
+                {
+                    name: "孙珍妮",
+                    rank: 9,
+                    vote: 15238.9,
+                    team: 2,
+                    rank1st: 49,
+                    rank2nd: 49
+                },
+                {
+                    name: "邱心怡",
+                    rank: 8,
+                    vote: 17464.7,
+                    team: 0,
+                    rank1st: 2,
+                    rank2nd: 14
+                },
+                {
+                    name: "赵粤",
+                    rank: 7,
+                    vote: 21347.1,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 11
+                },
+                {
+                    name: "曾艳芬",
+                    rank: 6,
+                    vote: 22825.9,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 9
+                },
+                {
+                    name: "莫寒",
+                    rank: 5,
+                    vote: 23792.1,
+                    team: 0,
+                    rank1st: 7,
+                    rank2nd: 13
+                },
+                {
+                    name: "张语格",
+                    rank: 4,
+                    vote: 23947.0,
+                    team: 0,
+                    rank1st: 5,
+                    rank2nd: 5
+                },
+                {
+                    name: "黄婷婷",
+                    rank: 3,
+                    vote: 58568.6,
+                    team: 1,
+                    rank1st: 49,
+                    rank2nd: 4
+                },
+                {
+                    name: "李艺彤",
+                    rank: 2,
+                    vote: 75479.5,
+                    team: 1,
+                    rank1st: 6,
+                    rank2nd: 3
+                },
+                {
+                    name: "鞠婧祎",
+                    rank: 1,
+                    vote: 120407.7,
+                    team: 1,
+                    rank1st: 4,
+                    rank2nd: 2
+                }
+            ];
+            //Highcharts.setOptions({
+            //    colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+            //});
+            var series1 = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team G', 0], ['Team NIII', 0]];
+            var series2 = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team G', 0], ['Team NIII', 0]];
+            var series3 = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team G', 0], ['Team NIII', 0]];
+            var series4 = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team G', 0], ['Team NIII', 0]];
+            var series5 = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team G', 0], ['Team NIII', 0]];
+            $(finalData).each(function () {
+                if (this.rank > 2) {
+                    series2[this.team][1] = series2[this.team][1] + this.vote;
+                }
+                if (this.rank <= 16) {
+                    series3[this.team][1] = series3[this.team][1] + this.vote;
+                }
+                if (this.rank > 16 && this.rank <= 32) {
+                    series4[this.team][1] = series4[this.team][1] + this.vote;
+                }
+                if (this.rank > 32)
+                    series5[this.team][1] = series5[this.team][1] + this.vote;
+                series1[this.team][1] = series1[this.team][1] + this.vote;
+            });
+
+            function removeEmptyItem(arr) {
+                for (var i = 8; i >= 0; i--) {
+                    if (arr[i][1] === 0) {
+                        arr.splice(i, 1);
+                    }
+                }
+            }
+
+            removeEmptyItem(series3);
+            removeEmptyItem(series4);
+            removeEmptyItem(series5);
+
+            $('#chart1').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '各队票数总和比例'
+                },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '总票数占比',
+                        data: series1
+                    }
+                ]
+            });
+
+            $('#chart2').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '各队票数总和比例（去掉前二）'
+                },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '总票数占比',
+                        data: series2
+                    }
+                ]
+            });
+
+
+            $('#chart3').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '<b>TG高飞组</b>各队票数总和比例'
+                },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '总票数占比',
+                        data: series3
+                    }
+                ]
+            });
+
+            $('#chart4').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '<b>UG梦想组</b>各队票数总和比例'
+                },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '总票数占比',
+                        data: series4
+                    }
+                ]
+            });
+            $('#chart5').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '<b>NG起飞组</b>各队票数总和比例'
+                },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '总票数占比',
+                        data: series5
+                    }
+                ]
+            });
+
+            var series6 = [
+                {
+                    name: 'Team SII',
+                    data: [(1 + 2 + 3 + 5 + 7 + 8 + 9 + 10 + 11 + 13 + 15 + 16) / 12, (1 + 5 + 7 + 13 + 14 + 15 + 16 + 20 + 21 + 22 + 24 + 26) / 12, 0],
+                    count: 0
+                }, {
+                    name: 'Team NII',
+                    data: [(4 + 6 + 12 + 14) / 4, (2 + 3 + 4 + 6 + 8 + 9 + 10 + 11 + 12 + 17 + 18 + 28 + 32) / 13, 0],
+                    count: 0
+                }, {
+                    name: 'Team HII',
+                    data: [0, (25 + 27 + 29 + 30 + 31) / 5, 0],
+                    count: 0
+                }, {
+                    name: 'Team X',
+                    data: [0, (19 + 23) / 2, 0],
+                    count: 0
+                }, {
+                    name: 'Team XII',
+                    data: [0, 0, 0],
+                    count: 0
+                }, {
+                    name: 'Team B',
+                    data: [0, 0, 0],
+                    count: 0
+                }, {
+                    name: 'Team E',
+                    data: [0, 0, 0],
+                    count: 0
+                }, {
+                    name: 'Team G',
+                    data: [0, 0, 0],
+                    count: 0
+                }, {
+                    name: 'Team NIII',
+                    data: [0, 0, 0],
+                    count: 0
+                }
+            ];
+
+            var series7 = [
+                {
+                    name: 'Team SII',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team NII',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team HII',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team X',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team XII',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team B',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team E',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team G',
+                    data: [0, 0, 0, 0]
+                }, {
+                    name: 'Team NIII',
+                    data: [0, 0, 0, 0]
+                }
+            ];
+
+            $(finalData).each(function () {
+                series6[this.team].data[2] = series6[this.team].data[2] + this.rank;
+                series6[this.team].count = (series6[this.team].count * 10 + 10) / 10;
+
+                if (this.rank < 17) {
+                    series7[this.team].data[0] = (series7[this.team].data[0] * 10 + 10) / 10;
+                } else if (this.rank < 33) {
+                    series7[this.team].data[1] = (series7[this.team].data[1] * 10 + 10) / 10;
+                } else {
+                    series7[this.team].data[2] = (series7[this.team].data[2] * 10 + 10) / 10;
+                }
+                series7[this.team].data[3] = (series7[this.team].data[3] * 10 + 10) / 10;
+            });
+
+            function reDealserires6() {
+                $(series6).each(function () {
+                    this.data[2] = this.data[2] / this.count;
+                });
+                console.log(series6);
+                return series6;
+            }
+
+            $('#chart6').highcharts({
+                credits: { enabled: false },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                chart: { type: 'column' },
+                title: { text: '历届总选圈内平均排名' },
+                subtitle: { text: '越低越厉害哟，进圈排名总和&nbsp;&divide;&nbsp;进圈人数 = 平均排名', useHTML: true },
+                xAxis: {
+                    categories: ['第一届', '第二届', '第三届']
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                tooltip: {
+                    headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}平均排名</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            color: "#000000",
+                            style: { fontWeight: 'bold' },
+                            formatter: function () {
+                                if (this.y > 0)
+                                    return this.y.toFixed(1);
+                                else
+                                    return "";
+                            }
+                        }
+                    }
+                },
+                series: reDealserires6()
+            });
+
+            $('#chart7').highcharts({
+                credits: { enabled: false },
+                colors: [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color],
+                chart: { type: 'column' },
+                title: { text: '各组人数' },
+                xAxis: {
+                    categories: ['TG高飞组', 'UG梦想组', 'NG起飞组', '圈内']
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                tooltip: {
+                    headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            color: "#000000",
+                            style: { fontWeight: 'bold' },
+                            formatter: function () { return this.y === 0 ? "" : this.y }
+                        }
+                    }
+                },
+                series: series7
+            });
+
+            //var series8 = [];
+            //$(finalData).each(function() {
+            //    if (this.team<2)
+            //        series8.push({ name: this.name, data: [this.rank1st, this.rank2nd, this.rank] });
+            //});
+            //$('#chart8').highcharts({
+            //    cresits: {enabled:false},
+            //    chart: { type: 'line' },
+            //    title: { text: 'SN队员的历届名次变化' },
+            //    xAxis: {
+            //         categories: ['第一届', '第二届', '第三届']
+            //    },
+            //    yAxis: {allowDecimals:false, title: { text: '' },min:1,max:49,reversed:true },
+            //    tooltip: {
+            //        formatter: function () {
+            //         return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
+            //        }
+            //    },
+            //    legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0 },
+            //    series: series8
+            //});
+            $('#chart10').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16速报中报终报票数分布图'
+                },
+                xAxis: {
+                    categories: ['鞠婧祎', '李艺彤', '黄婷婷', '曾艳芬', '冯薪朵', '莫寒', '陆婷', '张语格', '赵粤', '邱欣怡', '许佳琪', '戴萌', '林思意', '万丽娜', '刘炅然', '张丹三']
+                },
+                yAxis: {
+                    min: 0,
+                    max: 231000,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF',
+                    reversed: true
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                series: [
+                    {
+                        name: '终报',
+                        data: [
+                            230752.7 - 120407.7, //鞠
+                            169971.4 - 75479.5, //卡
+                            130258.3 - 58568.6, //黄
+                            88656.8 - 22825.9, //撸
+                            88598.8 - 12265.9, //冯
+                            73362.6 - 23792.1, //莫
+                            71639.6 - 12119.7, //大
+                            66867.5 - 23947.0, //章
+                            47563.5 - 21647.1, //粤
+                            45653.6 - 17464.7, //湾
+                            41740.5 - 12060.6, //Ki
+                            41511.8 - 8141.9, //戴
+                            38786.4 - 9078.0, //四
+                            35281.4 - 8893.9, //娜
+                            34286.2 - 13715.9, //兽
+                            28185.4 - 11270.2 //Co3
+                        ]
+                    }, {
+                        name: '中报',
+                        data: [
+                            120407.7 - 20377.4, //鞠
+                            75479.5 - 22582.3, //卡
+                            58568.6 - 4207.0, //黄
+                            22825.9, //撸
+                            12265.9 - 2954.5, //冯
+                            23792.1 - 1872.1, //莫
+                            12119.7, //大
+                            23947.0, //章
+                            21347.1, //粤
+                            17464.7 - 4546.8, //湾
+                            12060.6, //Ki
+                            8141.9 - 2976.3, //戴
+                            9078.0, //四
+                            8893.9 - 2988.1, //娜
+                            13715.9 - 2566.0, //兽
+                            11270.2
+                        ] //Co3
+                    }, {
+                        name: '速报',
+                        data: [
+                            20377.4, //鞠
+                            22582.3, //卡
+                            4207.0, //黄
+                            0, //撸
+                            2954.5, //冯
+                            1872.1, //莫
+                            0, //大
+                            0, //章
+                            0, //粤
+                            4546.8, //湾
+                            0, //Ki
+                            2976.3, //戴
+                            0, //四
+                            2988.1, //娜
+                            2566.0, //兽
+                            0
+                        ] //Co3
+                    }
+                ]
+            });
+
+            $('#chart11').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16票数增长量图'
+                },
+                xAxis: {
+                    categories: ['鞠婧祎', '李艺彤', '黄婷婷', '曾艳芬', '冯薪朵', '莫寒', '陆婷', '张语格', '赵粤', '邱欣怡', '许佳琪', '戴萌', '林思意', '万丽娜', '刘炅然', '张丹三']
+                },
+                yAxis: {
+                    min: 0,
+                    max: 231000,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF',
+                    reversed: true
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                series: [{
+                    name: '第二届终报',
+                    data: [
+                        64785.5, //鞠
+                        47134.5, //卡
+                        35189.0, //黄
+                        25861.0, //撸
+                        22028.7, //冯
+                        20201.7, //莫
+                        25669.0, //大
+                        32306.0, //章
+                        25245.0, //粤
+                        20078.3, //湾
+                        14351.7, //Ki
+                        17907.3, //戴
+                        16050.5, //四
+                        31608.3, //娜
+                        9718.4, //兽
+                        0
+                    ] //Co3
+                },
+                    {
+                        name: '第三届增长票数',
+                        data: [
+                            230752.7 - 64785.5, //鞠
+                            169971.4 - 47134.5, //卡
+                            130258.3 - 35189.0, //黄
+                            88656.8 - 25861.0, //撸
+                            88598.8 - 22028.7, //冯
+                            73362.6 - 20201.7, //莫
+                            71639.6 - 25669.0, //大
+                            66867.5 - 32306.0, //章
+                            47563.5 - 25245.0, //粤
+                            45653.6 - 20078.3, //湾
+                            41740.5 - 14351.7, //Ki
+                            41511.8 - 17907.3, //戴
+                            38786.4 - 16050.5, //四
+                            35281.4 - 31608.3, //娜
+                            34286.2 - 9718.4, //兽
+                            28185.4 //Co3
+                        ]
+                    }
+
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
