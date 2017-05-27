@@ -27,10 +27,10 @@
 
         .table tr td:nth-child(1), .table tr td:nth-child(4) {
             text-align: center;
-            width: 47px;
+            width: 45px;
         }
 
-        .table tr td {
+        .table tr td,.table tr th {
             font-weight: bolder;
         }
     </style>
@@ -39,7 +39,7 @@
     <div class="container-fluid">
         <div class="row" id="team-color"></div>
         <div class="row">
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 <h4>Unit曲 排名</h4>
                 <table id="table-unit" class="table table-bordered">
                     <tr>
@@ -47,11 +47,11 @@
                         <th>曲名</th>
                         <th>出处</th>
                         <th>原创</th>
-                        <th>成员</th>
+                        <th>阵容</th>
                     </tr>
                 </table>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 <h4>Solo曲 排名</h4>
                 <table id="table-solo" class="table table-bordered">
                     <tr>
@@ -59,11 +59,11 @@
                         <th>曲名</th>
                         <th>出处</th>
                         <th>原创</th>
-                        <th>成员</th>
+                        <th>歌手</th>
                     </tr>
                 </table>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 <h4>队歌 排名</h4>
                 <table id="table-team" class="table table-bordered">
                     <tr>
@@ -245,14 +245,18 @@
                         }
                     ]
                 }, {
-                    Title: "木偶",
+                    Title: "爱恨的泪",
                     Rank: 2,
-                    Type: 2,
-                    New: 1,
-                    From: 10,
+                    Type: 1,
+                    New: 0,
+                    From: 2,
                     Member: [
                         {
                             Name: "李艺彤",
+                            Team: 1
+                        },
+                        {
+                            Name: "黄婷婷",
                             Team: 1
                         }
                     ]
@@ -269,8 +273,32 @@
                         }
                     ]
                 }, {
-                    Title: "第一只兔子",
+                    Title: "木偶",
                     Rank: 4,
+                    Type: 2,
+                    New: 1,
+                    From: 10,
+                    Member: [
+                        {
+                            Name: "李艺彤",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "青春闪电",
+                    Rank: 5,
+                    Type: 2,
+                    New: 0,
+                    From: 4,
+                    Member: [
+                        {
+                            Name: "黄婷婷",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "第一只兔子",
+                    Rank: 6,
                     Type: 0,
                     New: 0,
                     From: 14,
@@ -282,127 +310,26 @@
                         }
                     ]
                 }, {
-                    Title: "夜蝶",
-                    Rank: 5,
-                    Type: 1,
-                    New: 0,
-                    From: 0,
-                    Member: [
-                        {
-                            Name: "鞠婧祎",
-                            Team: 1
-                        },
-                        {
-                            Name: "林思意",
-                            Team: 1
-                        }
-                    ]
-                }, {
-                    Title: "爱恨的泪",
-                    Rank: 6,
-                    Type: 1,
-                    New: 0,
-                    From: 2,
-                    Member: [
-                        {
-                            Name: "李艺彤",
-                            Team: 1
-                        },
-                        {
-                            Name: "黄婷婷",
-                            Team: 1
-                        }
-                    ]
-                }, {
-                    Title: "朱丽叶",
+                    Title: "错过奇迹",
                     Rank: 7,
                     Type: 1,
                     New: 0,
-                    From: 9,
+                    From: 3,
                     Member: [
                         {
-                            Name: "刘胜男",
-                            Team: 6
-                        }, {
-                            Name: "李想",
-                            Team: 6
-                        }, {
-                            Name: "顼凘炀",
-                            Team: 6
-                        }
-                    ]
-                }, {
-                    Title: "禁忌的爱",
-                    Rank: 8,
-                    Type: 1,
-                    New: 0,
-                    From: 11,
-                    Member: [
-                        {
-                            Name: "万丽娜",
-                            Team: 1
-                        }, {
-                            Name: "孙珍妮",
+                            Name: "刘炅然",
                             Team: 2
-                        }
-                    ]
-                }, {
-                    Title: "纯情主义",
-                    Rank: 9,
-                    Type: 1,
-                    New: 0,
-                    From: 2,
-                    Member: [
-                        {
-                            Name: "陈美君",
-                            Team: 5
                         }, {
-                            Name: "周怡",
-                            Team: 1
+                            Name: "许佳琪",
+                            Team: 0
                         }, {
-                            Name: "郑丹妮",
-                            Team: 8
-                        }
-                    ]
-                }, {
-                    Title: "雨中钢琴师",
-                    Rank: 10,
-                    Type: 1,
-                    New: 0,
-                    From: 12,
-                    Member: [
-                        {
-                            Name: "易嘉爱",
-                            Team: 1
-                        }, {
-                            Name: "龚诗淇",
-                            Team: 1
-                        }, {
-                            Name: "杨冰怡",
-                            Team: 3
-                        }
-                    ]
-                }, {
-                    Title: "心形病毒",
-                    Rank: 11,
-                    Type: 1,
-                    New: 0,
-                    From: 1,
-                    Member: [
-                        {
-                            Name: "牛聪聪",
-                            Team: 5
-                        }, {
-                            Name: "易妍倩",
-                            Team: 5
-                        }, {
-                            Name: "胡博文",
+                            Name: "青珏雯",
                             Team: 5
                         }
                     ]
                 }, {
                     Title: "巧克力糖果",
-                    Rank: 12,
+                    Rank: 8,
                     Type: 1,
                     New: 0,
                     From: 4,
@@ -419,33 +346,104 @@
                         }
                     ]
                 }, {
-                    Title: "单恋对角线",
+                    Title: "狼与自尊",
+                    Rank: 9,
+                    Type: 1,
+                    New: 0,
+                    From: 14,
+                    EP: "(雨季之后)",
+                    Member: [
+                        {
+                            Name: "戴萌",
+                            Team: 0
+                        },
+                        {
+                            Name: "莫寒",
+                            Team: 0
+                        }
+                    ]
+                }, {
+                    Title: "爱到累了",
+                    Rank: 10,
+                    Type: 1,
+                    New: 0,
+                    From: 9,
+                    Member: [
+                        {
+                            Name: "莫寒",
+                            Team: 0
+                        },
+                        {
+                            Name: "邱欣怡",
+                            Team: 0
+                        },
+                        {
+                            Name: "孔肖吟",
+                            Team: 0
+                        }
+                    ]
+                }, {
+                    Title: "天黑日记",
+                    Rank: 11,
+                    Type: 2,
+                    New: 1,
+                    From: 15,
+                    Member: [
+                        {
+                            Name: "张语格",
+                            Team: 0
+                        }
+                    ]
+                }, {
+                    Title: "爱的加速器",
+                    Rank: 12,
+                    Type: 2,
+                    New: 0,
+                    From: 8,
+                    Member: [
+                        {
+                            Name: "陆婷",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "荣耀日",
                     Rank: 13,
+                    Type: 1,
+                    New: 0,
+                    From: 12,
+                    Member: [
+                        {
+                            Name: "李宇琪",
+                            Team: 0
+                        },
+                        {
+                            Name: "袁雨桢",
+                            Team: 0
+                        },
+                        {
+                            Name: "蒋芸",
+                            Team: 0
+                        }
+                    ]
+                }, {
+                    Title: "巧克力之吻",
+                    Rank: 14,
                     Type: 1,
                     New: 0,
                     From: 13,
                     Member: [
                         {
-                            Name: "钱蓓婷",
-                            Team: 0
-                        }, {
-                            Name: "孙芮",
-                            Team: 0
-                        }, {
-                            Name: "冯晓菲",
-                            Team: 3
-                        }
-                    ]
-                }, {
-                    Title: "青春闪电",
-                    Rank: 14,
-                    Type: 2,
-                    New: 0,
-                    From: 4,
-                    Member: [
-                        {
-                            Name: "黄婷婷",
+                            Name: "万丽娜",
                             Team: 1
+                        },
+                        {
+                            Name: "戴萌",
+                            Team: 0
+                        },
+                        {
+                            Name: "徐子轩",
+                            Team: 0
                         }
                     ]
                 }, {
@@ -469,8 +467,304 @@
                         }
                     ]
                 }, {
-                    Title: "初恋小盗",
+                    Title: "少女的遗憾",
                     Rank: 16,
+                    Type: 1,
+                    New: 0,
+                    From: 13,
+                    Member: [
+                        {
+                            Name: "於佳怡",
+                            Team: 4
+                        },
+                        {
+                            Name: "张雨鑫",
+                            Team: 1
+                        },
+                        {
+                            Name: "李媛媛",
+                            Team: 6
+                        }
+                    ]
+                }, {
+                    Title: "纯情主义",
+                    Rank: 17,
+                    Type: 1,
+                    New: 0,
+                    From: 2,
+                    Member: [
+                        {
+                            Name: "陈美君",
+                            Team: 5
+                        }, {
+                            Name: "周怡",
+                            Team: 1
+                        }, {
+                            Name: "郑丹妮",
+                            Team: 8
+                        }
+                    ]
+                }, {
+                    Title: "夜蝶",
+                    Rank: 18,
+                    Type: 1,
+                    New: 0,
+                    From: 0,
+                    Member: [
+                        {
+                            Name: "鞠婧祎",
+                            Team: 1
+                        },
+                        {
+                            Name: "林思意",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "朱丽叶",
+                    Rank: 19,
+                    Type: 1,
+                    New: 0,
+                    From: 9,
+                    Member: [
+                        {
+                            Name: "刘胜男",
+                            Team: 6
+                        }, {
+                            Name: "李想",
+                            Team: 6
+                        }, {
+                            Name: "顼凘炀",
+                            Team: 6
+                        }
+                    ]
+                }, {
+                    Title: "如果你拥抱我",
+                    Rank: 20,
+                    Type: 1,
+                    New: 0,
+                    From: 7,
+                    Member: [
+                        {
+                            Name: "张语格",
+                            Team: 0
+                        }, {
+                            Name: "许杨玉琢",
+                            Team: 2
+                        }, {
+                            Name: "谢妮",
+                            Team: 2
+                        }
+                    ]
+                }, {
+                    Title: "每一天",
+                    Rank: 21,
+                    Type: 2,
+                    New: 1,
+                    From: 14,
+		    EP:"(每一天)",
+                    Member: [
+                        {
+                            Name: "鞠婧祎",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "下一站是你",
+                    Rank: 22,
+                    Type: 1,
+                    New: 1,
+                    From: 5,
+                    Member: [
+                        {
+                            Name: "李艺彤",
+                            Team: 1
+                        },
+                        {
+                            Name: "冯薪朵",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "燃烧的道路",
+                    Rank: 23,
+                    Type: 1,
+                    New: 0,
+                    From: 8,
+                    Member: [
+                        {
+                            Name: "许佳琪",
+                            Team: 0
+                        },
+                        {
+                            Name: "刘炅然",
+                            Team: 2
+                        }
+                    ]
+                }, {
+                    Title: "单恋对角线",
+                    Rank: 24,
+                    Type: 1,
+                    New: 0,
+                    From: 13,
+                    Member: [
+                        {
+                            Name: "钱蓓婷",
+                            Team: 0
+                        }, {
+                            Name: "孙芮",
+                            Team: 0
+                        }, {
+                            Name: "冯晓菲",
+                            Team: 3
+                        }
+                    ]
+                }, {
+                    Title: "不眠之夜",
+                    Rank: 25,
+                    Type: 1,
+                    New: 0,
+                    From: 2,
+                    Member: [
+                        {
+                            Name: "黄婷婷",
+                            Team: 1
+                        },
+                        {
+                            Name: "刘增艳",
+                            Team: 4
+                        },
+                        {
+                            Name: "马玉灵",
+                            Team: 6
+                        }
+                    ]
+                }, {
+                    Title: "傲娇女孩",
+                    Rank: 26,
+                    Type: 1,
+                    New: 0,
+                    From: 1,
+                    Member: [
+                        {
+                            Name: "陈佳莹",
+                            Team: 1
+                        },
+                        {
+                            Name: "何晓玉",
+                            Team: 1
+                        },
+                        {
+                            Name: "苏杉杉",
+                            Team: 6
+                        }
+                    ]
+                }, {
+                    Title: "青涩的香蕉",
+                    Rank: 27,
+                    Type: 1,
+                    New: 0,
+                    From: 4,
+                    Member: [
+                        {
+                            Name: "陆婷",
+                            Team: 1
+                        },
+                        {
+                            Name: "冯薪朵",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "雨中钢琴师",
+                    Rank: 28,
+                    Type: 1,
+                    New: 0,
+                    From: 12,
+                    Member: [
+                        {
+                            Name: "易嘉爱",
+                            Team: 1
+                        }, {
+                            Name: "龚诗淇",
+                            Team: 1
+                        }, {
+                            Name: "杨冰怡",
+                            Team: 3
+                        }
+                    ]
+                }, {
+                    Title: "禁忌的爱",
+                    Rank: 29,
+                    Type: 1,
+                    New: 0,
+                    From: 11,
+                    Member: [
+                        {
+                            Name: "万丽娜",
+                            Team: 1
+                        }, {
+                            Name: "孙珍妮",
+                            Team: 2
+                        }
+                    ]
+                }, {
+                    Title: "青春的花瓣",
+                    Rank: 30,
+                    Type: 2,
+                    New: 0,
+                    From: 14,
+		    EP:"(苦与甜)",
+                    Member: [
+                        {
+                            Name: "冯薪朵",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "再见制服",
+                    Rank: 31,
+                    Type: 1,
+                    New: 0,
+                    From: 3,
+                    Member: [
+                        {
+                            Name: "宋欣冉",
+                            Team: 3
+                        },
+                        {
+                            Name: "段艺璇",
+                            Team: 5
+                        },
+                        {
+                            Name: "张丹三",
+                            Team: 3
+                        }
+                    ]
+                }, {
+                    Title: "苦与甜",
+                    Rank: 32,
+                    Type: 1,
+                    New: 0,
+                    From: 14,
+		    EP:"(苦与甜)",
+                    Member: [
+                        {
+                            Name: "蒋舒婷",
+                            Team: 4
+                        },
+                        {
+                            Name: "孙歆文",
+                            Team: 3
+                        },
+                        {
+                            Name: "邹佳佳",
+                            Team: 4
+                        }
+                    ]
+                }, {
+                    Title: "初恋小盗",
+                    Rank: 33,
                     Type: 1,
                     New: 0,
                     From: 0,
@@ -489,133 +783,48 @@
                         }
                     ]
                 }, {
-                    Title: "天黑日记",
-                    Rank: 17,
-                    Type: 2,
-                    New: 1,
-                    From: 15,
-                    Member: [
-                        {
-                            Name: "张语格",
-                            Team: 0
-                        }
-                    ]
-                }, {
-                    Title: "降落伞",
-                    Rank: 18,
-                    Type: 2,
-                    New: 1,
-                    From: 5,
-                    Member: [
-                        {
-                            Name: "徐晨辰",
-                            Team: 0
-                        }
-                    ]
-                }, {
-                    Title: "爱的加速器",
-                    Rank: 19,
-                    Type: 2,
-                    New: 0,
-                    From: 8,
-                    Member: [
-                        {
-                            Name: "陆婷",
-                            Team: 1
-                        }
-                    ]
-                }, {
-                    Title: "这样的我",
-                    Rank: 20,
-                    Type: 0,
-                    New: 1,
-                    From: 14,
-                    EP: "(你所不知道的我)",
-                    Member: [
-                        {
-                            Name: "NIII",
-                            Team: 8
-                        }
-                    ]
-                }, {
-                    Title: "梦想的旗帜",
-                    Rank: 21,
-                    Type: 0,
-                    New: 1,
-                    From: 14,
-                    EP: "(浪漫关系)",
-                    Member: [
-                        {
-                            Name: "X",
-                            Team: 3
-                        }
-                    ]
-                }, {
-                    Title: "恋爱躲避球",
-                    Rank: 22,
-                    Type: 0,
-                    New: 0,
-                    From: 6,
-                    Member: [
-                        {
-                            Name: "G",
-                            Team: 7
-                        }
-                    ]
-                }, {
-                    Title: "下课铃声",
-                    Rank: 23,
-                    Type: 0,
+                    Title: "温布顿之梦",
+                    Rank: 34,
+                    Type: 1,
                     New: 0,
                     From: 12,
                     Member: [
                         {
-                            Name: "HII",
-                            Team: 2
-                        }
-                    ]
-                }, {
-                    Title: "非你不可",
-                    Rank: 24,
-                    Type: 0,
-                    New: 1,
-                    From: 14,
-                    EP: "(浪漫关系)",
-                    Member: [
-                        {
-                            Name: "XII",
+                            Name: "严佼君",
                             Team: 4
+                        },
+                        {
+                            Name: "汪束",
+                            Team: 3
+                        },
+                        {
+                            Name: "曾艳芬",
+                            Team: 1
                         }
                     ]
                 }, {
-                    Title: "青春肩并肩",
-                    Rank: 25,
-                    Type: 0,
-                    New: 1,
-                    From: 14,
-                    EP: "(元气觉醒)",
+                    Title: "黑天使",
+                    Rank: 35,
+                    Type: 1,
+                    New: 0,
+                    From: 1,
                     Member: [
                         {
-                            Name: "B",
+                            Name: "洪珮雲",
+                            Team: 4
+                        },
+                        {
+                            Name: "谢蕾蕾",
+                            Team: 7
+                        },
+                        {
+                            Name: "胡晓慧",
                             Team: 5
                         }
                     ]
                 }, {
-                    Title: "Hello ! Mr.未来",
-                    Rank: 26,
-                    Type: 0,
-                    New: 1,
-                    From: 14,
-                    EP: "(元气觉醒)",
-                    Member: [
-                        {
-                            Name: "E",
-                            Team: 6
-                        }
-                    ]
-                }, {
                     Title: "王子殿下",
-                    Rank: 27,
+                    Rank: 36,
                     Type: 1,
                     New: 0,
                     From: 3,
@@ -634,8 +843,38 @@
                         }
                     ]
                 }, {
+                    Title: "女王殿下",
+                    Rank: 37,
+                    Type: 2,
+                    New: 0,
+                    From: 9,
+                    Member: [
+                        {
+                            Name: "曾艳芬",
+                            Team: 1
+                        }
+                    ]
+                }, {
+                    Title: "心形病毒",
+                    Rank: 38,
+                    Type: 1,
+                    New: 0,
+                    From: 1,
+                    Member: [
+                        {
+                            Name: "牛聪聪",
+                            Team: 5
+                        }, {
+                            Name: "易妍倩",
+                            Team: 6
+                        }, {
+                            Name: "胡博文",
+                            Team: 5
+                        }
+                    ]
+                }, {
                     Title: "糖",
-                    Rank: 28,
+                    Rank: 39,
                     Type: 1,
                     New: 0,
                     From: 6,
@@ -654,8 +893,24 @@
                         }
                     ]
                 }, {
+                    Title: "恋爱捉迷藏（粤）",
+                    Rank: 40,
+                    Type: 1,
+                    New: 0,
+                    From: 6,
+                    Member: [
+                        {
+                            Name: "林嘉佩",
+                            Team: 7
+                        },
+                        {
+                            Name: "冯嘉希",
+                            Team: 8
+                        }
+                    ]
+                }, {
                     Title: "任性的流星",
-                    Rank: 29,
+                    Rank: 41,
                     Type: 1,
                     New: 0,
                     From: 7,
@@ -670,20 +925,124 @@
                         }
                     ]
                 }, {
-                    Title: "狼与自尊",
-                    Rank: 30,
-                    Type: 1,
-                    New: 0,
-                    From: 14,
-                    EP: "(雨季之后)",
+                    Title: "降落伞",
+                    Rank: 42,
+                    Type: 2,
+                    New: 1,
+                    From: 5,
                     Member: [
                         {
-                            Name: "戴萌",
+                            Name: "徐晨辰",
                             Team: 0
+                        }
+                    ]
+                }, {
+                    Title: "这样的我",
+                    Rank: 43,
+                    Type: 0,
+                    New: 1,
+                    From: 14,
+                    EP: "(你所不知道的我)",
+                    Member: [
+                        {
+                            Name: "NIII",
+                            Team: 8
+                        }
+                    ]
+                }, {
+                    Title: "梦想的旗帜",
+                    Rank: 44,
+                    Type: 0,
+                    New: 1,
+                    From: 14,
+                    EP: "(浪漫关系)",
+                    Member: [
+                        {
+                            Name: "X",
+                            Team: 3
+                        }
+                    ]
+                }, {
+                    Title: "恋爱躲避球",
+                    Rank: 45,
+                    Type: 0,
+                    New: 0,
+                    From: 6,
+                    Member: [
+                        {
+                            Name: "G",
+                            Team: 7
+                        }
+                    ]
+                }, {
+                    Title: "Hello ! Mr.未来",
+                    Rank: 46,
+                    Type: 0,
+                    New: 1,
+                    From: 14,
+                    EP: "(元气觉醒)",
+                    Member: [
+                        {
+                            Name: "E",
+                            Team: 6
+                        }
+                    ]
+                }, {
+                    Title: "非你不可",
+                    Rank: 47,
+                    Type: 0,
+                    New: 1,
+                    From: 14,
+                    EP: "(浪漫关系)",
+                    Member: [
+                        {
+                            Name: "XII",
+                            Team: 4
+                        }
+                    ]
+                }, {
+                    Title: "下课铃声",
+                    Rank: 48,
+                    Type: 0,
+                    New: 0,
+                    From: 12,
+                    Member: [
+                        {
+                            Name: "HII",
+                            Team: 2
+                        }
+                    ]
+                }, {
+                    Title: "青春肩并肩",
+                    Rank: 49,
+                    Type: 0,
+                    New: 1,
+                    From: 14,
+                    EP: "(元气觉醒)",
+                    Member: [
+                        {
+                            Name: "B",
+                            Team: 5
+                        }
+                    ]
+                }, {
+                    Title: "我们不是天使",
+                    Rank: 50,
+                    Type: 1,
+                    New: 1,
+                    From: 10,
+                    Member: [
+                        {
+                            Name: "陈美君",
+                            Team: 5
                         },
                         {
-                            Name: "莫寒",
-                            Team: 0
+                            Name: "林溪荷",
+                            Team: 5
+                        },
+                        {
+                            Name: "李诗彦",
+                            Team: 6
                         }
                     ]
                 }
@@ -924,9 +1283,9 @@
                 });
                 if (sameTeam) {
                     ++lineup[item.Member[0].Team][1];
-                } else {
-                    ++lineup[9][1];
-                }
+                }else{
+		    ++lineup[9][1];
+		}
             }
 
             //数据写入表格
@@ -1166,6 +1525,7 @@
                 }],
                 exporting: { enabled: false }
             });
+
         });
     </script>
 </body>
