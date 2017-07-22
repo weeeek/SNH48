@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNH48 GROUP 第四届偶像年度人气总决选</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <style type="text/css">
+        .row {
+            margin-bottom: 4em;
+        }
+
+        #team-color {
+            margin-bottom: 0;
+        }
+
+            #team-color .teamName, #team-index .teamName {
+                width: calc(100% / 13);
+                float: left;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="team-color"></div>
+        <div class="row" id="team-index"></div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-all-percenter"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-top7-percenter"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="chart-all-in"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-top16-123"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-top16-increase"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-top16-rank"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-history"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        var outRank = 67;
+        var team = [
+                { name: "SII", color: "#91CCEA", index: 0 },
+                { name: "NII", color: "#AE86BA", index: 1 },
+                { name: "HII", color: "#F49600", index: 2 },
+                { name: "X", color: "#94D401", index: 3 },
+                { name: "XII", color: "#03C070", index: 4 },
+                { name: "B", color: "#EF1B52", index: 5 },
+                { name: "E", color: "#00C8C3", index: 6 },
+                { name: "J", color: "#006AB6", index: 7 },
+                { name: "G", color: "#9FBF40", index: 8 },
+                { name: "NIII", color: "#FFE249", index: 9 },
+                { name: "Z", color: "#EA617B", index: 10 },
+                { name: "SIII", color: "#E200CD", index: 11 },
+                { name: "HIII", color: "#8618C2", index: 12 }
+        ];
+
+        function getTeam(name) {
+            switch (name) {
+                case "SII":
+                    return team[0];
+                case "NII":
+                    return team[1];
+                case "HII":
+                    return team[2];
+                case "X":
+                    return team[3];
+                case "XII":
+                    return team[4];
+                case "B":
+                    return team[5];
+                case "E":
+                    return team[6];
+                case "J":
+                    return team[7];
+                case "G":
+                    return team[8];
+                case "NIII":
+                    return team[9];
+                case "Z":
+                    return team[10];
+                case "SIII":
+                    return team[11];
+                case "HIII":
+                    return team[12];
+                default:
+                    return team[0];
+            }
+        }
+
+        $(document).ready(function () {
+            //最上面的各队颜色
+            $(team).each(function (index, item) {
+                $("#team-color").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + item.name + '</div>');
+                $("#team-index").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + index + '</div>');
+            });
+            //数据
+            var finalData = [
+                {
+                    name: "陈楠茜",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 66,
+                    vote_3rd:0,vote_1: 3429.1,
+                    vote_2: 6847.4,
+                    vote: 6847.4
+                },
+                {
+                    name: "王诗蒙",
+                    team: 11,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 65,
+                    vote_3rd:0,vote_1: 3895.2,
+                    vote_2: 7180.3,
+                    vote: 7180.3
+                },
+                {
+                    name: "刘倩倩",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 64,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 7271.3,
+                    vote: 7271.3
+                },
+                {
+                    name: "张丹三",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 16,
+                    rank: 63,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 7532.3,
+                    vote: 7532.3
+                },
+                {
+                    name: "刘胜男",
+                    team: 6,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 62,
+                    vote_3rd:0,vote_1: 3308.1,
+                    vote_2: 7585.6,
+                    vote: 7585.6
+                },
+                {
+                    name: "林楠",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 61,
+                    vote_3rd:0,vote_1: 2925.8,
+                    vote_2: 7651.4,
+                    vote: 7651.4
+                },
+                {
+                    name: "刘增艳",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 60,
+                    vote_3rd:0,vote_1: 2052.5,
+                    vote_2: 7686.5,
+                    vote: 7686.5
+                },
+                {
+                    name: "谢妮",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 59,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 7697.3,
+                    vote: 7697.3
+                },
+                {
+                    name: "唐莉佳",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 58,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 7821.3,
+                    vote: 7821.3
+                },
+                {
+                    name: "冯晓菲",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 56,
+                    vote_3rd:0,vote_1: 3925.2,
+                    vote_2: 7999.6,
+                    vote: 7999.6
+                },
+                {
+                    name: "李钊",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 55,
+                    vote_3rd:0,vote_1: 3865.7,
+                    vote_2: 8009.4,
+                    vote: 8009.4
+                },
+                {
+                    name: "卢静",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 54,
+                    vote_3rd:0,vote_1: 2299.7,
+                    vote_2: 8223.9,
+                    vote: 8223.9
+                },
+                {
+                    name: "杨韫玉",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 53,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 8437.7,
+                    vote: 8437.7
+                },
+                {
+                    name: "张盺",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 8,
+                    rank: 52,
+                    vote_3rd:0,vote_1: 3458.2,
+                    vote_2: 8473.0,
+                    vote: 8473.0
+                },
+                {
+                    name: "钱蓓婷",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 51,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 8572.8,
+                    vote: 8572.8
+                },
+                {
+                    name: "何晓玉",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 50,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 8715.9,
+                    vote: 8715.9
+                },
+                {
+                    name: "陈珂",
+                    team: 8,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 49,
+                    vote_3rd:0,vote_1: 3702.7,
+                    vote_2: 8724.2,
+                    vote: 8724.2
+                },
+                {
+                    name: "陈观慧",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 48,
+                    vote_3rd:0,vote_1: 2067.2,
+                    vote_2: 8739.5,
+                    vote: 8739.5
+                },
+                {
+                    name: "吕一",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 47,
+                    vote_3rd:0,vote_1: 2852.6,
+                    vote_2: 8979.9,
+                    vote: 8979.9
+                },
+                {
+                    name: "江真仪",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 46,
+                    vote_3rd:0,vote_1: 4392.3,
+                    vote_2: 9047.0,
+                    vote: 9047.0
+                },
+                {
+                    name: "沈梦瑶",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 45,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 9113.0,
+                    vote: 9113.0
+                },
+                {
+                    name: "於佳怡",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 44,
+                    vote_3rd:0,vote_1: 2930.7,
+                    vote_2: 9459.7,
+                    vote: 9459.7
+                },
+                {
+                    name: "李梓",
+                    team: 6,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 43,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 9609.2,
+                    vote: 9609.2
+                },
+                {
+                    name: "李媛媛",
+                    team: 6,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 42,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 9864.3,
+                    vote: 9864.3
+                },
+                {
+                    name: "陈欣妤",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 41,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 6847.4,
+                    vote: 6847.4
+                },
+                {
+                    name: "徐子轩",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 40,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 10332.7,
+                    vote: 10332.7
+                },
+                {
+                    name: "许杨玉琢",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 39,
+                    vote_3rd:0,vote_1: 2978.5,
+                    vote_2: 10546.4,
+                    vote: 10546.4
+                },
+                {
+                    name: "万丽娜",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 38,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 10681.7,
+                    vote: 10681.7
+                },
+                {
+                    name: "张怡",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 37,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 10826.9,
+                    vote: 10826.9
+                },
+                {
+                    name: "洪珮雲",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 36,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 10966.3,
+                    vote: 10966.3
+                },
+                {
+                    name: "刘炅然",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 35,
+                    vote_3rd:0,vote_1: 3161.5,
+                    vote_2: 11156.5,
+                    vote: 11156.5
+                },
+                {
+                    name: "蒋芸",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 66,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 11350.4,
+                    vote: 11350.4
+                },
+                {
+                    name: "郝婉晴",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 33,
+                    vote_3rd:0,vote_1: 2458.5,
+                    vote_2: 11372.7,
+                    vote: 11372.7
+                },
+                {
+                    name: "郑丹妮",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 32,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 11505.5,
+                    vote: 11505.5
+                },
+                {
+                    name: "王晓佳",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 31,
+                    vote_3rd:0,vote_1: 4421.2,
+                    vote_2: 11581.8,
+                    vote: 11581.8
+                },
+                {
+                    name: "杨惠婷",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 30,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 11638.6,
+                    vote: 11638.6
+                },
+                {
+                    name: "袁航",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 28,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 12048.3,
+                    vote: 12048.3
+                },
+                {
+                    name: "宋昕冉",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 27,
+                    vote_3rd:0,vote_1: 2604.4,
+                    vote_2: 12049.3,
+                    vote: 12049.3
+                },
+                {
+                    name: "易嘉爱",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 26,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 12352.6,
+                    vote: 12352.6
+                },
+                {
+                    name: "姜杉",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 25,
+                    vote_3rd:0,vote_1: 5063.1,
+                    vote_2: 12795.4,
+                    vote: 12795.4
+                },
+                {
+                    name: "刘姝贤",
+                    team: 5,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 24,
+                    vote_3rd:0,vote_1: 4802.2,
+                    vote_2: 12918.4,
+                    vote: 12918.4
+                },
+                {
+                    name: "孙珍妮",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 23,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 13013.9,
+                    vote: 13013.9
+                },
+                {
+                    name: "苏杉杉",
+                    team: 6,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 22,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 13042.4,
+                    vote: 13042.4
+                },
+                {
+                    name: "胡晓慧",
+                    team: 5,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 21,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 13420.8,
+                    vote: 13420.8
+                },
+                {
+                    name: "韩家乐",
+                    team: 11,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 20,
+                    vote_3rd:0,vote_1: 0,
+                    vote_2: 13439.8,
+                    vote: 13439.8
+                },
+                {
+                    name: "段艺璇",
+                    team: 5,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 19,
+                    vote_3rd:0,vote_1: 11135.7,
+                    vote_2: 13891.0,
+                    vote: 13891.0
+                },
+                {
+                    name: "孙芮",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 18,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 14114.0,
+                    vote: 14114.0
+                },
+                {
+                    name: "杨冰怡",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 17,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 14720.5,
+                    vote: 14720.5
+                },
+                {
+                    name: "张雨馨",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 16,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 14925.9,
+                    vote: 14925.9
+                },
+                {
+                    name: "刘力菲",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 15,
+                    vote_3rd: 0,
+                    vote_1: 3444.1,
+                    vote_2: 14973.8,
+                    vote: 14973.8
+                },
+                {
+                    name: "谢蕾蕾",
+                    team: 8,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 14,
+                    vote_3rd: 13550.0,
+                    vote_1: 0,
+                    vote_2: 15040.8,
+                    vote: 15040.8
+                },
+                {
+                    name: "严佼君",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 13,
+                    vote_3rd: 14591.8,
+                    vote_1: 2477.9,
+                    vote_2: 15746.4,
+                    vote: 15746.4
+                },
+                {
+                    name: "吴哲晗",
+                    team: 0,
+                    rank1st: 1,
+                    rank2nd: outRank,
+                    rank3rd: 23,
+                    rank: 12,
+                    vote_3rd: 19588.7,
+                    vote_1: 0,
+                    vote_2: 19701.1,
+                    vote: 19701.1
+                },
+                {
+                    name: "林思意",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 17,
+                    rank3rd: 13,
+                    rank: 11,
+                    vote_3rd: 38786.4,
+                    vote_1: 0,
+                    vote_2: 19948.5,
+                    vote: 49948.5
+                },
+                {
+                    name: "孔肖吟",
+                    team: 0,
+                    rank1st: 15,
+                    rank2nd: 16,
+                    rank3rd: 25,
+                    rank: 10,
+                    vote_3rd: 18989.1,
+                    vote_1: 0,
+                    vote_2: 21956.3,
+                    vote: 21956.3
+                },
+                {
+                    name: "戴萌",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 29,
+                    vote_3rd: 41511.8,
+                    vote_1: 2103.1,
+                    vote_2: 11812.8,
+                    vote: 51812.8
+                },
+                {
+                    name: "许佳琪",
+                    team: 0,
+                    rank1st: 8,
+                    rank2nd: 20,
+                    rank3rd: 11,
+                    rank: 9,
+                    vote_3rd: 41740.5,
+                    vote_1: 0,
+                    vote_2: 23918.5,
+                    vote: 83918.5
+                },
+                {
+                    name: "张语格",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 8,
+                    rank: 57,
+                    vote_3rd: 66867.5,
+                    vote_1: 3542.0,
+                    vote_2: 7858.2,
+                    vote: 77858.2
+                },
+                {
+                    name: "陆婷",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 10,
+                    rank3rd: 7,
+                    rank: 8,
+                    vote_3rd: 71639.6,
+                    vote_1: 0,
+                    vote_2: 30099.8,
+                    vote: 80099.8
+                },
+                {
+                    name: "莫寒",
+                    team: 0,
+                    rank1st: 7,
+                    rank2nd: 13,
+                    rank3rd: 6,
+                    rank: 7,
+                    vote_3rd: 73362.6,
+                    vote_1: 0,
+                    vote_2: 31692.0,
+                    vote: 81692.0
+                },
+                {
+                    name: "曾艳芬",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 9,
+                    rank3rd: 4,
+                    rank: 6,
+                    vote_3rd: 88656.8,
+                    vote_1: 0,
+                    vote_2: 32266.8,
+                    vote: 92266.8
+                },
+                {
+                    name: "赵粤",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 11,
+                    rank3rd: 9,
+                    rank: 5,
+                    vote_3rd: 47563.5,
+                    vote_1: 0,
+                    vote_2: 37160.4,
+                    vote: 87160.4
+                },
+                {
+                    name: "冯薪朵",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 12,
+                    rank3rd: 5,
+                    rank: 4,
+                    vote_3rd: 88598.8,
+                    vote_1: 0,
+                    vote_2: 53300.4,
+                    vote: 153300.4
+                },
+                {
+                    name: "黄婷婷",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 4,
+                    rank3rd: 3,
+                    rank: 3,
+                    vote_3rd: 130258.3,
+                    vote_1: 29027.3,
+                    vote_2: 84353.2,
+                    vote: 184353.2
+                },
+                {
+                    name: "鞠婧祎",
+                    team: 1,
+                    rank1st: 4,
+                    rank2nd: 2,
+                    rank3rd: 1,
+                    rank: 2,
+                    vote_3rd: 230752.7,
+                    vote_1: 15814.8,
+                    vote_2: 100204.9,
+                    vote: 250204.9
+                },
+                {
+                    name: "李艺彤",
+                    team: 1,
+                    rank1st: 6,
+                    rank2nd: 3,
+                    rank3rd: 2,
+                    rank: 1,
+                    vote_3rd: 169971.4,
+                    vote_1: 6087.3,
+                    vote_2: 112004.4,
+                    vote: 212004.4
+                }
+            ];
+            //总票数
+            var sumvote = 0.0;
+            //各队颜色，饼图用
+            var colors = [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color, team[9].color, team[10].color, team[11].color, team[12].color];
+            //各队票数比例
+            var series_all_percenter = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team J', 0], ['Team G', 0], ['Team NIII', 0], ['Team Z', 0], ['Team SIII', 0], ['Team HIII', 0], ];
+            //神7票数
+            var seriesTop7 = [];
+            //圈内人数
+            var series_all_in = [{
+                name: 'Team SII',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team NII',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team HII',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team X',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team XII',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team B',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team E',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team J',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team G',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team NIII',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team Z',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team SIII',
+                data: [0, 0, 0, 0, 0]
+            }, {
+                name: 'Team HIII',
+                data: [0, 0, 0, 0, 0]
+            }];
+            //top16排名变化
+            var series_top16_rank = [];
+            //top16名字
+            var categories_top16 = [];
+            //top16票数增长数据
+            var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
+            var series_top16_increase = [{ name: '第三届票数', data: [] }, { name: '第四届票数增长', data: [] }];
+            //统计计算
+            $(finalData).each(function (i, item) {
+                //总票数相加
+                series_all_percenter[item.team][1] = series_all_percenter[item.team][1] + item.vote;
+                sumvote += item.vote;
+                //神7票数
+                if (this.rank <= 7) {
+                    seriesTop7.push({
+                        rank: this.rank,
+                        name: this.name,
+                        vote: this.vote,
+                        team: this.team,
+                        color: team[this.team].color
+                    });
+                }
+                if (this.rank < 17) {
+                    series_all_in[this.team].data[0] = (series_all_in[this.team].data[0] * 10 + 10) / 10;
+                    //Top16票数增长
+                    series_top16_rank.push({ color: team[this.team].color, name: this.name, data: [this.rank3rd, this.rank] });
+                    categories_top16.push(this.name);
+                    series_top16_123[0].data.push(Math.round(this.vote * 10 - this.vote_2 * 10) / 10);
+                    series_top16_123[1].data.push(Math.round(this.vote_2 * 10 - this.vote_1 * 10) / 10);
+                    series_top16_123[2].data.push(this.vote_1);
+                    series_top16_increase[0].data.push(this.vote_3rd);
+                    series_top16_increase[1].data.push(Math.round(this.vote * 10 - this.vote_3rd * 10) / 10);
+                } else if (this.rank < 33) {
+                    series_all_in[this.team].data[1] = (series_all_in[this.team].data[1] * 10 + 10) / 10;
+                } else if (this.rank < 49) {
+                    series_all_in[this.team].data[2] = (series_all_in[this.team].data[2] * 10 + 10) / 10;
+                } else {
+                    series_all_in[this.team].data[3] = (series_all_in[this.team].data[3] * 10 + 10) / 10;
+                }
+                //圈内总人数
+                series_all_in[this.team].data[4] = (series_all_in[this.team].data[4] * 10 + 10) / 10;
+            });
+
+            function removeEmptyItem(arr) {
+                for (var i = 8; i >= 0; i--) {
+                    if (arr[i][1] === 0) {
+                        arr.splice(i, 1);
+                    }
+                }
+            }
+            $('#chart-all-percenter').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '各队票数总和比例'
+                },
+                colors: colors,
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '总票数占比',
+                        data: series_all_percenter
+                    }
+                ]
+            });
+
+            seriesTop7.reverse();
+            //$(seriesTop7).each(function () {
+            //    $("#statis1").append('<tr><td>' + this.rank + '</td><td>' + this.name + '</td><td>' + this.vote + '</td><td>' + (this.vote * 100 / sumvote).toFixed(3) + '%</td></tr>')
+            //});
+            $('#chart-top7-percenter').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Top7票数比例'
+                },
+                subtitle: {
+                    text: '圈内票数总和：' + sumvote.toFixed(1)
+                },
+                xAxis: {
+                    categories: [seriesTop7[0].name, seriesTop7[1].name, seriesTop7[2].name, seriesTop7[3].name, seriesTop7[4].name, seriesTop7[5].name, seriesTop7[6].name]
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                plotOptions: {
+                    column: {
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                fontWeight: 'bold'
+                            },
+                            formatter: function () {
+                                return (this.y * 100 / sumvote).toFixed(3) + ' %<br/>' + this.y + ' 票';
+                            }
+                        }
+                    }
+                },
+                series:
+                [
+                    {
+                        name: ' ',
+                        data: [{ y: seriesTop7[0].vote, color: seriesTop7[0].color }, { y: seriesTop7[1].vote, color: seriesTop7[1].color }, { y: seriesTop7[2].vote, color: seriesTop7[2].color }, { y: seriesTop7[3].vote, color: seriesTop7[3].color }, { y: seriesTop7[4].vote, color: seriesTop7[4].color }, { y: seriesTop7[5].vote, color: seriesTop7[5].color }, { y: seriesTop7[6].vote, color: seriesTop7[6].color }],
+                        color: "white"
+                    }
+                ]
+            });
+
+            $('#chart-all-in').highcharts({
+                credits: { enabled: false },
+                colors: colors,
+                chart: { type: 'column' },
+                title: { text: '各组人数' },
+                xAxis: {
+                    categories: ['1-16', '17-32', '33-48', '49-66', '圈内']
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                tooltip: {
+                    headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2, borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            color: "#000000",
+                            style: { fontWeight: 'bold' },
+                            formatter: function () { return this.y === 0 ? "" : this.y }
+                        }
+                    }
+                },
+                series: series_all_in
+            });
+
+            series_top16_rank.reverse();
+            series_top16_123[0].data.reverse();
+            series_top16_123[1].data.reverse();
+            series_top16_123[2].data.reverse();
+            $('#chart-top16-rank').highcharts({
+                credits: { enabled: false },
+                chart: { type: 'line' },
+                title: { text: '第四届的Top16成员-名次变化' },
+                xAxis: {
+                    categories: ['第三届', '第四届']
+                },
+                yAxis: { allowDecimals: false, title: { text: '' }, min: 1, max: 26, reversed: true },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
+                    }
+                },
+                legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0 },
+                series: series_top16_rank
+            });
+            $('#chart-top16-123').highcharts({
+                credits: { enabled: false },
+                colors: [team[5].color, team[2].color, team[4].color],
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16速报中报终报票数分布图'
+                },
+                xAxis: {
+                    categories: categories_top16.reverse()
+                },
+                yAxis: {
+                    min: 0,
+                    max: 231000,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF',
+                    reversed: true
+                },
+                tooltip: {
+                    tooltip: {
+                        headerFormat: '<b>{point.key}</b>',
+                        pointFormat: '{series.name}: {point.y}',
+                        valueDecimals: 1
+                    },
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }, dataLabels: {
+                        enabled: true,
+                        format: '{y :.1f}'
+                    }
+                },
+                series: series_top16_123
+            });
+            series_top16_increase[0].data.reverse();
+            series_top16_increase[1].data.reverse();
+            $('#chart-top16-increase').highcharts({
+                credits: { enabled: false },
+                colors: [team[0].color, team[4].color],
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16票数增长量图'
+                },
+                xAxis: {
+                    categories: categories_top16
+                },
+                yAxis: {
+                    min: 0,
+                    max: 231000,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF'
+                },
+                tooltip: {
+                    headerFormat: '<b>{point.key}</b><br/>',
+                    pointFormat: '{series.name}: {point.y:.1f}',
+                    valueDecimals: 1
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{y :.1f}'
+                    }
+                },
+                series: series_top16_increase
+            });
+            $('#chart-history').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: '各届总选总票数'
+                },
+                xAxis: {
+                    categories: ['一选', '二选', '三选', '四选']
+                },
+                yAxis: {
+                    title: {
+                        enabled: false
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true,          // 开启数据标签
+                            format: '{y:.1f}'
+                        },
+                        enableMouseTracking: false // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                    }
+                },
+                legend: { enabled: false },
+                series: [{
+                    data: [134816, 696584.7, 1758676.6, sumvote]
+                }]
+            });
+
+            //$('#chart-table').highcharts({
+            //    data: {
+            //        table: 'datatable'
+            //    },
+            //    chart: {
+            //        type: 'column'
+            //    },
+            //    title: {
+            //        text: '从 HTML 表格中提取数据并生成图表'
+            //    },
+            //    yAxis: {
+            //        allowDecimals: false,
+            //        title: {
+            //            text: '个',
+            //            rotation: 0
+            //        }
+            //    },
+            //    tooltip: {
+            //        formatter: function () {
+            //            return '<b>' + this.series.name + '</b><br/>' +
+            //                this.point.y + ' 个' + this.point.name.toLowerCase();
+            //        }
+            //    }
+            //});
+
+        });
+    </script>
+</body>
+</html>
