@@ -841,28 +841,28 @@
                     vote: 184353.2
                 },
                 {
-                    name: "鞠婧祎",
-                    team: 1,
-                    rank1st: 4,
-                    rank2nd: 2,
-                    rank3rd: 1,
-                    rank: 2,
-                    vote_3rd: 230752.7,
-                    vote_1: 15814.8,
-                    vote_2: 100204.9,
-                    vote: 250204.9
-                },
-                {
                     name: "李艺彤",
                     team: 1,
                     rank1st: 6,
                     rank2nd: 3,
                     rank3rd: 2,
-                    rank: 1,
+                    rank: 2,
                     vote_3rd: 169971.4,
                     vote_1: 6087.3,
                     vote_2: 112004.4,
                     vote: 212004.4
+                },
+                {
+                    name: "鞠婧祎",
+                    team: 1,
+                    rank1st: 4,
+                    rank2nd: 2,
+                    rank3rd: 1,
+                    rank: 1,
+                    vote_3rd: 230752.7,
+                    vote_1: 15814.8,
+                    vote_2: 100204.9,
+                    vote: 250204.9
                 }
             ];
             //总票数
@@ -977,20 +977,21 @@
                 colors: colors,
                 tooltip: {
                     headerFormat: "<b>{point.key}</b><br/>",
-                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />总票数合计：<b>{point.y:.1f}</b>'
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
                 },
                 plotOptions: {
                     pie: {
                         allowPointSelect: true,
                         cursor: 'pointer',
-                        dataLabels: { enabled: true, color: '#000000', connectorColor: '#000000', format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
+                        dataLabels: { enabled: true,inside:true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
+                        showInLegend: true
                     }
                 },
                 series:
                 [
                     {
                         type: 'pie',
-                        name: '总票数占比',
+                        name: '票数占比',
                         data: series_all_percenter
                     }
                 ]
@@ -1091,7 +1092,7 @@
             });
             $('#chart-top16-123').highcharts({
                 credits: { enabled: false },
-                colors: [team[5].color, team[2].color, team[4].color],
+                colors: [team[0].color, team[4].color, team[5].color],
                 chart: {
                     type: 'bar'
                 },
