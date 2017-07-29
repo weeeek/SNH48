@@ -57,6 +57,12 @@
                 <div id="chart-history"></div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                传送门：
+                <a href="https://weeeek.github.io/SNH48/SNH48-3rd.html" target="_blank">SNH48 GROUP 第三届偶像年度人气总决选排名统计</a>
+            </div>
+        </div>
     </div>
     <script type="text/javascript">
 
@@ -114,229 +120,22 @@
             //最上面的各队颜色
             $(team).each(function (index, item) {
                 $("#team-color").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + item.name + '</div>');
-                $("#team-index").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + index + '</div>');
+                //$("#team-index").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + index + '</div>');
             });
-            //数据
+            //总选数据，非Top16的排名数据可能遗漏，因为不在统计范围内
+            //2770146.8
             var finalData = [
-                {
-                    name: "陈楠茜",
-                    team: 9,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 66,
-                    vote_3rd:0,vote_1: 3429.1,
-                    vote_2: 6847.4,
-                    vote: 6847.4
-                },
-                {
-                    name: "王诗蒙",
-                    team: 11,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 65,
-                    vote_3rd:0,vote_1: 3895.2,
-                    vote_2: 7180.3,
-                    vote: 7180.3
-                },
                 {
                     name: "刘倩倩",
                     team: 9,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 64,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 7271.3,
-                    vote: 7271.3
-                },
-                {
-                    name: "张丹三",
-                    team: 3,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: 16,
-                    rank: 63,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 7532.3,
-                    vote: 7532.3
-                },
-                {
-                    name: "刘胜男",
-                    team: 6,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 62,
-                    vote_3rd:0,vote_1: 3308.1,
-                    vote_2: 7585.6,
-                    vote: 7585.6
-                },
-                {
-                    name: "林楠",
-                    team: 2,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 61,
-                    vote_3rd:0,vote_1: 2925.8,
-                    vote_2: 7651.4,
-                    vote: 7651.4
-                },
-                {
-                    name: "刘增艳",
-                    team: 4,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 60,
-                    vote_3rd:0,vote_1: 2052.5,
-                    vote_2: 7686.5,
-                    vote: 7686.5
-                },
-                {
-                    name: "谢妮",
-                    team: 2,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 59,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 7697.3,
-                    vote: 7697.3
-                },
-                {
-                    name: "唐莉佳",
-                    team: 9,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 58,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 7821.3,
-                    vote: 7821.3
-                },
-                {
-                    name: "冯晓菲",
-                    team: 3,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 56,
-                    vote_3rd:0,vote_1: 3925.2,
-                    vote_2: 7999.6,
-                    vote: 7999.6
-                },
-                {
-                    name: "李钊",
-                    team: 3,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 55,
-                    vote_3rd:0,vote_1: 3865.7,
-                    vote_2: 8009.4,
-                    vote: 8009.4
-                },
-                {
-                    name: "卢静",
-                    team: 9,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 54,
-                    vote_3rd:0,vote_1: 2299.7,
-                    vote_2: 8223.9,
-                    vote: 8223.9
-                },
-                {
-                    name: "杨韫玉",
-                    team: 3,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 53,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 8437.7,
-                    vote: 8437.7
-                },
-                {
-                    name: "张盺",
-                    team: 2,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: 8,
-                    rank: 52,
-                    vote_3rd:0,vote_1: 3458.2,
-                    vote_2: 8473.0,
-                    vote: 8473.0
-                },
-                {
-                    name: "钱蓓婷",
-                    team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 51,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 8572.8,
-                    vote: 8572.8
-                },
-                {
-                    name: "何晓玉",
-                    team: 1,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 50,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 8715.9,
-                    vote: 8715.9
-                },
-                {
-                    name: "陈珂",
-                    team: 8,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 49,
-                    vote_3rd:0,vote_1: 3702.7,
-                    vote_2: 8724.2,
-                    vote: 8724.2
-                },
-                {
-                    name: "陈观慧",
-                    team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 48,
-                    vote_3rd:0,vote_1: 2067.2,
-                    vote_2: 8739.5,
-                    vote: 8739.5
-                },
-                {
-                    name: "吕一",
-                    team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 47,
-                    vote_3rd:0,vote_1: 2852.6,
-                    vote_2: 8979.9,
-                    vote: 8979.9
-                },
-                {
-                    name: "江真仪",
-                    team: 1,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 46,
-                    vote_3rd:0,vote_1: 4392.3,
-                    vote_2: 9047.0,
-                    vote: 9047.0
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 66,
+                    vote: 15409.6
                 },
                 {
                     name: "沈梦瑶",
@@ -344,32 +143,95 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 45,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 9113.0,
-                    vote: 9113.0
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 65,
+                    vote: 15503.3
                 },
                 {
-                    name: "於佳怡",
+                    name: "袁雨桢",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 29,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 64,
+                    vote: 15786.2
+                },
+                {
+                    name: "刘增艳",
                     team: 4,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 44,
-                    vote_3rd:0,vote_1: 2930.7,
-                    vote_2: 9459.7,
-                    vote: 9459.7
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 63,
+                    vote: 15879.0
                 },
                 {
-                    name: "李梓",
-                    team: 6,
+                    name: "张琼予",
+                    team: 8,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 43,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 9609.2,
-                    vote: 9609.2
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 62,
+                    vote: 16032.4
+                },
+                {
+                    name: "陈观慧",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 47,
+                    vote_1: 10,
+                    vote_2: 22,
+                    rank: 61,
+                    vote: 16642.0
+                },
+                {
+                    name: "谢妮",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 30,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 60,
+                    vote: 16652.2
+                },
+                {
+                    name: "何晓玉",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 59,
+                    vote: 16945.9
+                },
+                {
+                    name: "陈珂",
+                    team: 8,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 58,
+                    vote: 17068.1
                 },
                 {
                     name: "李媛媛",
@@ -377,98 +239,71 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 42,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 9864.3,
-                    vote: 9864.3
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 57,
+                    vote: 17210.7
                 },
                 {
-                    name: "陈欣妤",
-                    team: 9,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 41,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 6847.4,
-                    vote: 6847.4
-                },
-                {
-                    name: "徐子轩",
-                    team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 40,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 10332.7,
-                    vote: 10332.7
-                },
-                {
-                    name: "许杨玉琢",
+                    name: "袁一琦",
                     team: 2,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 39,
-                    vote_3rd:0,vote_1: 2978.5,
-                    vote_2: 10546.4,
-                    vote: 10546.4
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 56,
+                    vote: 17418.0
                 },
                 {
-                    name: "万丽娜",
+                    name: "江真仪",
                     team: 1,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 38,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 10681.7,
-                    vote: 10681.7
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 55,
+                    vote: 17644.3
                 },
                 {
-                    name: "张怡",
-                    team: 4,
+                    name: "陈琳",
+                    team: 3,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 37,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 10826.9,
-                    vote: 10826.9
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 54,
+                    vote: 17759.8
                 },
                 {
-                    name: "洪珮雲",
-                    team: 4,
+                    name: "张丹三",
+                    team: 3,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 36,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 10966.3,
-                    vote: 10966.3
+                    vote_3rd: 16,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 53,
+                    vote: 17931.6
                 },
                 {
-                    name: "刘炅然",
-                    team: 2,
+                    name: "杨韫玉",
+                    team: 3,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 35,
-                    vote_3rd:0,vote_1: 3161.5,
-                    vote_2: 11156.5,
-                    vote: 11156.5
-                },
-                {
-                    name: "蒋芸",
-                    team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 66,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 11350.4,
-                    vote: 11350.4
+                    vote_3rd: 24,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 52,
+                    vote: 18086.1
                 },
                 {
                     name: "郝婉晴",
@@ -476,32 +311,35 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 33,
-                    vote_3rd:0,vote_1: 2458.5,
-                    vote_2: 11372.7,
-                    vote: 11372.7
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 30,
+                    rank: 51,
+                    vote: 18329.7
                 },
                 {
-                    name: "郑丹妮",
+                    name: "唐莉佳",
                     team: 9,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 32,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 11505.5,
-                    vote: 11505.5
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 50,
+                    vote: 18351.3
                 },
                 {
-                    name: "王晓佳",
-                    team: 3,
+                    name: "洪珮雲",
+                    team: 4,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 31,
-                    vote_3rd:0,vote_1: 4421.2,
-                    vote_2: 11581.8,
-                    vote: 11581.8
+                    vote_3rd: 31,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 49,
+                    vote: 18878.7
                 },
                 {
                     name: "杨惠婷",
@@ -509,32 +347,107 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 30,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 11638.6,
-                    vote: 11638.6
+                    vote_3rd: 34,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 48,
+                    vote: 18988.2
                 },
                 {
-                    name: "袁航",
-                    team: 2,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 28,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 12048.3,
-                    vote: 12048.3
-                },
-                {
-                    name: "宋昕冉",
+                    name: "冯晓菲",
                     team: 3,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 27,
-                    vote_3rd:0,vote_1: 2604.4,
-                    vote_2: 12049.3,
-                    vote: 12049.3
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 47,
+                    vote: 19274.9
+                },
+                {
+                    name: "李梓",
+                    team: 6,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 27,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 46,
+                    vote: 19382.1
+                },
+                {
+                    name: "郑丹妮",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 45,
+                    vote: 19770.7
+                },
+                {
+                    name: "蒋芸",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 21,
+                    rank: 44,
+                    vote: 19942.4
+                },
+                {
+                    name: "王晓佳",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 43,
+                    vote: 20066.1
+                },
+                {
+                    name: "徐子轩",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 35,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 42,
+                    vote: 20222.4
+                },
+                {
+                    name: "汪束",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 41,
+                    vote: 20487.7
+                },
+                {
+                    name: "费沁源",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 22,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 40,
+                    vote: 20614.0
                 },
                 {
                     name: "易嘉爱",
@@ -542,65 +455,23 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 26,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 12352.6,
-                    vote: 12352.6
+                    vote_3rd: 26,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 39,
+                    vote: 21002.6
                 },
                 {
-                    name: "姜杉",
-                    team: 4,
+                    name: "李钊",
+                    team: 3,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 25,
-                    vote_3rd:0,vote_1: 5063.1,
-                    vote_2: 12795.4,
-                    vote: 12795.4
-                },
-                {
-                    name: "刘姝贤",
-                    team: 5,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 24,
-                    vote_3rd:0,vote_1: 4802.2,
-                    vote_2: 12918.4,
-                    vote: 12918.4
-                },
-                {
-                    name: "孙珍妮",
-                    team: 2,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 23,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 13013.9,
-                    vote: 13013.9
-                },
-                {
-                    name: "苏杉杉",
-                    team: 6,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 22,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 13042.4,
-                    vote: 13042.4
-                },
-                {
-                    name: "胡晓慧",
-                    team: 5,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 21,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 13420.8,
-                    vote: 13420.8
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 38,
+                    vote: 21283.0
                 },
                 {
                     name: "韩家乐",
@@ -608,69 +479,59 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 20,
-                    vote_3rd:0,vote_1: 0,
-                    vote_2: 13439.8,
-                    vote: 13439.8
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 37,
+                    vote: 21602.8
                 },
                 {
-                    name: "段艺璇",
-                    team: 5,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 19,
-                    vote_3rd:0,vote_1: 11135.7,
-                    vote_2: 13891.0,
-                    vote: 13891.0
-                },
-                {
-                    name: "孙芮",
+                    name: "吕一",
                     team: 0,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 18,
                     vote_3rd: 0,
                     vote_1: 0,
-                    vote_2: 14114.0,
-                    vote: 14114.0
+                    vote_2: 0,
+                    rank: 36,
+                    vote: 22058.5
                 },
                 {
-                    name: "杨冰怡",
-                    team: 3,
+                    name: "刘姝贤",
+                    team: 5,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 17,
                     vote_3rd: 0,
                     vote_1: 0,
-                    vote_2: 14720.5,
-                    vote: 14720.5
+                    vote_2: 0,
+                    rank: 35,
+                    vote: 22204.6
                 },
                 {
-                    name: "张雨馨",
-                    team: 1,
+                    name: "胡晓慧",
+                    team: 5,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 16,
                     vote_3rd: 0,
                     vote_1: 0,
-                    vote_2: 14925.9,
-                    vote: 14925.9
+                    vote_2: 0,
+                    rank: 34,
+                    vote: 23292.7
                 },
                 {
-                    name: "刘力菲",
-                    team: 9,
+                    name: "袁航",
+                    team: 2,
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 15,
                     vote_3rd: 0,
-                    vote_1: 3444.1,
-                    vote_2: 14973.8,
-                    vote: 14973.8
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 33,
+                    vote: 23564.4
                 },
                 {
                     name: "谢蕾蕾",
@@ -678,11 +539,23 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 14,
-                    vote_3rd: 13550.0,
+                    vote_3rd: 40,
                     vote_1: 0,
-                    vote_2: 15040.8,
-                    vote: 15040.8
+                    vote_2: 0,
+                    rank: 32,
+                    vote: 23927.8
+                },
+                {
+                    name: "张怡",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 33,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 31,
+                    vote: 24303.8
                 },
                 {
                     name: "严佼君",
@@ -690,11 +563,179 @@
                     rank1st: outRank,
                     rank2nd: outRank,
                     rank3rd: outRank,
-                    rank: 13,
-                    vote_3rd: 14591.8,
-                    vote_1: 2477.9,
-                    vote_2: 15746.4,
-                    vote: 15746.4
+                    vote_3rd: 36,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 30,
+                    vote: 25362.8
+                },
+                {
+                    name: "宋昕冉",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 18,
+                    vote_1: 0,
+                    vote_2: 23,
+                    rank: 29,
+                    vote: 25366.6
+                },
+                {
+                    name: "於佳怡",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 46,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 28,
+                    vote: 25928.9
+                },
+                {
+                    name: "许杨玉琢",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 19,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 27,
+                    vote: 27195.0
+                },
+                {
+                    name: "钱蓓婷",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 28,
+                    vote_1: 0,
+                    vote_2: 26,
+                    rank: 26,
+                    vote: 27301.4
+                },
+                {
+                    name: "杨冰怡",
+                    team: 3,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 39,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 25,
+                    vote: 27534.7
+                },
+                {
+                    name: "刘炅然",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: 25,
+                    rank3rd: 15,
+                    vote_3rd: 15,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 24,
+                    vote: 27931.0
+                },
+                {
+                    name: "刘力菲",
+                    team: 9,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 23,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    vote: 28168.8
+                },
+                {
+                    name: "孙珍妮",
+                    team: 2,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 21,
+                    rank: 22,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    vote: 28614.6
+                },
+                {
+                    name: "苏杉杉",
+                    team: 6,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 21,
+                    vote: 32151.0
+                },
+                {
+                    name: "张雨馨",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: outRank,
+                    rank: 20,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 14925.9,
+                    vote: 32986.2
+                },
+                {
+                    name: "姜杉",
+                    team: 4,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 32,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 0,
+                    rank: 19,
+                    vote: 33332.2
+                },
+                {
+                    name: "孙芮",
+                    team: 0,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 18,
+                    vote_3rd: 0,
+                    vote_1: 0,
+                    vote_2: 14114.0,
+                    rank: 18,
+                    vote: 35458.6
+                },
+                {
+                    name: "万丽娜",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 6,
+                    rank3rd: 14,
+                    vote_3rd: 35281.4,
+                    vote_1: 0,
+                    vote_2: 10681.7,
+                    rank: 17,
+                    vote: 39758.9
+                },
+                {
+                    name: "李宇琪",
+                    team: 0,
+                    rank1st: 11,
+                    rank2nd: 7,
+                    rank3rd: 20,
+                    rank: 16,
+                    vote_3rd: 21894.8,
+                    vote_1: 0,
+                    vote_2: 0,
+                    vote: 40469.5
                 },
                 {
                     name: "吴哲晗",
@@ -702,11 +743,11 @@
                     rank1st: 1,
                     rank2nd: outRank,
                     rank3rd: 23,
-                    rank: 12,
+                    rank: 15,
                     vote_3rd: 19588.7,
                     vote_1: 0,
                     vote_2: 19701.1,
-                    vote: 19701.1
+                    vote: 41674.9
                 },
                 {
                     name: "林思意",
@@ -714,11 +755,23 @@
                     rank1st: outRank,
                     rank2nd: 17,
                     rank3rd: 13,
-                    rank: 11,
+                    rank: 14,
                     vote_3rd: 38786.4,
                     vote_1: 0,
                     vote_2: 19948.5,
-                    vote: 49948.5
+                    vote: 45981.6
+                },
+                {
+                    name: "段艺璇",
+                    team: 5,
+                    rank1st: outRank,
+                    rank2nd: outRank,
+                    rank3rd: 43,
+                    vote_3rd: 12477.2,
+                    vote_1: 11135.7,
+                    vote_2: 13891.0,
+                    rank: 13,
+                    vote: 46825.4
                 },
                 {
                     name: "孔肖吟",
@@ -726,23 +779,23 @@
                     rank1st: 15,
                     rank2nd: 16,
                     rank3rd: 25,
-                    rank: 10,
+                    rank: 12,
                     vote_3rd: 18989.1,
                     vote_1: 0,
                     vote_2: 21956.3,
-                    vote: 21956.3
+                    vote: 49093.8
                 },
                 {
                     name: "戴萌",
                     team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
-                    rank3rd: outRank,
-                    rank: 29,
+                    rank1st: 13,
+                    rank2nd: 15,
+                    rank3rd: 12,
+                    rank: 11,
                     vote_3rd: 41511.8,
                     vote_1: 2103.1,
                     vote_2: 11812.8,
-                    vote: 51812.8
+                    vote: 53569.1
                 },
                 {
                     name: "许佳琪",
@@ -750,35 +803,23 @@
                     rank1st: 8,
                     rank2nd: 20,
                     rank3rd: 11,
-                    rank: 9,
+                    rank: 10,
                     vote_3rd: 41740.5,
                     vote_1: 0,
                     vote_2: 23918.5,
-                    vote: 83918.5
+                    vote: 54768.8
                 },
                 {
                     name: "张语格",
                     team: 0,
-                    rank1st: outRank,
-                    rank2nd: outRank,
+                    rank1st: 5,
+                    rank2nd: 5,
                     rank3rd: 8,
-                    rank: 57,
+                    rank: 9,
                     vote_3rd: 66867.5,
                     vote_1: 3542.0,
                     vote_2: 7858.2,
-                    vote: 77858.2
-                },
-                {
-                    name: "陆婷",
-                    team: 1,
-                    rank1st: outRank,
-                    rank2nd: 10,
-                    rank3rd: 7,
-                    rank: 8,
-                    vote_3rd: 71639.6,
-                    vote_1: 0,
-                    vote_2: 30099.8,
-                    vote: 80099.8
+                    vote: 78345.6
                 },
                 {
                     name: "莫寒",
@@ -786,11 +827,23 @@
                     rank1st: 7,
                     rank2nd: 13,
                     rank3rd: 6,
-                    rank: 7,
+                    rank: 8,
                     vote_3rd: 73362.6,
                     vote_1: 0,
                     vote_2: 31692.0,
-                    vote: 81692.0
+                    vote: 88034.2
+                },
+                {
+                    name: "赵粤",
+                    team: 1,
+                    rank1st: outRank,
+                    rank2nd: 11,
+                    rank3rd: 9,
+                    rank: 7,
+                    vote_3rd: 47563.5,
+                    vote_1: 0,
+                    vote_2: 37160.4,
+                    vote: 90929.7
                 },
                 {
                     name: "曾艳芬",
@@ -802,19 +855,19 @@
                     vote_3rd: 88656.8,
                     vote_1: 0,
                     vote_2: 32266.8,
-                    vote: 92266.8
+                    vote: 111145.9
                 },
                 {
-                    name: "赵粤",
+                    name: "陆婷",
                     team: 1,
                     rank1st: outRank,
-                    rank2nd: 11,
-                    rank3rd: 9,
+                    rank2nd: 10,
+                    rank3rd: 7,
                     rank: 5,
-                    vote_3rd: 47563.5,
+                    vote_3rd: 71639.6,
                     vote_1: 0,
-                    vote_2: 37160.4,
-                    vote: 87160.4
+                    vote_2: 30099.8,
+                    vote: 126639.2
                 },
                 {
                     name: "冯薪朵",
@@ -826,7 +879,7 @@
                     vote_3rd: 88598.8,
                     vote_1: 0,
                     vote_2: 53300.4,
-                    vote: 153300.4
+                    vote: 133607.1
                 },
                 {
                     name: "黄婷婷",
@@ -838,7 +891,7 @@
                     vote_3rd: 130258.3,
                     vote_1: 29027.3,
                     vote_2: 84353.2,
-                    vote: 184353.2
+                    vote: 165193.8
                 },
                 {
                     name: "李艺彤",
@@ -850,7 +903,7 @@
                     vote_3rd: 169971.4,
                     vote_1: 6087.3,
                     vote_2: 112004.4,
-                    vote: 212004.4
+                    vote: 259478.6
                 },
                 {
                     name: "鞠婧祎",
@@ -862,7 +915,7 @@
                     vote_3rd: 230752.7,
                     vote_1: 15814.8,
                     vote_2: 100204.9,
-                    vote: 250204.9
+                    vote: 277781.3
                 }
             ];
             //总票数
@@ -983,7 +1036,7 @@
                     pie: {
                         allowPointSelect: true,
                         cursor: 'pointer',
-                        dataLabels: { enabled: true,inside:true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
+                        dataLabels: { enabled: true, inside: true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
                         showInLegend: true
                     }
                 },
