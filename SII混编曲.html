@@ -106,7 +106,7 @@
                 { show: true, name: "给你", form: "易嘉爱《给你》", bmp: 72, tone: "Eb", beat: "4/4", url: "" },
                 { show: true, name: "夜蝶", form: "公演《最后的钟声响起》", bmp: 125, tone: "B", beat: "4/4", url: "" }
             ];
-            staves.sort(by("bmp"));
+            staves.sort(by("tone"));
             $(staves).each(function (index, s) {
                 $("#table-stave").append('<tr><td>' + (index + 1) + '</td><td><a href="' + s.url + '" target="_blank">' + s.name + '</a></td><td>' + s.form + '</td><td>' + s.bmp + '</td><td>' + s.tone + '</td><td>' + s.beat + '</td></tr>');
             })
