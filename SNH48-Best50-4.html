@@ -148,7 +148,7 @@
                 <h4>SNH48 大重组之后各队名单</h4>
                 <table id="table-snh48" class="table table-bordered">
                     <tr>
-                        <th>番号</th>
+                        <th>队伍</th>
                         <th>成员</th>
                     </tr>
                 </table>
@@ -355,13 +355,15 @@
                         { name: "SAY NO", y: 0, new: true },
                         { name: "百变惊叹号", y: 0, new: true },
                         { name: "前行的力量", y: 0, new: true },
-                        { name: "那不勒斯的黎明", y: 0, new: true }]
+                        { name: "那不勒斯的黎明", y: 0, new: true },
+                        { name: "甜蜜盛典", y: 0, new: true }]
                 },
                 { name: "组合", color: "#DDD", index: 777, enabled: false, y: 0, performance: [{ name: "7SENSES", y: 0, new: true }, { name: "Color Girls", y: 0, new: true }] },
                 { name: "其它", color: "#AAA", index: 999, enabled: false, y: 0, performance: [{ name: "红白歌战", y: 0, new: false }, { name: "1STB30（131）演唱会", y: 0, new: false }, { name: "2ND（725）总选演唱会", y: 0, new: false }] },
                 { name: "混合", color: "#AAA", index: 1000, enabled: false, y: 0 }
             ];
-
+            
+            var alternates = [{ name: "孙亚萍", initialTeam: 2, batch: 8 }];
 
             var blueV = [
                 [{
@@ -1417,6 +1419,14 @@
                     });
                     if (t.members && t.members.length > 0) {
                         $("#table-snh48").append('<tr><td>' + t.name + '</td><td>' + memberlisthtml + '</td></tr>')
+                    }
+                    
+                    if(alternates.length>0){
+                        var alternatelists='';
+                        $(alternates).each(function(i,m){
+                            alternatelists += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
+                        })  
+                        $("#table-snh48").append('<tr><td>Ft</td><td>' + alternatelists + '</td></tr>')
                     }
                 });
 
