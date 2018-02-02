@@ -1420,16 +1420,15 @@
                     if (t.members && t.members.length > 0) {
                         $("#table-snh48").append('<tr><td>' + t.name + '</td><td>' + memberlisthtml + '</td></tr>')
                     }
-                    
-                    if(alternates.length>0){
-                        var alternatelists='';
-                        $(alternates).each(function(i,m){
-                            alternatelists += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
-                        })  
-                        $("#table-snh48").append('<tr><td>Ft</td><td>' + alternatelists + '</td></tr>')
-                    }
                 });
-
+                if(alternates.length>0){
+                    var alternatelists='';
+                    $(alternates).each(function(i,m){
+                        alternatelists += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
+                    });
+                    $("#table-snh48").append('<tr><td>Ft</td><td>' + alternatelists + '</td></tr>');
+                }
+                
                 pieTeam = $.grep(pieTeam, function (item) {
                     return item.y > 0;
                 });
