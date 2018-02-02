@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNH48 GROUP 第四届年度金曲大赏歌曲总决选</title>
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <script src="//cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
-    <script src="//cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <style type="text/css">
         * {
             margin: 0;
@@ -46,6 +46,18 @@
             #team-color div {
                 flex-basis: 1;
                 width: 100%;
+            }
+
+        #table-snh48 button {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+            #table-snh48 button span.badge {
+                margin: 0 0 0 1px;
+                background: transparent;
+                padding: 3px 0 3px 7px;
+                top: -2px;
             }
     </style>
 </head>
@@ -130,11 +142,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6">
-                <div id="chart10"></div>
-            </div>
-            <div class="col-xs-6">
-                <div id="chart11"></div>
+            <div class="col-xs-12">
+                <h4>SNH48 大重组之后各队名单</h4>
+                <table id="table-snh48" class="table table-bordered">
+                    <tr>
+                        <th>番号</th>
+                        <th>成员</th>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -142,13 +157,158 @@
         $(document).ready(function () {
             //enabled控制顶部队伍显示，y=>纯此组合的数量
             var team = [
-                { name: "SII", color: "#91CCEA", index: 0, enabled: true, y: 0, performance: [{ name: "最后的钟声响起", y: 0, new: false }, { name: "永恒之光", y: 0, new: false }, { name: "不眠之夜", y: 0, new: false }, { name: "勇气重生", y: 0, new: false }, { name: "让梦想闪耀", y: 0, new: false }, { name: "心的旅程", y: 0, new: true }, { name: "第48区", y: 0, new: true }] },
-                { name: "NII", color: "#AE86BA", index: 1, enabled: true, y: 0, performance: [{ name: "剧场女神", y: 0, new: false }, { name: "逆流而上", y: 0, new: false }, { name: "前所未有", y: 0, new: false }, { name: "我的太阳", y: 0, new: false }, { name: "专属派对", y: 0, new: true }, { name: "以爱之名", y: 0, new: true }] },
-                { name: "HII", color: "#F49600", index: 2, enabled: true, y: 0, performance: [{ name: "青春派对", y: 0, new: false }, { name: "手牵手", y: 0, new: false }, { name: "偶像的黎明", y: 0, new: false }, { name: "美丽世界", y: 0, new: true }] },
-                { name: "X", color: "#94D401", index: 3, enabled: true, y: 0, performance: [{ name: "梦想的旗帜", y: 0, new: true }] },
-                { name: "XII", color: "#03C070", index: 4, enabled: true, y: 0, performance: [{ name: "代号XII", y: 0, new: true }] },
+                {
+                    name: "SII", color: "#91CCEA", index: 0, enabled: true, y: 0,
+                    performance: [
+                        { name: "最后的钟声响起", y: 0, new: false },
+                        { name: "永恒之光", y: 0, new: false },
+                        { name: "不眠之夜", y: 0, new: false },
+                        { name: "勇气重生", y: 0, new: false },
+                        { name: "让梦想闪耀", y: 0, new: false },
+                        { name: "心的旅程", y: 0, new: true },
+                        { name: "第48区", y: 0, new: true }
+                    ],
+                    members: [
+                        { name: "陈思", initialTeam: 0, batch: 1 },
+                        { name: "成珏", initialTeam: 0, batch: 6 },
+                        { name: "陈观慧", initialTeam: 0, batch: 1 },
+                        { name: "戴萌", initialTeam: 0, batch: 1 },
+                        { name: "蒋芸", initialTeam: 0, batch: 2 },
+                        { name: "孔肖吟", initialTeam: 0, batch: 1 },
+                        { name: "吕一", initialTeam: 0, batch: 7 },
+                        { name: "李宇琪", initialTeam: 0, batch: 1 },
+                        { name: "莫寒", initialTeam: 0, batch: 1 },
+                        { name: "潘燕琦", initialTeam: 0, batch: 7 },
+                        { name: "钱蓓婷", initialTeam: 0, batch: 1 },
+                        { name: "邱欣怡", initialTeam: 0, batch: 1 },
+                        { name: "孙芮", initialTeam: 0, batch: 2 },
+                        { name: "温晶婕", initialTeam: 0, batch: 2 },
+                        { name: "吴哲晗", initialTeam: 0, batch: 1 },
+                        { name: "徐晨辰", initialTeam: 0, batch: 1 },
+                        { name: "许佳琪", initialTeam: 0, batch: 1 },
+                        { name: "徐子轩", initialTeam: 0, batch: 2 },
+                        { name: "袁丹妮", initialTeam: 0, batch: 3 },
+                        { name: "袁雨桢", initialTeam: 0, batch: 2 },
+                        { name: "赵晔", initialTeam: 0, batch: 1 },
+                        { name: "张语格", initialTeam: 0, batch: 1 }
+                    ]
+                },
+                {
+                    name: "NII", color: "#AE86BA", index: 1, enabled: true, y: 0,
+                    performance: [
+                        { name: "剧场女神", y: 0, new: false },
+                        { name: "逆流而上", y: 0, new: false },
+                        { name: "前所未有", y: 0, new: false },
+                        { name: "我的太阳", y: 0, new: false },
+                        { name: "专属派对", y: 0, new: true },
+                        { name: "以爱之名", y: 0, new: true }
+                    ],
+                    members: [
+                        { name: "陈佳莹", initialTeam: 1, batch: 2 },
+                        { name: "陈问言", initialTeam: 1, batch: 2 },
+                        { name: "冯薪朵", initialTeam: 1, batch: 2 },
+                        { name: "黄婷婷", initialTeam: 1, batch: 2 },
+                        { name: "黄彤扬", initialTeam: 1, batch: 6 },
+                        { name: "何晓玉", initialTeam: 1, batch: 2 },
+                        { name: "江真仪", initialTeam: 1, batch: 7 },
+                        { name: "刘菊子", initialTeam: 1, batch: 7 },
+                        { name: "林思意", initialTeam: 1, batch: 2 },
+                        { name: "陆婷", initialTeam: 1, batch: 2 },
+                        { name: "刘瀛", initialTeam: 1, batch: 7 },
+                        { name: "李艺彤", initialTeam: 1, batch: 2 },
+                        { name: "马凡", initialTeam: 1, batch: 8 },
+                        { name: "万丽娜", initialTeam: 1, batch: 2 },
+                        { name: "许逸", initialTeam: 1, batch: 7 },
+                        { name: "易嘉爱", initialTeam: 1, batch: 2 },
+                        { name: "赵粤", initialTeam: 1, batch: 2 },
+                        { name: "张雨鑫", initialTeam: 1, batch: 3 }
+                    ]
+                },
+                {
+                    name: "HII", color: "#F49600", index: 2, enabled: true, y: 0,
+                    performance: [
+                        { name: "青春派对", y: 0, new: false },
+                        { name: "手牵手", y: 0, new: false },
+                        { name: "偶像的黎明", y: 0, new: false },
+                        { name: "美丽世界", y: 0, new: true }
+                    ],
+                    members: [
+                        { name: "郭倩云", initialTeam: 2, batch: 8 },
+                        { name: "郝婉晴", initialTeam: 2, batch: 3 },
+                        { name: "姜涵", initialTeam: 2, batch: 8 },
+                        { name: "刘炅然", initialTeam: 2, batch: 3 },
+                        { name: "林楠", initialTeam: 2, batch: 3 },
+                        { name: "刘佩鑫", initialTeam: 2, batch: 3 },
+                        { name: "李清扬", initialTeam: 2, batch: 3 },
+                        { name: "沈梦瑶", initialTeam: 2, batch: 5 },
+                        { name: "孙珍妮", initialTeam: 2, batch: 6 },
+                        { name: "王柏硕", initialTeam: 2, batch: 3 },
+                        { name: "王奕", initialTeam: 2, batch: 8 },
+                        { name: "徐晗", initialTeam: 2, batch: 3 },
+                        { name: "谢妮", initialTeam: 2, batch: 3 },
+                        { name: "熊沁娴", initialTeam: 2, batch: 8 },
+                        { name: "徐伊人", initialTeam: 2, batch: 3 },
+                        { name: "许杨玉琢", initialTeam: 2, batch: 3 },
+                        { name: "袁航", initialTeam: 2, batch: 5 },
+                        { name: "杨慧婷", initialTeam: 2, batch: 3 },
+                        { name: "袁一琦", initialTeam: 2, batch: 7 },
+                        { name: "张昕", initialTeam: 2, batch: 3 }
+                    ]
+                },
+                {
+                    name: "X", color: "#94D401", index: 3, enabled: true, y: 0,
+                    performance: [
+                        { name: "梦想的旗帜", y: 0, new: true },
+                        { name: "命运的X号", y: 0, new: true }
+                    ],
+                    members: [
+                        { name: "陈琳", initialTeam: 3, batch: 4 },
+                        { name: "冯晓菲", initialTeam: 3, batch: 4 },
+                        { name: "李晶", initialTeam: 3, batch: 4 },
+                        { name: "林忆宁", initialTeam: 3, batch: 6 },
+                        { name: "李钊", initialTeam: 3, batch: 4 },
+                        { name: "祁静", initialTeam: 3, batch: 7 },
+                        { name: "邵雪聪", initialTeam: 3, batch: 4 },
+                        { name: "宋昕冉", initialTeam: 3, batch: 4 },
+                        { name: "孙歆文", initialTeam: 3, batch: 4 },
+                        { name: "孙亚萍", initialTeam: 3, batch: 8 },
+                        { name: "汪佳翎", initialTeam: 3, batch: 4 },
+                        { name: "汪束", initialTeam: 3, batch: 4 },
+                        { name: "王晓佳", initialTeam: 3, batch: 4 },
+                        { name: "谢天依", initialTeam: 3, batch: 4 },
+                        { name: "杨冰怡", initialTeam: 3, batch: 4 },
+                        { name: "姚祎纯", initialTeam: 3, batch: 7 },
+                        { name: "杨韫玉", initialTeam: 3, batch: 4 },
+                        { name: "张丹三", initialTeam: 3, batch: 4 },
+                        { name: "张嘉予", initialTeam: 3, batch: 6 }
+                    ]
+                },
+                {
+                    name: "XII", color: "#03C070", index: 4, enabled: true, y: 0,
+                    performance: [{ name: "代号XII", y: 0, new: true }],
+                    members: [
+                        { name: "陈韫凌", initialTeam: 4, batch: 5 },
+                        { name: "费沁源", initialTeam: 4, batch: 5 },
+                        { name: "洪珮雲", initialTeam: 4, batch: 5 },
+                        { name: "姜杉", initialTeam: 4, batch: 5 },
+                        { name: "蒋舒婷", initialTeam: 4, batch: 5 },
+                        { name: "李佳恩", initialTeam: 4, batch: 6 },
+                        { name: "吕梦莹", initialTeam: 4, batch: 6 },
+                        { name: "林歆源", initialTeam: 4, batch: 8 },
+                        { name: "刘增艳", initialTeam: 4, batch: 5 },
+                        { name: "潘瑛琪", initialTeam: 4, batch: 5 },
+                        { name: "宋雨珊", initialTeam: 4, batch: 5 },
+                        { name: "陶波尔", initialTeam: 4, batch: 8 },
+                        { name: "徐诗琪", initialTeam: 4, batch: 7 },
+                        { name: "严佼君", initialTeam: 4, batch: 5 },
+                        { name: "於佳怡", initialTeam: 4, batch: 5 },
+                        { name: "张文静", initialTeam: 4, batch: 5 },
+                        { name: "曾晓雯", initialTeam: 4, batch: 7 },
+                        { name: "张怡", initialTeam: 4, batch: 5 }
+                    ]
+                },
 
-                { name: "B", color: "#EF1B52", index: 5, enabled: true, y: 0, performance: [{ name: "Be A Fighter", y:0, new: true }] },
+                { name: "B", color: "#EF1B52", index: 5, enabled: true, y: 0, performance: [{ name: "Be A Fighter", y: 0, new: true }] },
                 { name: "E", color: "#00C8C3", index: 6, enabled: true, y: 0, performance: [{ name: "奇幻加冕礼", y: 0, new: true }] },
                 { name: "J", color: "#006AB6", index: 7, enabled: true, y: 0, performance: [] },
 
@@ -257,7 +417,7 @@
                     name: "陆婷",
                     team: 1
                 }
-            ],[
+            ], [
                 {
                     name: "吴哲晗",
                     team: 0
@@ -1221,6 +1381,7 @@
                 });
                 return result;
             }
+
             //初始化
             function initChartData() {
                 $(team).each(function (i, t) {
@@ -1247,6 +1408,14 @@
                     $(t.performance).each(function (index, p) {
                         colPerformance.push({ name: p.name, y: p.y, color: t.color });
                     });
+
+                    var memberlisthtml = "";
+                    $(t.members).each(function (index, m) {
+                        memberlisthtml += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
+                    });
+                    if (t.members && t.members.length > 0) {
+                        $("#table-snh48").append('<tr><td>' + t.name + '</td><td>' + memberlisthtml + '</td></tr>')
+                    }
                 });
 
                 pieTeam = $.grep(pieTeam, function (item) {
@@ -1332,6 +1501,7 @@
             $(finalData).each(function (index, item) {
                 initTable(item);
                 calculateFrom(item);
+
             });
             initChartData();
 
