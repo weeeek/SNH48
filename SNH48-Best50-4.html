@@ -28,7 +28,7 @@
         .table tr td:nth-child(1), .table tr td:nth-child(4) {
             text-align: center;
             width: 45px;
-            vertical-align:middle;
+            vertical-align: middle;
         }
 
         .table tr td, .table tr th {
@@ -52,7 +52,7 @@
         #table-snh48 button {
             margin-right: 5px;
             margin-bottom: 5px;
-            text-weight:bolder;
+            font-weight: bolder;
         }
 
             #table-snh48 button span.badge {
@@ -108,6 +108,7 @@
                 <table id="table-BlueV" class="table table-bordered">
                     <tr>
                         <th>序号</th>
+                        <th>演唱歌曲（不计入统计）</th>
                         <th>组合</th>
                     </tr>
                 </table>
@@ -117,6 +118,7 @@
                 <table id="table-HO2" class="table table-bordered">
                     <tr>
                         <th>序号</th>
+                        <th>演唱歌曲（不计入统计）</th>
                         <th>组合</th>
                     </tr>
                 </table>
@@ -362,11 +364,11 @@
                 { name: "其它", color: "#AAA", index: 999, enabled: false, y: 0, performance: [{ name: "红白歌战", y: 0, new: false }, { name: "1STB30（131）演唱会", y: 0, new: false }, { name: "2ND（725）总选演唱会", y: 0, new: false }] },
                 { name: "混合", color: "#AAA", index: 1000, enabled: false, y: 0 }
             ];
-            
+
             var alternates = [{ name: "孙亚萍", initialTeam: 2, batch: 8 }];
 
-            var blueV = [
-                [{
+            var blueV = [{
+                members: [{
                     name: "李宇琪",
                     team: 0
                 }, {
@@ -381,7 +383,12 @@
                 }, {
                     name: "孙芮",
                     team: 0
-                }], [{
+                }], performance: {
+                    Title: "",
+                    From: [0, 0]
+                }
+            }, {
+                members: [{
                     name: "易嘉爱",
                     team: 1
                 }, {
@@ -396,7 +403,12 @@
                 }, {
                     name: "沈梦瑶",
                     team: 2
-                }], [{
+                }], performance: {
+                    Title: "",
+                    From: [0, 0]
+                }
+            }, {
+                members: [{
                     name: "宋昕冉",
                     team: 3
                 }, {
@@ -411,64 +423,93 @@
                 }, {
                     name: "张丹三",
                     team: 3
-                }]];
+                }], performance: {
+                    Title: "",
+                    From: [0, 0]
+                }
+            }];
 
-            var ho2 = [[
-                {
-                    name: "冯薪朵",
-                    team: 1
-                }, {
-                    name: "陆婷",
-                    team: 1
+            var ho2 = [{
+                members: [
+                    {
+                        name: "冯薪朵",
+                        team: 1
+                    }, {
+                        name: "陆婷",
+                        team: 1
+                    }
+                ], performance: {
+                    Title: "月光下",
+                    From: [0, 6]
                 }
-            ], [
-                {
-                    name: "吴哲晗",
-                    team: 0
-                }, {
-                    name: "蒋芸",
-                    team: 0
+            }, {
+                members: [
+                    {
+                        name: "吴哲晗",
+                        team: 0
+                    }, {
+                        name: "蒋芸",
+                        team: 0
+                    }
+                ], performance: {
+                    Title: "梦中的婚礼",
+                    From: [1, 6]
                 }
-            ], [
-                {
-                    name: "唐莉佳",
-                    team: 9
-                }, {
-                    name: "左婧媛",
-                    team: 9
+            }, {
+                members: [
+                    {
+                        name: "唐莉佳",
+                        team: 9
+                    }, {
+                        name: "左婧媛",
+                        team: 9
+                    }
+                ], performance: {
+                    Title: "",
+                    From: [0, 0]
                 }
-            ], [
-                {
-                    name: "陈珂",
-                    team: 8
-                }, {
-                    name: "郑丹妮",
-                    team: 9
+            }, {
+                members: [
+                    {
+                        name: "陈珂",
+                        team: 8
+                    }, {
+                        name: "郑丹妮",
+                        team: 9
+                    }
+                ], performance: {
+                    Title: "",
+                    From: [0, 0]
                 }
-            ], [
-                {
-                    name: "马玉灵",
-                    team: 6
-                }, {
-                    name: "苏杉杉",
-                    team: 6
+            }, {
+                members: [
+                    {
+                        name: "马玉灵",
+                        team: 6
+                    }, {
+                        name: "苏杉杉",
+                        team: 6
+                    }
+                ], performance: {
+                    Title: "",
+                    From: [0, 0]
                 }
-            ]];
+            }];
 
             $(blueV).each(function (index, group) {
                 var memberString = '';
-                $(group).each(function (i, member) {
+                $(group.members).each(function (i, member) {
                     memberString += '<span style="color:' + team[member.team].color + '">' + member.name + '</span>';
-                });
-                $("#table-BlueV").append('<tr><td>' + (index + 1) + '</td><td>' + memberString + '</td></tr>');
+                });                
+                $("#table-BlueV").append('<tr><td>' + (index + 1) + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + group.performance.Title + '</td><td>' + memberString + '</td></tr>');
             });
 
             $(ho2).each(function (index, group) {
                 var memberString = '';
-                $(group).each(function (i, member) {
+                $(group.members).each(function (i, member) {
                     memberString += '<span style="color:' + team[member.team].color + '">' + member.name + '</span>';
                 });
-                $("#table-HO2").append('<tr><td>' + (index + 1) + '</td><td>' + memberString + '</td></tr>');
+                $("#table-HO2").append('<tr><td>' + (index + 1) + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + group.performance.Title + '</td><td>' + memberString + '</td></tr>');
             });
 
             //最上面的各队颜色
@@ -1421,14 +1462,14 @@
                         $("#table-snh48").append('<tr><td>' + t.name + '</td><td>' + memberlisthtml + '</td></tr>')
                     }
                 });
-                if(alternates.length>0){
-                    var alternatelists='';
-                    $(alternates).each(function(i,m){
+                if (alternates.length > 0) {
+                    var alternatelists = '';
+                    $(alternates).each(function (i, m) {
                         alternatelists += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
                     });
                     $("#table-snh48").append('<tr><td>Ft</td><td>' + alternatelists + '</td></tr>');
                 }
-                
+
                 pieTeam = $.grep(pieTeam, function (item) {
                     return item.y > 0;
                 });
