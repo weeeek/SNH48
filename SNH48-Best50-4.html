@@ -51,7 +51,8 @@
 
         #table-snh48 button {
             margin-right: 5px;
-            margin-bottom: 5px;
+            margin-top: 3px;
+            margin-bottom: 3px;
             font-weight: bolder;
         }
 
@@ -109,6 +110,8 @@
                     <tr>
                         <th>序号</th>
                         <th>演唱歌曲（不计入统计）</th>
+                        <th>出处</th>
+                        <th>原创</th>
                         <th>组合</th>
                     </tr>
                 </table>
@@ -119,6 +122,8 @@
                     <tr>
                         <th>序号</th>
                         <th>演唱歌曲（不计入统计）</th>
+                        <th>出处</th>
+                        <th>原创</th>
                         <th>组合</th>
                     </tr>
                 </table>
@@ -173,28 +178,32 @@
                         { name: "第48区", y: 0, new: true }
                     ],
                     members: [
-                        { name: "陈思", initialTeam: 0, batch: 1 },
-                        { name: "成珏", initialTeam: 0, batch: 6 },
-                        { name: "陈观慧", initialTeam: 0, batch: 1 },
-                        { name: "戴萌", initialTeam: 0, batch: 1 },
-                        { name: "蒋芸", initialTeam: 0, batch: 2 },
-                        { name: "孔肖吟", initialTeam: 0, batch: 1 },
-                        { name: "吕一", initialTeam: 0, batch: 7 },
-                        { name: "李宇琪", initialTeam: 0, batch: 1 },
-                        { name: "莫寒", initialTeam: 0, batch: 1 },
-                        { name: "潘燕琦", initialTeam: 0, batch: 7 },
-                        { name: "钱蓓婷", initialTeam: 0, batch: 1 },
-                        { name: "邱欣怡", initialTeam: 0, batch: 1 },
-                        { name: "孙芮", initialTeam: 0, batch: 2 },
-                        { name: "温晶婕", initialTeam: 0, batch: 2 },
-                        { name: "吴哲晗", initialTeam: 0, batch: 1 },
-                        { name: "徐晨辰", initialTeam: 0, batch: 1 },
-                        { name: "许佳琪", initialTeam: 0, batch: 1 },
-                        { name: "徐子轩", initialTeam: 0, batch: 2 },
-                        { name: "袁丹妮", initialTeam: 0, batch: 3 },
-                        { name: "袁雨桢", initialTeam: 0, batch: 2 },
-                        { name: "赵晔", initialTeam: 0, batch: 1 },
-                        { name: "张语格", initialTeam: 0, batch: 1 }
+                        { name: "陈观慧", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "陈思", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "戴萌", initialTeam: 0, batch: 1, partTeam: -1, leader: 2, disable: false },
+                        { name: "蒋芸", initialTeam: 0, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "孔肖吟", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "吕一", initialTeam: 0, batch: 7, partTeam: 3, leader: 0, disable: false },
+                        { name: "李宇琪", initialTeam: 0, batch: 1, partTeam: 4, leader: 0, disable: false },
+                        { name: "莫寒", initialTeam: 0, batch: 1, partTeam: -1, leader: 1, disable: false },
+                        { name: "钱蓓婷", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "邱欣怡", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "孙芮", initialTeam: 0, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "吴哲晗", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "徐晨辰", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "许佳琪", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "徐子轩", initialTeam: 0, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "袁丹妮", initialTeam: 0, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "袁雨桢", initialTeam: 0, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "赵晔", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "张语格", initialTeam: 0, batch: 1, partTeam: -1, leader: 0, disable: false },
+                        { name: "刘增艳", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "徐伊人", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "邵雪聪", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+
+                        { name: "成珏", initialTeam: 0, batch: 6, partTeam: -1, leader: 0, disable: true },
+                        { name: "潘燕琦", initialTeam: 0, batch: 7, partTeam: -1, leader: 0, disable: true },
+                        { name: "温晶婕", initialTeam: 0, batch: 2, partTeam: -1, leader: 0, disable: true }
                     ]
                 },
                 {
@@ -208,24 +217,33 @@
                         { name: "以爱之名", y: 0, new: true }
                     ],
                     members: [
-                        { name: "陈佳莹", initialTeam: 1, batch: 2 },
-                        { name: "陈问言", initialTeam: 1, batch: 2 },
-                        { name: "冯薪朵", initialTeam: 1, batch: 2 },
-                        { name: "黄婷婷", initialTeam: 1, batch: 2 },
-                        { name: "黄彤扬", initialTeam: 1, batch: 6 },
-                        { name: "何晓玉", initialTeam: 1, batch: 2 },
-                        { name: "江真仪", initialTeam: 1, batch: 7 },
-                        { name: "刘菊子", initialTeam: 1, batch: 7 },
-                        { name: "林思意", initialTeam: 1, batch: 2 },
-                        { name: "陆婷", initialTeam: 1, batch: 2 },
-                        { name: "刘瀛", initialTeam: 1, batch: 7 },
-                        { name: "李艺彤", initialTeam: 1, batch: 2 },
-                        { name: "马凡", initialTeam: 1, batch: 8 },
-                        { name: "万丽娜", initialTeam: 1, batch: 2 },
-                        { name: "许逸", initialTeam: 1, batch: 7 },
-                        { name: "易嘉爱", initialTeam: 1, batch: 2 },
-                        { name: "赵粤", initialTeam: 1, batch: 2 },
-                        { name: "张雨鑫", initialTeam: 1, batch: 3 }
+                        { name: "陈佳莹", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "陈问言", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "冯薪朵", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "黄婷婷", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "何晓玉", initialTeam: 1, batch: 2, partTeam: -1, leader: 1, disable: false },
+                        { name: "江真仪", initialTeam: 1, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "金莹玥", initialTeam: 1, batch: 8, partTeam: -1, leader: 0, disable: false },
+                        { name: "刘菊子", initialTeam: 1, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "陆婷", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "许逸", initialTeam: 1, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "易嘉爱", initialTeam: 1, batch: 2, partTeam: -1, leader: 2, disable: false },
+                        { name: "张雨鑫", initialTeam: 1, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "赵粤", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "郭倩云", initialTeam: 2, batch: 8, partTeam: -1, leader: 0, disable: false },
+                        { name: "郝婉晴", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "刘佩鑫", initialTeam: 2, batch: 3, partTeam: 4, leader: 0, disable: false },
+                        { name: "谢妮", initialTeam: 2, batch: 7, partTeam: 4, leader: 0, disable: false },
+                        { name: "陶波尔", initialTeam: 4, batch: 8, partTeam: -1, leader: 0, disable: false },
+                        { name: "严佼君", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "张怡", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+
+                        { name: "林思意", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: true },
+                        { name: "李艺彤", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: true },
+                        { name: "万丽娜", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: true },
+                        { name: "黄彤扬", initialTeam: 1, batch: 6, partTeam: -1, leader: 0, disable: true },
+                        { name: "刘瀛", initialTeam: 1, batch: 7, partTeam: -1, leader: 0, disable: true },
+                        { name: "马凡", initialTeam: 1, batch: 8, partTeam: -1, leader: 0, disable: true }
                     ]
                 },
                 {
@@ -237,26 +255,36 @@
                         { name: "美丽世界", y: 0, new: true }
                     ],
                     members: [
-                        { name: "郭倩云", initialTeam: 2, batch: 8 },
-                        { name: "郝婉晴", initialTeam: 2, batch: 3 },
-                        { name: "姜涵", initialTeam: 2, batch: 8 },
-                        { name: "刘炅然", initialTeam: 2, batch: 3 },
-                        { name: "林楠", initialTeam: 2, batch: 3 },
-                        { name: "刘佩鑫", initialTeam: 2, batch: 3 },
-                        { name: "李清扬", initialTeam: 2, batch: 3 },
-                        { name: "沈梦瑶", initialTeam: 2, batch: 5 },
-                        { name: "孙珍妮", initialTeam: 2, batch: 6 },
-                        { name: "王柏硕", initialTeam: 2, batch: 3 },
-                        { name: "王奕", initialTeam: 2, batch: 8 },
-                        { name: "徐晗", initialTeam: 2, batch: 3 },
-                        { name: "谢妮", initialTeam: 2, batch: 3 },
-                        { name: "熊沁娴", initialTeam: 2, batch: 8 },
-                        { name: "徐伊人", initialTeam: 2, batch: 3 },
-                        { name: "许杨玉琢", initialTeam: 2, batch: 3 },
-                        { name: "袁航", initialTeam: 2, batch: 5 },
-                        { name: "杨慧婷", initialTeam: 2, batch: 3 },
-                        { name: "袁一琦", initialTeam: 2, batch: 7 },
-                        { name: "张昕", initialTeam: 2, batch: 3 }
+                        { name: "刘炅然", initialTeam: 2, batch: 3, partTeam: 14, leader: 0, disable: false },
+                        { name: "林楠", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "沈梦瑶", initialTeam: 2, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "孙珍妮", initialTeam: 2, batch: 6, partTeam: -1, leader: 0, disable: false },
+                        { name: "王奕", initialTeam: 2, batch: 8, partTeam: 4, leader: 0, disable: false },
+                        { name: "熊沁娴", initialTeam: 2, batch: 8, partTeam: 4, leader: 0, disable: false },
+                        { name: "徐晗", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "许杨玉琢", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "袁航", initialTeam: 2, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "杨慧婷", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: false },
+                        { name: "袁一琦", initialTeam: 2, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "张昕", initialTeam: 2, batch: 3, partTeam: -1, leader: 1, disable: false },
+                        { name: "林思意", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "李艺彤", initialTeam: 1, batch: 2, partTeam: -1, leader: 0, disable: false },
+                        { name: "万丽娜", initialTeam: 1, batch: 2, partTeam: -1, leader: 2, disable: false },
+                        { name: "费沁源", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "洪珮雲", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "蒋舒婷", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "姜杉", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "宋雨珊", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "李佳恩", initialTeam: 4, batch: 6, partTeam: -1, leader: 0, disable: false },
+                        { name: "於佳怡", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "曾晓雯", initialTeam: 4, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "李清扬", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: true },
+                        { name: "徐伊人", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: true },
+                        { name: "郭倩云", initialTeam: 2, batch: 8, partTeam: -1, leader: 0, disable: true },
+                        { name: "郝婉晴", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: true },
+                        { name: "刘佩鑫", initialTeam: 2, batch: 3, partTeam: 4, leader: 0, disable: true },
+                        { name: "谢妮", initialTeam: 2, batch: 7, partTeam: 4, leader: 0, disable: true },
+                        { name: "王柏硕", initialTeam: 2, batch: 3, partTeam: -1, leader: 0, disable: true }
                     ]
                 },
                 {
@@ -266,49 +294,53 @@
                         { name: "命运的X号", y: 0, new: true }
                     ],
                     members: [
-                        { name: "陈琳", initialTeam: 3, batch: 4 },
-                        { name: "冯晓菲", initialTeam: 3, batch: 4 },
-                        { name: "李晶", initialTeam: 3, batch: 4 },
-                        { name: "林忆宁", initialTeam: 3, batch: 6 },
-                        { name: "李钊", initialTeam: 3, batch: 4 },
-                        { name: "祁静", initialTeam: 3, batch: 7 },
-                        { name: "邵雪聪", initialTeam: 3, batch: 4 },
-                        { name: "宋昕冉", initialTeam: 3, batch: 4 },
-                        { name: "孙歆文", initialTeam: 3, batch: 4 },
-                        { name: "孙亚萍", initialTeam: 3, batch: 8 },
-                        { name: "汪佳翎", initialTeam: 3, batch: 4 },
-                        { name: "汪束", initialTeam: 3, batch: 4 },
-                        { name: "王晓佳", initialTeam: 3, batch: 4 },
-                        { name: "谢天依", initialTeam: 3, batch: 4 },
-                        { name: "杨冰怡", initialTeam: 3, batch: 4 },
-                        { name: "姚祎纯", initialTeam: 3, batch: 7 },
-                        { name: "杨韫玉", initialTeam: 3, batch: 4 },
-                        { name: "张丹三", initialTeam: 3, batch: 4 },
-                        { name: "张嘉予", initialTeam: 3, batch: 6 }
+                        { name: "陈琳", initialTeam: 3, batch: 4, partTeam: 4, leader: 0, disable: false },
+                        { name: "冯晓菲", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "李晶", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "林忆宁", initialTeam: 3, batch: 6, partTeam: -1, leader: 0, disable: false },
+                        { name: "李钊", initialTeam: 3, batch: 4, partTeam: -1, leader: 2, disable: false },
+                        { name: "祁静", initialTeam: 3, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "宋昕冉", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "孙歆文", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "汪佳翎", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "汪束", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "王晓佳", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "谢天依", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "杨冰怡", initialTeam: 3, batch: 4, partTeam: -1, leader: 1, disable: false },
+                        { name: "杨韫玉", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "张丹三", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: false },
+                        { name: "张嘉予", initialTeam: 3, batch: 6, partTeam: -1, leader: 0, disable: false },
+                        { name: "吕一", initialTeam: 0, batch: 7, partTeam: 0, leader: 0, disable: false },
+                        { name: "陈韫凌", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "潘瑛琪", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: false },
+                        { name: "徐诗琪", initialTeam: 4, batch: 7, partTeam: -1, leader: 0, disable: false },
+                        { name: "姚祎纯", initialTeam: 3, batch: 7, partTeam: -1, leader: 0, disable: true },
+                        { name: "孙亚萍", initialTeam: 3, batch: 8, partTeam: -1, leader: 0, disable: true },
+                        { name: "邵雪聪", initialTeam: 3, batch: 4, partTeam: -1, leader: 0, disable: true },
                     ]
                 },
                 {
                     name: "XII", color: "#03C070", index: 4, enabled: true, y: 0,
                     performance: [{ name: "代号XII", y: 0, new: true }],
                     members: [
-                        { name: "陈韫凌", initialTeam: 4, batch: 5 },
-                        { name: "费沁源", initialTeam: 4, batch: 5 },
-                        { name: "洪珮雲", initialTeam: 4, batch: 5 },
-                        { name: "姜杉", initialTeam: 4, batch: 5 },
-                        { name: "蒋舒婷", initialTeam: 4, batch: 5 },
-                        { name: "李佳恩", initialTeam: 4, batch: 6 },
-                        { name: "吕梦莹", initialTeam: 4, batch: 6 },
-                        { name: "林歆源", initialTeam: 4, batch: 8 },
-                        { name: "刘增艳", initialTeam: 4, batch: 5 },
-                        { name: "潘瑛琪", initialTeam: 4, batch: 5 },
-                        { name: "宋雨珊", initialTeam: 4, batch: 5 },
-                        { name: "陶波尔", initialTeam: 4, batch: 8 },
-                        { name: "徐诗琪", initialTeam: 4, batch: 7 },
-                        { name: "严佼君", initialTeam: 4, batch: 5 },
-                        { name: "於佳怡", initialTeam: 4, batch: 5 },
-                        { name: "张文静", initialTeam: 4, batch: 5 },
-                        { name: "曾晓雯", initialTeam: 4, batch: 7 },
-                        { name: "张怡", initialTeam: 4, batch: 5 }
+                        { name: "陈韫凌", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: true},
+                        { name: "费沁源", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: true },
+                        { name: "洪珮雲", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: true },
+                        { name: "姜杉", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: true},
+                        { name: "蒋舒婷", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: true},
+                        { name: "李佳恩", initialTeam: 4, batch: 6 , partTeam: -1, leader: 0, disable: true},
+                        { name: "吕梦莹", initialTeam: 4, batch: 6 , partTeam: -1, leader: 0, disable: true},
+                        { name: "林歆源", initialTeam: 4, batch: 8 , partTeam: -1, leader: 0, disable: true},
+                        { name: "刘增艳", initialTeam: 4, batch: 5 , partTeam: -1, leader: 0, disable: true},
+                        { name: "潘瑛琪", initialTeam: 4, batch: 5 , partTeam: -1, leader: 0, disable: true},
+                        { name: "宋雨珊", initialTeam: 4, batch: 5 , partTeam: -1, leader: 0, disable: true},
+                        { name: "陶波尔", initialTeam: 4, batch: 8 , partTeam: -1, leader: 0, disable: true},
+                        { name: "徐诗琪", initialTeam: 4, batch: 7 , partTeam: -1, leader: 0, disable: true},
+                        { name: "严佼君", initialTeam: 4, batch: 5 , partTeam: -1, leader: 0, disable: true},
+                        { name: "於佳怡", initialTeam: 4, batch: 5 , partTeam: -1, leader: 0, disable: true},
+                        { name: "张文静", initialTeam: 4, batch: 5 , partTeam: -1, leader: 0, disable: true},
+                        { name: "曾晓雯", initialTeam: 4, batch: 7 , partTeam: -1, leader: 0, disable: true},
+                        { name: "张怡", initialTeam: 4, batch: 5, partTeam: -1, leader: 0, disable: true }
                     ]
                 },
 
@@ -329,43 +361,82 @@
                 { name: "GII", color: "transparent", index: 16, enabled: false, y: 0, performance: [] },
                 {
                     name: "EP", color: "#434348", index: 100, enabled: false, y: 0, performance: [
-                        { name: "无尽旋转", y: 0, new: false },
-                        { name: "飞翔入手", y: 0, new: false },
-                        { name: "爱的幸运曲奇", y: 0, new: false },
-                        { name: "心电感应", y: 0, new: false },
-                        { name: "一心向前", y: 0, new: false },
-                        { name: "UZA", y: 0, new: false },
-                        { name: "青春的约定", y: 0, new: false },
-                        { name: "雨季之后", y: 0, new: false },
-                        { name: "盛夏好声音", y: 0, new: false },
-                        { name: "万圣节之夜", y: 0, new: false },
-                        { name: "苦与甜", y: 0, new: false },
-                        { name: "新年的钟声", y: 0, new: false },
-                        { name: "源动力", y: 0, new: true },
-                        { name: "梦想岛", y: 0, new: true },
-                        { name: "元气觉醒", y: 0, new: true },
-                        { name: "你所不知道的我", y: 0, new: true },
-                        { name: "公主披风", y: 0, new: true },
-                        { name: "浪漫关系", y: 0, new: true },
-                        { name: "新年这一刻", y: 0, new: true },
-                        { name: "微笑的向日葵", y: 0, new: true },
-                        { name: "BOOM!BOOM!", y: 0, new: true },
-                        { name: "彼此的未来", y: 0, new: true },
-                        { name: "宣言", y: 0, new: true },
-                        { name: "I.F", y: 0, new: true },
-                        { name: "夏日柠檬船", y: 0, new: true },
-                        { name: "SAY NO", y: 0, new: true },
-                        { name: "百变惊叹号", y: 0, new: true },
-                        { name: "前行的力量", y: 0, new: true },
-                        { name: "那不勒斯的黎明", y: 0, new: true },
-                        { name: "甜蜜盛典", y: 0, new: true }]
+                        { index: 0, name: "无尽旋转", y: 0, new: false },
+                        { index: 1, name: "飞翔入手", y: 0, new: false },
+                        { index: 2, name: "爱的幸运曲奇", y: 0, new: false },
+                        { index: 3, name: "心电感应", y: 0, new: false },
+                        { index: 4, name: "一心向前", y: 0, new: false },
+                        { index: 5, name: "UZA", y: 0, new: false },
+                        { index: 6, name: "青春的约定", y: 0, new: false },
+                        { index: 7, name: "雨季之后", y: 0, new: false },
+                        { index: 8, name: "盛夏好声音", y: 0, new: false },
+                        { index: 9, name: "万圣节之夜", y: 0, new: false },
+                        { index: 10, name: "苦与甜", y: 0, new: false },
+                        { index: 11, name: "新年的钟声", y: 0, new: false },
+                        { index: 12, name: "源动力", y: 0, new: true },
+                        { index: 13, name: "梦想岛", y: 0, new: true },
+                        { index: 14, name: "元气觉醒", y: 0, new: true },
+                        { index: 15, name: "你所不知道的我", y: 0, new: true },
+                        { index: 16, name: "公主披风", y: 0, new: true },
+                        { index: 17, name: "浪漫关系", y: 0, new: true },
+                        { index: 18, name: "新年这一刻", y: 0, new: true },
+                        { index: 19, name: "微笑的向日葵", y: 0, new: true },
+                        { index: 20, name: "BOOM!BOOM!", y: 0, new: true },
+                        { index: 21, name: "彼此的未来", y: 0, new: true },
+                        { index: 22, name: "宣言", y: 0, new: true },
+                        { index: 23, name: "I.F", y: 0, new: true },
+                        { index: 24, name: "夏日柠檬船", y: 0, new: true },
+                        { index: 25, name: "SAY NO", y: 0, new: true },
+                        { index: 26, name: "百变惊叹号", y: 0, new: true },
+                        { index: 27, name: "前行的力量", y: 0, new: true },
+                        { index: 28, name: "那不勒斯的黎明", y: 0, new: true },
+                        { index: 29, name: "甜蜜盛典", y: 0, new: true }]
                 },
                 { name: "组合", color: "#DDD", index: 777, enabled: false, y: 0, performance: [{ name: "7SENSES", y: 0, new: true }, { name: "Color Girls", y: 0, new: true }] },
                 { name: "其它", color: "#AAA", index: 999, enabled: false, y: 0, performance: [{ name: "红白歌战", y: 0, new: false }, { name: "1STB30（131）演唱会", y: 0, new: false }, { name: "2ND（725）总选演唱会", y: 0, new: false }] },
                 { name: "混合", color: "#AAA", index: 1000, enabled: false, y: 0 }
             ];
 
-            var alternates = [{ name: "孙亚萍", initialTeam: 2, batch: 8 }];
+            var ft = [
+                { name: "李宇琪", initialTeam: 0, batch: 1, partTeam: 0, leader: 2, disable: false },
+                { name: "马凡", initialTeam: 1, batch: 8, partTeam: -1, leader: 0, disable: false },
+                { name: "刘佩鑫", initialTeam: 2, batch: 3, partTeam: 1, leader: 1, disable: false },
+                { name: "王奕", initialTeam: 2, batch: 8, partTeam: 2, leader: 0, disable: false },
+                { name: "谢妮", initialTeam: 2, batch: 3, partTeam: 1, leader: 0, disable: false },
+                { name: "熊沁娴", initialTeam: 2, batch: 8, partTeam: 2, leader: 0, disable: false },
+                { name: "陈琳", initialTeam: 3, batch: 4, partTeam: 3, leader: 0, disable: false },
+                { name: "陈盼", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "李美琪", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "李星羽", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "李玉倩", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "王溪源", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "王欣颜甜甜", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "杨美琪", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "杨令怡", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "张茜", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "周诗雨", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "朱小丹", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false },
+                { name: "张曦月", initialTeam: 18, batch: 9, partTeam: 0, leader: 0, disable: false }
+            ];
+
+            var alternates = [
+                { name: "成珏", initialTeam: 0, batch: 6, disable: false },
+                { name: "温晶婕", initialTeam: 0, batch: 6, disable: false},
+                { name: "潘燕琦", initialTeam: 0, batch: 7, disable: false },
+                { name: "沈之琳", initialTeam: 0, batch: 2, disable: true},
+                { name: "黄彤扬", initialTeam: 1, batch: 6, disable: false},
+                { name: "刘瀛", initialTeam: 1, batch: 7, disable: false },
+                { name: "吴燕文", initialTeam: 2, batch: 3, disable: true },
+                { name: "李清扬", initialTeam: 2, batch: 3, disable: true },
+                { name: "林歆源", initialTeam: 4, batch: 8 , disable: true},
+                { name: "吕梦莹", initialTeam: 4, batch: 6 , disable: false},
+                { name: "张文静", initialTeam: 4, batch: 5 , disable: false},
+                { name: "姚祎纯", initialTeam: 3, batch: 7 , disable: false},
+                { name: "孙亚萍", initialTeam: 3, batch: 8 , disable: false},
+                { name: "马凡", initialTeam: 1, batch: 8, disable: false },
+                { name: "姜涵", initialTeam: 2, batch: 8, disable: true },
+                { name: "王柏硕", initialTeam: 2, batch: 8, disable: true },
+            ];
 
             var blueV = [{
                 members: [{
@@ -384,8 +455,8 @@
                     name: "孙芮",
                     team: 0
                 }], performance: {
-                    Title: "",
-                    From: [0, 0]
+                    Title: "非你不可",
+                    From: [100, 16]
                 }
             }, {
                 members: [{
@@ -404,8 +475,8 @@
                     name: "沈梦瑶",
                     team: 2
                 }], performance: {
-                    Title: "",
-                    From: [0, 0]
+                    Title: "黑名单",
+                    From: [1, 5]
                 }
             }, {
                 members: [{
@@ -424,8 +495,8 @@
                     name: "张丹三",
                     team: 3
                 }], performance: {
-                    Title: "",
-                    From: [0, 0]
+                    Title: "石中花",
+                    From: [3, 1]
                 }
             }];
 
@@ -453,33 +524,7 @@
                     }
                 ], performance: {
                     Title: "梦中的婚礼",
-                    From: [1, 6]
-                }
-            }, {
-                members: [
-                    {
-                        name: "唐莉佳",
-                        team: 9
-                    }, {
-                        name: "左婧媛",
-                        team: 9
-                    }
-                ], performance: {
-                    Title: "",
-                    From: [0, 0]
-                }
-            }, {
-                members: [
-                    {
-                        name: "陈珂",
-                        team: 8
-                    }, {
-                        name: "郑丹妮",
-                        team: 9
-                    }
-                ], performance: {
-                    Title: "",
-                    From: [0, 0]
+                    From: [1, 5]
                 }
             }, {
                 members: [
@@ -491,8 +536,34 @@
                         team: 6
                     }
                 ], performance: {
-                    Title: "",
-                    From: [0, 0]
+                    Title: "禁忌的爱",
+                    From: [2, 0]
+                }
+            }, {
+                members: [
+                    {
+                        name: "陈珂",
+                        team: 8
+                    }, {
+                        name: "郑丹妮",
+                        team: 9
+                    }
+                ], performance: {
+                    Title: "双面偶像",
+                    From: [8, 0]
+                }
+            }, {
+                members: [
+                    {
+                        name: "唐莉佳",
+                        team: 9
+                    }, {
+                        name: "左婧媛",
+                        team: 9
+                    }
+                ], performance: {
+                    Title: "蠢蠢",
+                    From: [100, 25]
                 }
             }];
 
@@ -500,8 +571,8 @@
                 var memberString = '';
                 $(group.members).each(function (i, member) {
                     memberString += '<span style="color:' + team[member.team].color + '">' + member.name + '</span>';
-                });                
-                $("#table-BlueV").append('<tr><td>' + (index + 1) + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + group.performance.Title + '</td><td>' + memberString + '</td></tr>');
+                });
+                $("#table-BlueV").append('<tr><td>' + (index + 1) + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + group.performance.Title + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + team.find(t => t.index == group.performance.From[0]).performance[group.performance.From[1]].name + '</td><td>' + calculateNew(group.performance, true) + '</td><td>' + memberString + '</td></tr>');
             });
 
             $(ho2).each(function (index, group) {
@@ -509,7 +580,7 @@
                 $(group.members).each(function (i, member) {
                     memberString += '<span style="color:' + team[member.team].color + '">' + member.name + '</span>';
                 });
-                $("#table-HO2").append('<tr><td>' + (index + 1) + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + group.performance.Title + '</td><td>' + memberString + '</td></tr>');
+                $("#table-HO2").append('<tr><td>' + (index + 1) + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + group.performance.Title + '</td><td style="color:' + team.find(t => t.index == group.performance.From[0]).color + '">' + team.find(t => t.index == group.performance.From[0]).performance[group.performance.From[1]].name + '</td><td>' + calculateNew(group.performance, true) + '</td><td>' + memberString + '</td></tr>');
             });
 
             //最上面的各队颜色
@@ -521,891 +592,934 @@
             //new:0复刻，1原创
             //from:出处
             //rank:排名
-            var finalData = [
-                {
-                    Title: "光之轨迹",
-                    Rank: 1,
-                    Type: 0,
-                    From: [1, 5],
-                    Member: [
-                        {
-                            Name: "NII",
-                            Team: 1
-                        }
-                    ]
-                },
-                {
-                    Title: "不曾后悔",
-                    Rank: 2,
-                    Type: 1,
-                    From: [0, 4],
-                    Member: [
-                        {
-                            Name: "李钊",
-                            Team: 3
-                        }, {
-                            Name: "李想",
-                            Team: 6
-                        }, {
-                            Name: "菅瑞静",
-                            Team: 11
-                        }, {
-                            Name: "王炯义",
-                            Team: 10
-                        }
-                    ]
-                }, {
-                    Title: "春夏秋冬",
-                    Rank: 3,
-                    Type: 1,
-                    From: [1, 5],
-                    Member: [
-                        {
-                            Name: "韩家乐",
-                            Team: 11
-                        },
-                        {
-                            Name: "汪束",
-                            Team: 3
-                        },
-                        {
-                            Name: "杨韫玉",
-                            Team: 3
-                        },
-                        {
-                            Name: "关思雨",
-                            Team: 11
-                        }
-                    ]
-                }, {
-                    Title: "人间规则",
-                    Rank: 4,
-                    Type: 2,
-                    New: true,
-                    From: [4, 0],
-                    Member: [
-                        {
-                            Name: "李艺彤",
-                            Team: 1
-                        }
-                    ]
-                }, {
-                    Title: "爱的颜色",
-                    Rank: 5,
-                    Type: 1,
-                    From: [1, 1],
-                    Member: [
-                        {
-                            Name: "段艺璇",
-                            Team: 5
-                        },
-                        {
-                            Name: "张雨鑫",
-                            Team: 1
-                        },
-                        {
-                            Name: "苏杉杉",
-                            Team: 6
-                        },
-                        {
-                            Name: "张琼予",
-                            Team: 8
-                        },
-                        {
-                            Name: "王诗蒙",
-                            Team: 11
-                        },
-                        {
-                            Name: "李沁洁",
-                            Team: 8
-                        }
-                    ]
-                }, {
-                    Title: "战歌",
-                    Rank: 6,
-                    Type: 0,
-                    From: [0, 6],
-                    Member: [
-                        {
-                            Name: "SII",
-                            Team: 0
-                        }
-                    ]
-                }, {
-                    Title: "黑天鹅",
-                    Rank: 7,
-                    Type: 1,
-                    From: [1, 4],
-                    Member: [
-                        {
-                            Name: "张语格",
-                            Team: 0
-                        }, {
-                            Name: "孙歆文",
-                            Team: 3
-                        }, {
-                            Name: "陈欣妤",
-                            Team: 9
-                        }, {
-                            Name: "王晓佳",
-                            Team: 3
-                        }
-                    ]
-                },
-                {
-                    Title: "少女的遗憾",
-                    Rank: 8,
-                    Type: 1,
-                    From: [2, 2],
-                    Member: [
-                        {
-                            Name: "刘增艳",
-                            Team: 4
-                        }, {
-                            Name: "肖文铃",
-                            Team: 9
-                        }, {
-                            Name: "任欣怡",
-                            Team: 7
-                        }
-                    ]
-                },
-                {
-                    Title: "灵魂使者",
-                    Rank: 9,
-                    Type: 1,
-                    From: [0, 6],
-                    Member: [
-                        {
-                            Name: "宋昕冉",
-                            Team: 3
-                        },
-                        {
-                            Name: "李梓",
-                            Team: 6
-                        },
-                        {
-                            Name: "刘胜男",
-                            Team: 6
-                        },
-                        {
-                            Name: "胡丽芝",
-                            Team: 5
-                        }
-                    ]
-                },
-                {
-                    Title: "暴走少女",
-                    Rank: 10,
-                    Type: 1,
-                    From: [9, 0],
-                    Member: [
-                        {
-                            Name: "黄婷婷",
-                            Team: 1
-                        },
-                        {
-                            Name: "陆婷",
-                            Team: 1
-                        },
-                        {
-                            Name: "姜杉",
-                            Team: 4
-                        },
-                        {
-                            Name: "韩家乐",
-                            Team: 11
-                        }
-                    ]
-                },
-                //{
-                //    Title: "爱的加速器",
-                //    Rank: 12,
-                //    Type: 2,
-                //    New: false,
-                //    From: 8,
-                //    Member: [
-                //        {
-                //            Name: "陆婷",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "荣耀日",
-                //    Rank: 13,
-                //    Type: 1,
-                //    New: false,
-                //    From: 12,
-                //    Member: [
-                //        {
-                //            Name: "李宇琪",
-                //            Team: 0
-                //        },
-                //        {
-                //            Name: "袁雨桢",
-                //            Team: 0
-                //        },
-                //        {
-                //            Name: "蒋芸",
-                //            Team: 0
-                //        }
-                //    ]
-                //}, {
-                //    Title: "巧克力之吻",
-                //    Rank: 14,
-                //    Type: 1,
-                //    New: false,
-                //    From: 13,
-                //    Member: [
-                //        {
-                //            Name: "万丽娜",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "戴萌",
-                //            Team: 0
-                //        },
-                //        {
-                //            Name: "徐子轩",
-                //            Team: 0
-                //        }
-                //    ]
-                //}, {
-                //    Title: "天使的尾巴",
-                //    Rank: 15,
-                //    Type: 1,
-                //    New: false,
-                //    From: 2,
-                //    Member: [
-                //        {
-                //            Name: "费沁源",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "姜杉",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "张怡",
-                //            Team: 4
-                //        }
-                //    ]
-                //}, {
-                //    Title: "少女的遗憾",
-                //    Rank: 16,
-                //    Type: 1,
-                //    New: false,
-                //    From: 13,
-                //    Member: [
-                //        {
-                //            Name: "於佳怡",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "张雨鑫",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "李媛媛",
-                //            Team: 6
-                //        }
-                //    ]
-                //}, {
-                //    Title: "纯情主义",
-                //    Rank: 17,
-                //    Type: 1,
-                //    New: false,
-                //    From: 2,
-                //    Member: [
-                //        {
-                //            Name: "陈美君",
-                //            Team: 5
-                //        }, {
-                //            Name: "周怡",
-                //            Team: 1
-                //        }, {
-                //            Name: "郑丹妮",
-                //            Team: 8
-                //        }
-                //    ]
-                //}, {
-                //    Title: "夜蝶",
-                //    Rank: 18,
-                //    Type: 1,
-                //    New: false,
-                //    From: 0,
-                //    Member: [
-                //        {
-                //            Name: "鞠婧祎",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "林思意",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "朱丽叶",
-                //    Rank: 19,
-                //    Type: 1,
-                //    New: false,
-                //    From: 9,
-                //    Member: [
-                //        {
-                //            Name: "刘胜男",
-                //            Team: 6
-                //        }, {
-                //            Name: "李想",
-                //            Team: 6
-                //        }, {
-                //            Name: "顼凘炀",
-                //            Team: 6
-                //        }
-                //    ]
-                //}, {
-                //    Title: "如果你拥抱我",
-                //    Rank: 20,
-                //    Type: 1,
-                //    New: false,
-                //    From: 7,
-                //    Member: [
-                //        {
-                //            Name: "张语格",
-                //            Team: 0
-                //        }, {
-                //            Name: "许杨玉琢",
-                //            Team: 2
-                //        }, {
-                //            Name: "谢妮",
-                //            Team: 2
-                //        }
-                //    ]
-                //}, {
-                //    Title: "每一天",
-                //    Rank: 21,
-                //    Type: 2,
-                //    New: true,
-                //    From: 14,
-                //    EP: "(每一天)",
-                //    Member: [
-                //        {
-                //            Name: "鞠婧祎",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "下一站是你",
-                //    Rank: 22,
-                //    Type: 1,
-                //    New: true,
-                //    From: 5,
-                //    Member: [
-                //        {
-                //            Name: "李艺彤",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "冯薪朵",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "燃烧的道路",
-                //    Rank: 23,
-                //    Type: 1,
-                //    New: false,
-                //    From: 8,
-                //    Member: [
-                //        {
-                //            Name: "许佳琪",
-                //            Team: 0
-                //        },
-                //        {
-                //            Name: "刘炅然",
-                //            Team: 2
-                //        }
-                //    ]
-                //}, {
-                //    Title: "单恋对角线",
-                //    Rank: 24,
-                //    Type: 1,
-                //    New: false,
-                //    From: 13,
-                //    Member: [
-                //        {
-                //            Name: "钱蓓婷",
-                //            Team: 0
-                //        }, {
-                //            Name: "孙芮",
-                //            Team: 0
-                //        }, {
-                //            Name: "冯晓菲",
-                //            Team: 3
-                //        }
-                //    ]
-                //}, {
-                //    Title: "不眠之夜",
-                //    Rank: 25,
-                //    Type: 1,
-                //    New: false,
-                //    From: 2,
-                //    Member: [
-                //        {
-                //            Name: "黄婷婷",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "刘增艳",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "马玉灵",
-                //            Team: 6
-                //        }
-                //    ]
-                //}, {
-                //    Title: "傲娇女孩",
-                //    Rank: 26,
-                //    Type: 1,
-                //    New: false,
-                //    From: 1,
-                //    Member: [
-                //        {
-                //            Name: "陈佳莹",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "何晓玉",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "苏杉杉",
-                //            Team: 6
-                //        }
-                //    ]
-                //}, {
-                //    Title: "青涩的香蕉",
-                //    Rank: 27,
-                //    Type: 1,
-                //    New: false,
-                //    From: 4,
-                //    Member: [
-                //        {
-                //            Name: "陆婷",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "冯薪朵",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "雨中钢琴师",
-                //    Rank: 28,
-                //    Type: 1,
-                //    New: false,
-                //    From: 12,
-                //    Member: [
-                //        {
-                //            Name: "易嘉爱",
-                //            Team: 1
-                //        }, {
-                //            Name: "龚诗淇",
-                //            Team: 1
-                //        }, {
-                //            Name: "杨冰怡",
-                //            Team: 3
-                //        }
-                //    ]
-                //}, {
-                //    Title: "禁忌的爱",
-                //    Rank: 29,
-                //    Type: 1,
-                //    New: false,
-                //    From: 11,
-                //    Member: [
-                //        {
-                //            Name: "万丽娜",
-                //            Team: 1
-                //        }, {
-                //            Name: "孙珍妮",
-                //            Team: 2
-                //        }
-                //    ]
-                //}, {
-                //    Title: "青春的花瓣",
-                //    Rank: 30,
-                //    Type: 2,
-                //    New: false,
-                //    From: 14,
-                //    EP: "(苦与甜)",
-                //    Member: [
-                //        {
-                //            Name: "冯薪朵",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "再见制服",
-                //    Rank: 31,
-                //    Type: 1,
-                //    New: false,
-                //    From: 3,
-                //    Member: [
-                //        {
-                //            Name: "宋欣冉",
-                //            Team: 3
-                //        },
-                //        {
-                //            Name: "段艺璇",
-                //            Team: 5
-                //        },
-                //        {
-                //            Name: "张丹三",
-                //            Team: 3
-                //        }
-                //    ]
-                //}, {
-                //    Title: "苦与甜",
-                //    Rank: 32,
-                //    Type: 1,
-                //    New: false,
-                //    From: 14,
-                //    EP: "(苦与甜)",
-                //    Member: [
-                //        {
-                //            Name: "蒋舒婷",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "孙歆文",
-                //            Team: 3
-                //        },
-                //        {
-                //            Name: "邹佳佳",
-                //            Team: 4
-                //        }
-                //    ]
-                //}, {
-                //    Title: "初恋小盗",
-                //    Rank: 33,
-                //    Type: 1,
-                //    New: false,
-                //    From: 0,
-                //    Member: [
-                //        {
-                //            Name: "徐晗",
-                //            Team: 2
-                //        },
-                //        {
-                //            Name: "陈观慧",
-                //            Team: 0
-                //        },
-                //        {
-                //            Name: "温晶婕",
-                //            Team: 0
-                //        }
-                //    ]
-                //}, {
-                //    Title: "温布顿之梦",
-                //    Rank: 34,
-                //    Type: 1,
-                //    New: false,
-                //    From: 12,
-                //    Member: [
-                //        {
-                //            Name: "严佼君",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "汪束",
-                //            Team: 3
-                //        },
-                //        {
-                //            Name: "曾艳芬",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "黑天使",
-                //    Rank: 35,
-                //    Type: 1,
-                //    New: false,
-                //    From: 1,
-                //    Member: [
-                //        {
-                //            Name: "洪珮雲",
-                //            Team: 4
-                //        },
-                //        {
-                //            Name: "谢蕾蕾",
-                //            Team: 7
-                //        },
-                //        {
-                //            Name: "胡晓慧",
-                //            Team: 5
-                //        }
-                //    ]
-                //}, {
-                //    Title: "王子殿下",
-                //    Rank: 36,
-                //    Type: 1,
-                //    New: false,
-                //    From: 3,
-                //    Member: [
-                //        {
-                //            Name: "邵雪聪",
-                //            Team: 3
-                //        },
-                //        {
-                //            Name: "黄彤扬",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "李佳恩",
-                //            Team: 4
-                //        }
-                //    ]
-                //}, {
-                //    Title: "女王殿下",
-                //    Rank: 37,
-                //    Type: 2,
-                //    New: false,
-                //    From: 9,
-                //    Member: [
-                //        {
-                //            Name: "曾艳芬",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "心形病毒",
-                //    Rank: 38,
-                //    Type: 1,
-                //    New: false,
-                //    From: 1,
-                //    Member: [
-                //        {
-                //            Name: "牛聪聪",
-                //            Team: 5
-                //        }, {
-                //            Name: "易妍倩",
-                //            Team: 6
-                //        }, {
-                //            Name: "胡博文",
-                //            Team: 5
-                //        }
-                //    ]
-                //}, {
-                //    Title: "糖",
-                //    Rank: 39,
-                //    Type: 1,
-                //    New: false,
-                //    From: 6,
-                //    Member: [
-                //        {
-                //            Name: "袁航",
-                //            Team: 2
-                //        },
-                //        {
-                //            Name: "陈怡馨",
-                //            Team: 2
-                //        },
-                //        {
-                //            Name: "杨惠婷",
-                //            Team: 2
-                //        }
-                //    ]
-                //}, {
-                //    Title: "恋爱捉迷藏（粤）",
-                //    Rank: 40,
-                //    Type: 1,
-                //    New: false,
-                //    From: 6,
-                //    Member: [
-                //        {
-                //            Name: "林嘉佩",
-                //            Team: 7
-                //        },
-                //        {
-                //            Name: "冯嘉希",
-                //            Team: 8
-                //        }
-                //    ]
-                //}, {
-                //    Title: "任性的流星",
-                //    Rank: 41,
-                //    Type: 1,
-                //    New: false,
-                //    From: 7,
-                //    Member: [
-                //        {
-                //            Name: "龚诗淇",
-                //            Team: 1
-                //        },
-                //        {
-                //            Name: "易嘉爱",
-                //            Team: 1
-                //        }
-                //    ]
-                //}, {
-                //    Title: "我们不是天使",
-                //    Rank: 50,
-                //    Type: 1,
-                //    New: true,
-                //    From: 10,
-                //    Member: [
-                //        {
-                //            Name: "陈美君",
-                //            Team: 5
-                //        },
-                //        {
-                //            Name: "林溪荷",
-                //            Team: 5
-                //        },
-                //        {
-                //            Name: "李诗彦",
-                //            Team: 6
-                //        }
-                //    ]
-                //}, {
-                //    Title: "降落伞",
-                //    Rank: 42,
-                //    Type: 2,
-                //    New: true,
-                //    From: 5,
-                //    Member: [
-                //        {
-                //            Name: "徐晨辰",
-                //            Team: 0
-                //        }
-                //    ]
-                //},  {
-                //    Title: "恋爱躲避球",
-                //    Rank: 45,
-                //    Type: 0,
-                //    New: false,
-                //    From: 6,
-                //    Member: [
-                //        {
-                //            Name: "G",
-                //            Team: 7
-                //        }
-                //    ]
-                //},
-                {
-                    Title: "合理失控",
-                    Rank: 11,
-                    Type: 2,
-                    From: [8, 0],
-                    Member: [
-                        {
-                            Name: "莫寒",
-                            Team: 0
-                        }
-                    ]
-                },
-                {
-                    Title: "Monster",
-                    Rank: 13,
-                    Type: 2,
-                    From: [3, 0],
-                    Member: [
-                        {
-                            Name: "赵粤",
-                            Team: 1
-                        }
-                    ]
-                },
-                {
-                    Title: "虫之诗",
-                    Rank: 12,
-                    Type: 2,
-                    From: [1, 1],
-                    Member: [
-                        {
-                            Name: "孔肖吟",
-                            Team: 0
-                        }
-                    ]
-                }, {
-                    Title: "Gravity",
-                    Rank: 42,
-                    Type: 0,
-                    From: [8, 0],
-                    Member: [
-                        {
-                            Name: "G",
-                            Team: 8
-                        }
-                    ]
-                }, {
-                    Title: "花与火",
-                    Rank: 43,
-                    Type: 0,
-                    From: [2, 3],
-                    Member: [
-                        {
-                            Name: "HII",
-                            Team: 2
-                        }
-                    ]
-                }, {
-                    Title: "To be continued",
-                    Rank: 44,
-                    Type: 0,
-                    From: [1, 1],
-                    Member: [
-                        {
-                            Name: "B",
-                            Team: 5
-                        }
-                    ]
-                }, {
-                    Title: "光芒",
-                    Rank: 47,
-                    Type: 0,
-                    From: [6, 0],
-                    Member: [
-                        {
-                            Name: "E",
-                            Team: 6
-                        }
-                    ]
-                }, {
-                    Title: "We are the ONE",
-                    Rank: 48,
-                    Type: 0,
-                    From: [100, 27],
-                    Member: [
-                        {
-                            Name: "HIII",
-                            Team: 11
-                        }
-                    ]
-                }, {
-                    Title: "梦想代码",
-                    Rank: 49,
-                    Type: 0,
-                    From: [4, 0],
-                    Member: [
-                        {
-                            Name: "XII",
-                            Team: 4
-                        }
-                    ]
-                }, {
-                    Title: "因为喜欢你",
-                    Rank: 50,
-                    Type: 0,
-                    From: [100, 6],
-                    Member: [
-                        {
-                            Name: "J",
-                            Team: 7
-                        }
-                    ]
-                }
+            var finalData = [{
+                Title: "春夏秋冬",
+                Rank: 1,
+                Type: 1,
+                From: [1, 5],
+                Member: [
+                    {
+                        Name: "苏杉杉",
+                        Team: 6
+                    },
+                    {
+                        Name: "王诗蒙",
+                        Team: 11
+                    },
+                    {
+                        Name: "冯思佳",
+                        Team: 6
+                    },
+                    {
+                        Name: "张丹三",
+                        Team: 3
+                    }
+                ]
+            },
+            {
+                Title: "光之轨迹",
+                Rank: 2,
+                Type: 0,
+                From: [1, 5],
+                Member: [
+                    {
+                        Name: "NII",
+                        Team: 1
+                    }
+                ]
+            },
+            {
+                Title: "青涩的香蕉",
+                Rank: 3,
+                Type: 1,
+                From: [0, 4],
+                Member: [
+                    {
+                        Name: "陈珂",
+                        Team: 8
+                    }, {
+                        Name: "郑丹妮",
+                        Team: 9
+                    }
+                ]
+            }, {
+                Title: "人间规则",
+                Rank: 4,
+                Type: 2,
+                New: true,
+                From: [4, 0],
+                Member: [
+                    {
+                        Name: "李艺彤",
+                        Team: 1
+                    }
+                ]
+            },
+            {
+                Title: "未接来电",
+                Rank: 5,
+                Type: 1,
+                From: [1, 5],
+                Member: [
+                    {
+                        Name: "唐莉佳",
+                        Team: 9
+                    }, {
+                        Name: "左婧媛",
+                        Team: 9
+                    }
+                ]
+            },
+            {
+                Title: "猎梦",
+                Rank: 6,
+                Type: 1,
+                From: [1, 5],
+                Member: [
+                    {
+                        Name: "费沁源",
+                        Team: 4
+                    }, {
+                        Name: "杨惠婷",
+                        Team: 2
+                    }, {
+                        Name: "赵佳蕊",
+                        Team: 11
+                    }
+                ]
+            },
+            {
+                Title: "9 to 9",
+                Rank: 7,
+                Type: 1,
+                From: [8, 0],
+                Member: [
+                    {
+                        Name: "戴萌",
+                        Team: 0
+                    }, {
+                        Name: "莫寒",
+                        Team: 0
+                    }
+                ]
+            },
+            {
+                Title: "Monster",
+                Rank: 8,
+                Type: 2,
+                From: [3, 0],
+                Member: [
+                    {
+                        Name: "赵粤",
+                        Team: 1
+                    }
+                ]
+            },
+            {
+                Title: "再爱一回",
+                Rank: 9,
+                Type: 1,
+                From: [0, 0],
+                Member: [
+                    {
+                        Name: "王雨煊",
+                        Team: 7
+                    }, {
+                        Name: "黄恩茹",
+                        Team: 7
+                    }, {
+                        Name: "袁一琦",
+                        Team: 2
+                    }, {
+                        Name: "沈梦瑶",
+                        Team: 2
+                    }
+                ]
+            },
+            {
+                Title: "不曾后悔",
+                Rank: 10,
+                Type: 1,
+                From: [0, 4],
+                Member: [
+                    {
+                        Name: "李钊",
+                        Team: 3
+                    }, {
+                        Name: "李想",
+                        Team: 6
+                    }, {
+                        Name: "菅瑞静",
+                        Team: 11
+                    }, {
+                        Name: "王炯义",
+                        Team: 10
+                    }
+                ]
+            },
+            {
+                Title: "Mad World",
+                Rank: 11,
+                Type: 1,
+                From: [0, 6],
+                Member: [
+                    {
+                        Name: "易嘉爱",
+                        Team: 1
+                    },
+                    {
+                        Name: "黄婷婷",
+                        Team: 1
+                    }
+                ]
+            },
+            {
+                Title: "灵魂使者",
+                Rank: 12,
+                Type: 1,
+                From: [0, 6],
+                Member: [
+                    {
+                        Name: "宋昕冉",
+                        Team: 3
+                    },
+                    {
+                        Name: "李梓",
+                        Team: 6
+                    },
+                    {
+                        Name: "刘胜男",
+                        Team: 6
+                    },
+                    {
+                        Name: "胡丽芝",
+                        Team: 5
+                    }
+                ]
+            }, {
+                Title: "夜蝶",
+                Rank: 13,
+                Type: 1,
+                From: [0, 0],
+                Member: [
+                    {
+                        Name: "许佳琪",
+                        Team: 0
+                    },
+                    {
+                        Name: "吴哲晗",
+                        Team: 0
+                    }
+                ]
+            },
+            {
+                Title: "爱的颜色",
+                Rank: 14,
+                Type: 1,
+                From: [1, 1],
+                Member: [
+                    {
+                        Name: "段艺璇",
+                        Team: 5
+                    },
+                    {
+                        Name: "张雨鑫",
+                        Team: 1
+                    },
+                    {
+                        Name: "苏杉杉",
+                        Team: 6
+                    },
+                    {
+                        Name: "张琼予",
+                        Team: 8
+                    },
+                    {
+                        Name: "王诗蒙",
+                        Team: 11
+                    },
+                    {
+                        Name: "李沁洁",
+                        Team: 8
+                    }
+                ]
+            }, {
+                Title: "Gravity",
+                Rank: 15,
+                Type: 0,
+                From: [8, 0],
+                Member: [
+                    {
+                        Name: "G",
+                        Team: 8
+                    }
+                ]
+            },
+            {
+                Title: "暴走少女",
+                Rank: 16,
+                Type: 1,
+                From: [9, 0],
+                Member: [
+                    {
+                        Name: "黄婷婷",
+                        Team: 1
+                    },
+                    {
+                        Name: "陆婷",
+                        Team: 1
+                    },
+                    {
+                        Name: "姜杉",
+                        Team: 4
+                    },
+                    {
+                        Name: "韩家乐",
+                        Team: 11
+                    }
+                ]
+            }, {
+                Title: "少女的遗憾",
+                Rank: 17,
+                Type: 1,
+                From: [2, 2],
+                Member: [
+                    {
+                        Name: "刘增艳",
+                        Team: 4
+                    },
+                    {
+                        Name: "任心怡",
+                        Team: 7
+                    },
+                    {
+                        Name: "肖文铃",
+                        Team: 9
+                    }
+                ]
+            },
+            {
+                Title: "Remember You",
+                Rank: 18,
+                Type: 2,
+                From: [1, 5],
+                Member: [
+                    {
+                        Name: "林思意",
+                        Team: 1
+                    }
+                ]
+            }, {
+                Title: "如果你能拥抱我",
+                Rank: 19,
+                Type: 1,
+                From: [1, 1],
+                Member: [
+                    {
+                        Name: "刘炅然",
+                        Team: 2
+                    },
+                    {
+                        Name: "袁雨桢",
+                        Team: 0
+                    },
+                    {
+                        Name: "罗雪丽",
+                        Team: 6
+                    }
+                ]
+            }, {
+                Title: "黑天鹅",
+                Rank: 20,
+                Type: 1,
+                From: [1, 4],
+                Member: [
+                    {
+                        Name: "张语格",
+                        Team: 0
+                    }, {
+                        Name: "孙歆文",
+                        Team: 3
+                    }, {
+                        Name: "陈欣妤",
+                        Team: 9
+                    }, {
+                        Name: "王晓佳",
+                        Team: 3
+                    }
+                ]
+            }, {
+                Title: "美杜莎的温柔",
+                Rank: 21,
+                Type: 1,
+                From: [8, 0],
+                Member: [
+                    {
+                        Name: "杨韫玉",
+                        Team: 3
+                    },
+                    {
+                        Name: "胡晓慧",
+                        Team: 5
+                    },
+                    {
+                        Name: "冼燊楠",
+                        Team: 9
+                    }
+                ]
+            }, {
+                Title: "",
+                Rank: 22,
+                Type: 1,
+                From: [10, 0],
+                Member: [
+                    {
+                        Name: "易嘉爱",
+                        Team: 1
+                    },
+                    {
+                        Name: "沈梦瑶",
+                        Team: 2
+                    },
+                    {
+                        Name: "袁航",
+                        Team: 2
+                    },
+                    {
+                        Name: "邵雪聪",
+                        Team: 3
+                    },
+                    {
+                        Name: "郝婉晴",
+                        Team: 8
+                    }
+                ]
+            }, {
+                Title: "自以为（粤语）",
+                Rank: 23,
+                Type: 1,
+                From: [10, 0],
+                Member: [
+                    {
+                        Name: "张盺",
+                        Team: 2
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 4
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 9
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 8
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 8
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 8
+                    }
+                ]
+            }, {
+                Title: "巧克力蜜语",
+                Rank: 25,
+                Type: 1,
+                From: [2, 1],
+                Member: [
+                    {
+                        Name: "黄婷婷",
+                        Team: 3
+                    },
+                    {
+                        Name: "费沁源",
+                        Team: 4
+                    },
+                    {
+                        Name: "刘力菲",
+                        Team: 9
+                    },
+                    {
+                        Name: "张凯祺",
+                        Team: 8
+                    }
+                ]
+            }, {
+                Title: "暗夜脚步声",
+                Rank: 26,
+                Type: 1,
+                From: [6, 0],
+                Member: [
+                    {
+                        Name: "冯晓菲",
+                        Team: 3
+                    },
+                    {
+                        Name: "杨冰怡",
+                        Team: 3
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 2
+                    },
+                    {
+                        Name: "赵晔",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "曲终人散",
+                Rank: 27,
+                Type: 1,
+                From: [1, 1],
+                Member: [
+                    {
+                        Name: "许杨玉琢",
+                        Team: 2
+                    },
+                    {
+                        Name: "陈思",
+                        Team: 0
+                    },
+                    {
+                        Name: "谢妮",
+                        Team: 2
+                    },
+                    {
+                        Name: "林嘉佩",
+                        Team: 8
+                    }
+                ]
+            }, {
+                Title: "暴风雨之夜",
+                Rank: 28,
+                Type: 1,
+                From: [1, 0],
+                Member: [
+                    {
+                        Name: "刘倩倩",
+                        Team: 9
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 5
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 5
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 5
+                    }
+                ]
+            }, {
+                Title: "爱未央",
+                Rank: 29,
+                Type: 1,
+                From: [0, 6],
+                Member: [
+                    {
+                        Name: "段艺璇",
+                        Team: 5
+                    },
+                    {
+                        Name: "青钰雯",
+                        Team: 5
+                    }
+                ]
+            }, {
+                Title: "Blue Rose",
+                Rank: 29,
+                Type: 1,
+                From: [2, 0],
+                Member: [
+                    {
+                        Name: "洪佩云",
+                        Team: 4
+                    },
+                    {
+                        Name: "於佳怡",
+                        Team: 4
+                    },
+                    {
+                        Name: "王诗蒙",
+                        Team: 12
+                    },
+                    {
+                        Name: "李媛媛",
+                        Team: 6
+                    }
+                ]
+            }, {
+                Title: "镜中圣女",
+                Rank: 30,
+                Type: 1,
+                From: [0, 2],
+                Member: [
+                    {
+                        Name: "陈问言",
+                        Team: 1
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 2
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 9
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 9
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 9
+                    }
+                ]
+            }, {
+                Title: "一千零一夜",
+                Rank: 31,
+                Type: 1,
+                From: [6, 0],
+                Member: [
+                    {
+                        Name: "张语格",
+                        Team: 0
+                    },
+                    {
+                        Name: "孙珍妮",
+                        Team: 2
+                    },
+                    {
+                        Name: "刘力菲",
+                        Team: 9
+                    }
+                ]
+            }, {
+                Title: "她和她",
+                Rank: 32,
+                Type: 1,
+                From: [4, 0],
+                Member: [
+                    {
+                        Name: "戴萌",
+                        Team: 0
+                    },
+                    {
+                        Name: "莫寒",
+                        Team: 0
+                    }
+                ]
+            },
+            {
+                Title: "虫之诗",
+                Rank: 33,
+                Type: 2,
+                From: [1, 1],
+                Member: [
+                    {
+                        Name: "孔肖吟",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "雨中的钢琴师",
+                Rank: 34,
+                Type: 1,
+                From: [2, 1],
+                Member: [
+                    {
+                        Name: "谢蕾蕾",
+                        Team: 8
+                    },
+                    {
+                        Name: "卢静",
+                        Team: 9
+                    },
+                    {
+                        Name: "龙亦瑞",
+                        Team: 10
+                    }
+                ]
+            }, {
+                Title: "更衣室男孩",
+                Rank: 35,
+                Type: 1,
+                From: [0, 1],
+                Member: [
+                    {
+                        Name: "林忆宁",
+                        Team: 3
+                    },
+                    {
+                        Name: "张嘉予",
+                        Team: 3
+                    },
+                    {
+                        Name: "冯思佳",
+                        Team: 6
+                    },
+                    {
+                        Name: "李佳恩",
+                        Team: 4
+                    },
+                    {
+                        Name: "XXX",
+                        Team: 2
+                    }
+                ]
+            }, {
+                Title: "雨中动物园",
+                Rank: 36,
+                Type: 1,
+                From: [2, 0],
+                Member: [
+                    {
+                        Name: "刘佩鑫",
+                        Team: 2
+                    },
+                    {
+                        Name: "张怡",
+                        Team: 4
+                    },
+                    {
+                        Name: "赖梓惜",
+                        Team: 11
+                    },
+                    {
+                        Name: "汪佳翎",
+                        Team: 3
+                    },
+                    {
+                        Name: "汪佳翎",
+                        Team: 3
+                    },
+                    {
+                        Name: "汪佳翎",
+                        Team: 3
+                    }
+                ]
+            }, {
+                Title: "地平线",
+                Rank: 37,
+                Type: 1,
+                From: [0, 5],
+                Member: [
+                    {
+                        Name: "严佼君",
+                        Team: 4
+                    },
+                    {
+                        Name: "张怡",
+                        Team: 4
+                    },
+                    {
+                        Name: "赖梓惜",
+                        Team: 11
+                    },
+                    {
+                        Name: "陈观慧",
+                        Team: 0
+                    },
+                    {
+                        Name: "徐诗琪",
+                        Team: 4
+                    }
+                ]
+            }, {
+                Title: "心型病毒",
+                Rank: 38,
+                Type: 1,
+                From: [0, 1],
+                Member: [
+                    {
+                        Name: "祁静",
+                        Team: 3
+                    },
+                    {
+                        Name: "张怡",
+                        Team: 4
+                    },
+                    {
+                        Name: "徐晗",
+                        Team: 2
+                    }
+                ]
+            }, {
+                Title: "灰姑娘的玻璃手机",
+                Rank: 39,
+                Type: 1,
+                From: [6, 0],
+                Member: [
+                    {
+                        Name: "易嘉爱",
+                        Team: 1
+                    },
+                    {
+                        Name: "赵粤",
+                        Team: 1
+                    }
+                ]
+            }, {
+                Title: "人鱼",
+                Rank: 40,
+                Type: 1,
+                From: [4, 0],
+                Member: [
+                    {
+                        Name: "黄婷婷",
+                        Team: 1
+                    },
+                    {
+                        Name: "李艺彤",
+                        Team: 1
+                    }
+                ]
+            }, {
+                Title: "木偶",
+                Rank: 41,
+                Type: 2,
+                From: [1, 4],
+                Member: [
+                    {
+                        Name: "孙珍妮",
+                        Team: 2
+                    }
+                ]
+            }, {
+                Title: "天使的圈套",
+                Rank: 42,
+                Type: 1,
+                From: [2, 3],
+                Member: [
+                    {
+                        Name: "钱蓓婷",
+                        Team: 0
+                    },
+                    {
+                        Name: "孔肖吟",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "战歌",
+                Rank: 43,
+                Type: 0,
+                From: [0, 6],
+                Member: [
+                    {
+                        Name: "SII",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "寒夜",
+                Rank: 44,
+                Type: 2,
+                From: [0, 6],
+                Member: [
+                    {
+                        Name: "邱欣怡",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "合理失控",
+                Rank: 45,
+                Type: 2,
+                From: [8, 0],
+                Member: [
+                    {
+                        Name: "莫寒",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "因为喜欢你",
+                Rank: 46,
+                Type: 0,
+                From: [100, 6],
+                Member: [
+                    {
+                        Name: "J",
+                        Team: 7
+                    }
+                ]
+            },
+            {
+                Title: "天使与恶魔",
+                Rank: 47,
+                Type: 2,
+                From: [100, 21],
+                Member: [
+                    {
+                        Name: "徐晨辰",
+                        Team: 0
+                    }
+                ]
+            }, {
+                Title: "We are the ONE",
+                Rank: 48,
+                Type: 0,
+                From: [100, 27],
+                Member: [
+                    {
+                        Name: "HIII",
+                        Team: 11
+                    }
+                ]
+            }, {
+                Title: "梦想代码",
+                Rank: 49,
+                Type: 0,
+                From: [4, 0],
+                Member: [
+                    {
+                        Name: "XII",
+                        Team: 4
+                    }
+                ]
+            }, {
+                Title: "To be continued",
+                Rank: 48,
+                Type: 0,
+                From: [1, 1],
+                Member: [
+                    {
+                        Name: "B",
+                        Team: 5
+                    }
+                ]
+            }, {
+                Title: "花与火",
+                Rank: 49,
+                Type: 0,
+                From: [2, 3],
+                Member: [
+                    {
+                        Name: "HII",
+                        Team: 2
+                    }
+                ]
+            },
+            {
+                Title: "黑夜女神",
+                Rank: 50,
+                Type: 2,
+                From: [2, 3],
+                Member: [
+                    {
+                        Name: "汪佳翎",
+                        Team: 3
+                    }
+                ]
+            }
             ];
 
             //原创Vs复刻
@@ -1456,18 +1570,26 @@
 
                     var memberlisthtml = "";
                     $(t.members).each(function (index, m) {
-                        memberlisthtml += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
+                        memberlisthtml += '<button' + (m.disable?" disabled":"") + ' class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
                     });
                     if (t.members && t.members.length > 0) {
                         $("#table-snh48").append('<tr><td>' + t.name + '</td><td>' + memberlisthtml + '</td></tr>')
                     }
                 });
+                if (ft.length > 0) {
+                    var ftlists = '';
+                    $(ft).each(function (i, m) {
+                        ftlists += '<button' + (m.disable ? " disabled" : "") + ' class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
+                    });
+                    $("#table-snh48").append('<tr><td>Ft</td><td>' + ftlists + '</td></tr>');
+                }
+
                 if (alternates.length > 0) {
                     var alternatelists = '';
                     $(alternates).each(function (i, m) {
-                        alternatelists += '<button class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
+                        alternatelists += '<button' + (m.disable ? " disabled" : "") + ' class="btn btn-sm" style="background-color:' + team[m.initialTeam].color + '">' + m.name + '<span class="badge">' + m.batch + '</span></button>'
                     });
-                    $("#table-snh48").append('<tr><td>Ft</td><td>' + alternatelists + '</td></tr>');
+                    $("#table-snh48").append('<tr><td>预</td><td>' + alternatelists + '</td></tr>');
                 }
 
                 pieTeam = $.grep(pieTeam, function (item) {
@@ -1491,13 +1613,19 @@
             }
 
             //计数：原创or复刻
-            function calculateNew(item) {
-                if (team.find(t => t.index == item.From[0]).performance[item.From[1]].new) {
-                    pieNew[0][1] = ++pieNew[0][1];
-                    return '<i class="text-success glyphicon glyphicon-ok"></i>';
-                } else {
-                    pieNew[1][1] = ++pieNew[1][1];
-                    return '<i class="text-danger glyphicon glyphicon-remove"></i>';
+            //doNotCalculate=true，不计算
+            function calculateNew(item, doNotCalculate) {
+                if (doNotCalculate) {
+                    return team.find(t => t.index == item.From[0]).performance[item.From[1]].new ? '<i class="text-success glyphicon glyphicon-ok"></i>' : '<i class="text-danger glyphicon glyphicon-remove"></i>';
+                }
+                else {
+                    if (team.find(t => t.index == item.From[0]).performance[item.From[1]].new) {
+                        pieNew[0][1] = ++pieNew[0][1];
+                        return '<i class="text-success glyphicon glyphicon-ok"></i>';
+                    } else {
+                        pieNew[1][1] = ++pieNew[1][1];
+                        return '<i class="text-danger glyphicon glyphicon-remove"></i>';
+                    }
                 }
             }
             //计数：阵容归属
@@ -1518,10 +1646,6 @@
 
             //数据写入表格
             function initTable(item) {
-                var epName = "";
-                //if (item.From === 14) {
-                //    epName = item.EP;
-                //}
                 switch (item.Type) {
                     //Unit
                     case 1:
@@ -1535,17 +1659,17 @@
                         });
                         //计算歌曲归属（队伍or混合）
                         calculateLineup(item);
-                        $("#table-unit").append('<tr><td>' + item.Rank + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Title + '</td><td style="color:' + team.find(t => t.index == item.From[0]).color + '">' + team.find(t => t.index == item.From[0]).performance[item.From[1]].name + epName + '</td><td>' + calculateNew(item) + '</td><td>' + member + '</td></tr>');
+                        $("#table-unit").append('<tr><td>' + item.Rank + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Title + '</td><td style="color:' + team.find(t => t.index == item.From[0]).color + '">' + team.find(t => t.index == item.From[0]).performance[item.From[1]].name + '</td><td>' + calculateNew(item) + '</td><td>' + member + '</td></tr>');
                         break;
                     //Solo
                     case 2:
                         ++team.find(t => t.index == item.Member[0].Team).y;
-                        $("#table-solo").append('<tr><td>' + item.Rank + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Title + '</td><td style="color:' + team.find(t => t.index == item.From[0]).color + '">' + team.find(t => t.index == item.From[0]).performance[item.From[1]].name + epName + '</td><td>' + calculateNew(item) + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Member[0].Name + '</td></tr>');
+                        $("#table-solo").append('<tr><td>' + item.Rank + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Title + '</td><td style="color:' + team.find(t => t.index == item.From[0]).color + '">' + team.find(t => t.index == item.From[0]).performance[item.From[1]].name + '</td><td>' + calculateNew(item) + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Member[0].Name + '</td></tr>');
                         break;
                     //队歌
                     default:
                         ++team.find(t => t.index == item.Member[0].Team).y;
-                        $("#table-team").append('<tr><td>' + item.Rank + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Title + '</td><td style="color:' + team.find(t => t.index == item.From[0]).color + '">' + team.find(t => t.index == item.From[0]).performance[item.From[1]].name + epName + '</td><td>' + calculateNew(item) + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Member[0].Name + '</td></tr>');
+                        $("#table-team").append('<tr><td>' + item.Rank + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Title + '</td><td style="color:' + team.find(t => t.index == item.From[0]).color + '">' + team.find(t => t.index == item.From[0]).performance[item.From[1]].name + '</td><td>' + calculateNew(item) + '</td><td style="color:' + team[item.Member[0].Team].color + '">' + item.Member[0].Name + '</td></tr>');
                         break;
                 }
             }
