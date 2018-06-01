@@ -1,0 +1,1381 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNH48 GROUP 第四届偶像年度人气总决选</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <style type="text/css">
+        .row {
+            margin-bottom: 4em;
+        }
+
+        #team-color {
+            margin-bottom: 0;
+        }
+
+            #team-color .teamName, #team-index .teamName {
+                width: calc(100% / 19);
+                float: left;
+                white-space: pre-line;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="team-color"></div>
+        <div class="row">
+            <div class="col-xs-6">
+                <table id="vote-table-1" class="table">
+                    <tr>
+                        <th>所属队伍</th>
+                        <th>所属队伍</th>
+                        <th>得票数</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-6">
+                <table id="vote-table-2" class="table">
+                    <tr>
+                        <th>所属队伍</th>
+                        <th>所属队伍</th>
+                        <th>得票数</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-all-percenter"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-top7-percenter"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="chart-all-in"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-top16-123"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-top16-increase"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-top16-rank"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-history"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 text-right">
+                传送门：
+            </div>
+            <div class="col-xs-11">
+                <a href="https://weeeek.github.io/SNH48/SNH48-4th.html" target="_blank">SNH48 GROUP 第四届偶像年度人气总决选排名统计</a>
+                <br>
+                <a href="https://weeeek.github.io/SNH48/SNH48-Best50-4.html" target="_blank">SNH48 GROUP 第四届SNH48 Group 金曲大赏排名统计</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var outRank = 67;
+        var groups = [{
+            id: "10",
+            name: "SNH48",
+            teams: [{
+                name: "Team SII",
+                color: "#91cdeb",
+                id: "101",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team NII",
+                color: "#AE86BA",
+                id: "102",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team HII",
+                color: "#F49600",
+                id: "103",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team X",
+                color: "#94D401",
+                id: "104",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team XII",
+                color: "#03C070",
+                id: "105",
+                enabled: false,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team Ft",
+                color: "#e10164",
+                id: "106",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "SNH48 预备生",
+                color: "#A8B0BB",
+                id: "150",
+                enabled: false,
+                members: [],
+                vote: 0,
+                _in: 0
+            }],
+            vote: 0,
+            _in: 0
+        }, {
+            id: "20",
+            name: "BEJ48",
+            teams: [{
+                name: "Team B",
+                color: "#EF1B52",
+                id: "201",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in:0
+            }, {
+                name: "Team E",
+                color: "#00C8C3",
+                id: "202",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team J",
+                color: "#006AB6",
+                id: "203",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "BEJ48 预备生",
+                color: "#a7b0ba",
+                id: "210",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }],
+            vote: 0,
+            _in: 0
+        }, {
+            id: "30",
+            name: "GNZ48",
+            teams: [{
+                name: "Team G",
+                color: "#9FBF40",
+                id: "301", enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team NIII",
+                color: "#FFE249",
+                id: "302",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team Z",
+                color: "#EA617B",
+                id: "303",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "GNZ48 预备生",
+                color: "#a7b0ba",
+                id: "304",
+                enabled: false,
+                members: [],
+                vote: 0,
+                _in: 0
+            }],
+            vote: 0,
+            _in: 0
+        }, {
+            id: "40",
+            name: "SHY48",
+            teams: [{
+                name: "Team G",
+                color: "#9FBF40",
+                id: "401",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team NIII",
+                color: "#FFE249",
+                id: "402",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team Z",
+                color: "#EA617B",
+                id: "403",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "GNZ48 预备生",
+                color: "#a7b0ba",
+                id: "304",
+                enabled: false,
+                members: [],
+                vote: 0,
+                _in: 0
+            }],
+            vote: 0,
+            _in: 0
+        }, {
+            id: "50",
+            name: "CKG48",
+            teams: [{
+                name: "Team C",
+                color: "#96510E",
+                id: "501",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "Team K",
+                color: "#FF5043",
+                id: "502",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: 0
+            }, {
+                name: "CKG48 预备生",
+                color: "#a7b0ba",
+                id: "504",
+                enabled: false,
+                members: [],
+                vote: 0,
+                _in: 0
+            }],
+            vote: 0,
+            _in: 0
+        }]
+        var memberResponse = { total: 303, rows: [] }
+        var finalData = [
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 66, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 65, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 64, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 63, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 62, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 61, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 60, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 59, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 58, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 57, vote: 0 }
+            },
+
+
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 56, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 55, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 54, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 53, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 52, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 51, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 50, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101", original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 49, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 48, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 47, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 46, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 45, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 44, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 43, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 42, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 41, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 40, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 39, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 38, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 37, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 36, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 35, vote: 0 }
+            },
+            {
+                name: "袁雨桢",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 34, vote: 0 }
+            },
+            {
+                name: "洪珮雲",
+                team: "103",
+                original: "105",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 33, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 32, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 31, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 30, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 29, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 28, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 27, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 26, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 25, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 24, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 23, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 22, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 21, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 20, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 19, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 18, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 17, vote: 0 }
+            },
+            {
+                name: "",
+                team: "101",
+                original: "101",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 16, s: 0, z: 0, vote: 0 }
+            },
+            {
+                name: "",
+                team: "103",
+                original: "102",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 15, s: 0, z: 0, vote: 0 }
+            },
+            {
+                name: "李宇琪",
+                team: "101",
+                original: "101",
+                _1st: { rank: 11, vote: 6027 },
+                _2nd: { rank: 7, vote: 31215.9 },
+                _3rd: { rank: 20, vote: 21894.8 },
+                _4th: { rank: 16, vote: 40469.5 },
+                _5th: { rank: 14, s: 0, z: 0, vote: 40469.5 }
+            },
+            {
+                name: "吴哲晗",
+                team: "101",
+                original: "101",
+                _1st: { rank: 1, vote: 19281 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: 23, vote: 19588.7 },
+                _4th: { rank: 15, vote: 41674.9 },
+                _5th: { rank: 13, s: 0, z: 19701.1, vote: 41674.9 }
+            },
+            {
+                name: "林思意",
+                team: "103",
+                original: "102",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: 17, vote: 16050.5 },
+                _3rd: { rank: 13, vote: 38786.4 },
+                _4th: { rank: 14, vote: 45981.6 },
+                _5th: { rank: 12, s: 0, z: 19948.5, vote: 45981.6 }
+            },
+            {
+                name: "段艺璇",
+                team: "201",
+                original: "201",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: 43, vote: 12477.2 },
+                _4th: { rank: 13, vote: 46825.4 },
+                _5th: { rank: 11, s: 11135.7, z: 13891.0, vote: 46825.4 }
+            },
+            {
+                name: "孔肖吟",
+                team: "101",
+                original: "101",
+                _1st: { rank: 15, vote: 5413 },
+                _2nd: { rank: 16, vote: 17658.9 },
+                _3rd: { rank: 25, vote: 18989.1 },
+                _4th: { rank: 12, vote: 49093.8 },
+                _5th: { rank: 10, s: 0, z: 21956.3, vote: 49093.8 }
+            },
+            {
+                name: "戴萌",
+                team: "101",
+                original: "101",
+                _1st: { rank: 13, vote: 5785 },
+                _2nd: { rank: 15, vote: 17907.3 },
+                _3rd: { rank: 12, vote: 41511.8 },
+                _4th: { rank: 11, vote: 53569.1 },
+                _5th: { rank: 9, s: 2103.1, z: 11812.8, vote: 53569.1 }
+            },
+            {
+                name: "许佳琪",
+                team: "101",
+                original: "101",
+                _1st: { rank: 8, vote: 7256 },
+                _2nd: { rank: 20, vote: 14351.7 },
+                _3rd: { rank: 11, vote: 41740.5 },
+                _4th: { rank: 10, vote: 54768.8 },
+                _5th: { rank: 8, s: 0, z: 23915.5, vote: 54768.8 }
+            },
+            {
+                name: "张语格",
+                team: "101",
+                original: "101",
+                _1st: { rank: 5, vote: 9061 },
+                _2nd: { rank: 5, vote: 32306.0 },
+                _3rd: { rank: 8, vote: 66867.5 },
+                _4th: { rank: 9, vote: 78345.6 },
+                _5th: { rank: 7, s: 3542.0, z: 7858.2, vote: 78345.6 }
+            },
+            {
+                name: "莫寒",
+                team: "101",
+                original: "101",
+                _1st: { rank: 7, vote: 7331 },
+                _2nd: { rank: 13, vote: 20201.7 },
+                _3rd: { rank: 6, vote: 73362.6 },
+                _4th: { rank: 8, vote: 88034.2 },
+                _5th: { rank: 6, s: 0, z: 31692.0, vote: 88034.2 }
+            },
+            {
+                name: "赵粤",
+                team: "102",
+                original: "102",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: 11, vote: 25245.0 },
+                _3rd: { rank: 9, vote: 47563.5 },
+                _4th: { rank: 7, vote: 90929.7 },
+                _5th: { rank: 5, s: 0, z: 37160.4, vote: 90929.7 }
+            },
+            {
+                name: "陆婷",
+                team: "102",
+                original: "102",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: 10, vote: 25669.2 },
+                _3rd: { rank: 7, vote: 71639.6 },
+                _4th: { rank: 5, vote: 126639.2 },
+                _5th: { rank: 4, s: 0, z: 30099.8, vote: 126639.2 }
+            },
+            {
+                name: "冯薪朵",
+                team: "102",
+                original: "102",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: 12, vote: 22028.7 },
+                _3rd: { rank: 5, vote: 88598.8 },
+                _4th: { rank: 4, vote: 133607.1 },
+                _5th: { rank: 3, s: 0, z: 53300.4, vote: 133607.1 }
+            },
+            {
+                name: "黄婷婷",
+                team: "102",
+                original: "102",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: 4, vote: 35189.0 },
+                _3rd: { rank: 3, vote: 0 },
+                _4th: { rank: 3, vote: 165193.8 },
+                _5th: { rank: 2, s: 29027.3, z: 84353.2, vote: 165193.8 }
+            },
+            {
+                name: "李艺彤",
+                team: "103",
+                original: "102",
+                _1st: { rank: 6, vote: 9037 },
+                _2nd: { rank: 3, vote: 47134.5 },
+                _3rd: { rank: 2, vote: 169971.4 },
+                _4th: { rank: 2, vote: 259478.6 },
+                _5th: { rank: 1, s: 6087.3, z: 112004.4, vote: 259478.6 }
+            },
+        ];
+        //总票数
+        var sumvote = 0.0;
+        //各队颜色，饼图用
+        //var colors = [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color, team[9].color, team[10].color, team[11].color, team[12].color];
+        //各队票数比例
+        //var series_all_percenter = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team J', 0], ['Team G', 0], ['Team NIII', 0], ['Team Z', 0], ['Team SIII', 0], ['Team HIII', 0], ];
+        //神7票数
+        //var seriesTop7 = [];
+        //圈内人数
+        //var series_all_in = [{
+        //    name: 'Team SII',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team NII',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team HII',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team X',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team XII',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team B',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team E',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team J',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team G',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team NIII',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team Z',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team SIII',
+        //    data: [0, 0, 0, 0, 0]
+        //}, {
+        //    name: 'Team HIII',
+        //    data: [0, 0, 0, 0, 0]
+        //}];
+        //top16排名变化
+        //var series_top16_rank = [];
+        //top16名字
+        //var categories_top16 = [];
+        //top16票数增长数据
+        //var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
+        //var series_top16_increase = [{ name: '第三届票数', data: [] }, { name: '第四届票数增长', data: [] }];
+
+
+        var main = function () {
+            //成员归属队伍
+            $.each(memberResponse.rows, function (i, m) {
+                //if (m.tid == 150)
+                //    m.tid = 101;
+                let teams = groups.find((g) => g.id == m.gid).teams;
+
+                teams.find((t) => t.id == m.tid).members.push({
+                    name: m.sname,
+                    photo: "https://vote.48.cn/resource/img/member/zp_" + m.sid + ".jpg",
+                    weibo_url: m.weibo_url
+                })
+            })
+            //最上面的各队颜色
+            $(groups).each(function (i, g) {
+                $(g.teams).each(function (index, item) {
+                    item.enabled = item.members.length > 0;
+                    if (item.enabled)
+                        $("#team-color").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + item.name.split(' ').join('<br />') + '</div>');
+                });
+            });
+            
+            //统计计算
+            $(finalData.reverse()).each(function (i, item) {
+                let gid = item.team.substring(0, 2);
+                let teams = groups.find((g) => g.id == gid).teams;
+                teams.find((t) => t.id == item.team).vote += item.vote;
+
+                if(item._5th.rank <= 33)
+                    $("#vote-table-1").append('<tr><td>' + item.team + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+                else
+                    $("#vote-table-2").append('<tr><td>' + item.team + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+                ////总票数相加
+                //series_all_percenter[item.team][1] = series_all_percenter[item.team][1] + item.vote;
+                //sumvote += item.vote;
+                ////神7票数
+                //if (this.rank <= 7) {
+                //    seriesTop7.push({
+                //        rank: this.rank,
+                //        name: this.name,
+                //        vote: this.vote,
+                //        team: this.team,
+                //        color: team[this.team].color
+                //    });
+                //}
+                //if (this.rank < 17) {
+                //    series_all_in[this.team].data[0] = (series_all_in[this.team].data[0] * 10 + 10) / 10;
+                //    //Top16票数增长
+                //    series_top16_rank.push({ color: team[this.team].color, name: this.name, data: [this.rank3rd, this.rank] });
+                //    categories_top16.push(this.name);
+                //    series_top16_123[0].data.push(Math.round(this.vote * 10 - this.vote_2 * 10) / 10);
+                //    series_top16_123[1].data.push(Math.round(this.vote_2 * 10 - this.vote_1 * 10) / 10);
+                //    series_top16_123[2].data.push(this.vote_1);
+                //    series_top16_increase[0].data.push(this.vote_3rd);
+                //    series_top16_increase[1].data.push(Math.round(this.vote * 10 - this.vote_3rd * 10) / 10);
+                //} else if (this.rank < 33) {
+                //    series_all_in[this.team].data[1] = (series_all_in[this.team].data[1] * 10 + 10) / 10;
+                //} else if (this.rank < 49) {
+                //    series_all_in[this.team].data[2] = (series_all_in[this.team].data[2] * 10 + 10) / 10;
+                //} else {
+                //    series_all_in[this.team].data[3] = (series_all_in[this.team].data[3] * 10 + 10) / 10;
+                //}
+                ////圈内总人数
+                //series_all_in[this.team].data[4] = (series_all_in[this.team].data[4] * 10 + 10) / 10;
+            });
+        }
+        $(document).ready(function () {
+            $.getJSON("http://query.yahooapis.com/v1/public/yql", {
+                q: "select * from json where url='https://vote.48.cn/resource/json/vote_member.json'",
+                format: "json"
+            }, function (data, code) {
+                var $content = $("#content")
+                if (data.query.results) {
+                    var result = JSON.stringify(data.query.results);
+                    memberResponse.rows = data.query.results.json.rows;
+                    main();
+                } else {
+                    alert('no such code: ' + code);
+                }
+            });
+        })
+
+
+
+        //$(document).ready(function () {
+
+
+        //    function removeEmptyItem(arr) {
+        //        for (var i = 8; i >= 0; i--) {
+        //            if (arr[i][1] === 0) {
+        //                arr.splice(i, 1);
+        //            }
+        //        }
+        //    }
+        //    $('#chart-all-percenter').highcharts({
+        //        credits: { enabled: false },
+        //        chart: {
+        //            plotBackgroundColor: null,
+        //            plotBorderWidth: null,
+        //            plotShadow: false
+        //        },
+        //        title: {
+        //            text: '各队票数总和比例'
+        //        },
+        //        colors: colors,
+        //        tooltip: {
+        //            headerFormat: "<b>{point.key}</b><br/>",
+        //            pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
+        //        },
+        //        plotOptions: {
+        //            pie: {
+        //                allowPointSelect: true,
+        //                cursor: 'pointer',
+        //                dataLabels: { enabled: true, inside: true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
+        //                showInLegend: true
+        //            }
+        //        },
+        //        series:
+        //        [
+        //            {
+        //                type: 'pie',
+        //                name: '票数占比',
+        //                data: series_all_percenter
+        //            }
+        //        ]
+        //    });
+
+        //    seriesTop7.reverse();
+        //    //$(seriesTop7).each(function () {
+        //    //    $("#statis1").append('<tr><td>' + this.rank + '</td><td>' + this.name + '</td><td>' + this.vote + '</td><td>' + (this.vote * 100 / sumvote).toFixed(3) + '%</td></tr>')
+        //    //});
+        //    $('#chart-top7-percenter').highcharts({
+        //        credits: { enabled: false },
+        //        chart: {
+        //            type: 'column'
+        //        },
+        //        title: {
+        //            text: 'Top7票数比例'
+        //        },
+        //        subtitle: {
+        //            text: '圈内票数总和：' + sumvote.toFixed(1)
+        //        },
+        //        xAxis: {
+        //            categories: [seriesTop7[0].name, seriesTop7[1].name, seriesTop7[2].name, seriesTop7[3].name, seriesTop7[4].name, seriesTop7[5].name, seriesTop7[6].name]
+        //        },
+        //        yAxis: { min: 0, title: { text: '' } },
+        //        plotOptions: {
+        //            column: {
+        //                cursor: 'pointer',
+        //                dataLabels: {
+        //                    enabled: true,
+        //                    style: {
+        //                        fontWeight: 'bold'
+        //                    },
+        //                    formatter: function () {
+        //                        return (this.y * 100 / sumvote).toFixed(3) + ' %<br/>' + this.y + ' 票';
+        //                    }
+        //                }
+        //            }
+        //        },
+        //        series:
+        //        [
+        //            {
+        //                name: ' ',
+        //                data: [{ y: seriesTop7[0].vote, color: seriesTop7[0].color }, { y: seriesTop7[1].vote, color: seriesTop7[1].color }, { y: seriesTop7[2].vote, color: seriesTop7[2].color }, { y: seriesTop7[3].vote, color: seriesTop7[3].color }, { y: seriesTop7[4].vote, color: seriesTop7[4].color }, { y: seriesTop7[5].vote, color: seriesTop7[5].color }, { y: seriesTop7[6].vote, color: seriesTop7[6].color }],
+        //                color: "white"
+        //            }
+        //        ]
+        //    });
+
+        //    $('#chart-all-in').highcharts({
+        //        credits: { enabled: false },
+        //        colors: colors,
+        //        chart: { type: 'column' },
+        //        title: { text: '各组人数' },
+        //        xAxis: {
+        //            categories: ['1-16', '17-32', '33-48', '49-66', '圈内']
+        //        },
+        //        yAxis: { min: 0, title: { text: '' } },
+        //        tooltip: {
+        //            headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}</span><table>',
+        //            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y}</b></td></tr>',
+        //            footerFormat: '</table>',
+        //            shared: true,
+        //            useHTML: true
+        //        },
+        //        plotOptions: {
+        //            column: {
+        //                pointPadding: 0.2, borderWidth: 0,
+        //                dataLabels: {
+        //                    enabled: true,
+        //                    color: "#000000",
+        //                    style: { fontWeight: 'bold' },
+        //                    formatter: function () { return this.y === 0 ? "" : this.y }
+        //                }
+        //            }
+        //        },
+        //        series: series_all_in
+        //    });
+
+        //    series_top16_rank.reverse();
+        //    series_top16_123[0].data.reverse();
+        //    series_top16_123[1].data.reverse();
+        //    series_top16_123[2].data.reverse();
+        //    $('#chart-top16-rank').highcharts({
+        //        credits: { enabled: false },
+        //        chart: { type: 'line' },
+        //        title: { text: '第四届的Top16成员-名次变化' },
+        //        xAxis: {
+        //            categories: ['第三届', '第四届']
+        //        },
+        //        yAxis: { allowDecimals: false, title: { text: '' }, min: 1, max: 26, reversed: true },
+        //        tooltip: {
+        //            formatter: function () {
+        //                return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
+        //            }
+        //        },
+        //        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0 },
+        //        series: series_top16_rank
+        //    });
+        //    $('#chart-top16-123').highcharts({
+        //        credits: { enabled: false },
+        //        colors: [team[0].color, team[4].color, team[5].color],
+        //        chart: {
+        //            type: 'bar'
+        //        },
+        //        title: {
+        //            text: 'Top16速报中报终报票数分布图'
+        //        },
+        //        xAxis: {
+        //            categories: categories_top16.reverse()
+        //        },
+        //        yAxis: {
+        //            min: 0,
+        //            max: 280000,
+        //            title: {
+        //                text: ' '
+        //            }
+        //        },
+        //        legend: {
+        //            backgroundColor: '#FFFFFF',
+        //            reversed: true
+        //        },
+        //        tooltip: {
+        //            tooltip: {
+        //                headerFormat: '<b>{point.key}</b>',
+        //                pointFormat: '{series.name}: {point.y}',
+        //                valueDecimals: 1
+        //            },
+        //        },
+        //        plotOptions: {
+        //            series: {
+        //                stacking: 'normal'
+        //            }, dataLabels: {
+        //                enabled: true,
+        //                format: '{y :.1f}'
+        //            }
+        //        },
+        //        series: series_top16_123
+        //    });
+        //    series_top16_increase[0].data.reverse();
+        //    series_top16_increase[1].data.reverse();
+        //    $('#chart-top16-increase').highcharts({
+        //        credits: { enabled: false },
+        //        colors: [team[0].color, team[4].color],
+        //        chart: {
+        //            type: 'bar'
+        //        },
+        //        title: {
+        //            text: 'Top16票数增长量图'
+        //        },
+        //        xAxis: {
+        //            categories: categories_top16
+        //        },
+        //        yAxis: {
+        //            min: 0,
+        //            max: 281000,
+        //            title: {
+        //                text: ' '
+        //            }
+        //        },
+        //        legend: {
+        //            backgroundColor: '#FFFFFF'
+        //        },
+        //        tooltip: {
+        //            headerFormat: '<b>{point.key}</b><br/>',
+        //            pointFormat: '{series.name}: {point.y:.1f}',
+        //            valueDecimals: 1
+        //        },
+        //        plotOptions: {
+        //            series: {
+        //                stacking: 'normal'
+        //            },
+        //            dataLabels: {
+        //                enabled: true,
+        //                format: '{y :.1f}'
+        //            }
+        //        },
+        //        series: series_top16_increase
+        //    });
+        //    $('#chart-history').highcharts({
+        //        credits: { enabled: false },
+        //        chart: {
+        //            type: 'line'
+        //        },
+        //        title: {
+        //            text: '各届总选总票数'
+        //        },
+        //        xAxis: {
+        //            categories: ['一选', '二选', '三选', '四选']
+        //        },
+        //        yAxis: {
+        //            title: {
+        //                enabled: false
+        //            }
+        //        },
+        //        plotOptions: {
+        //            line: {
+        //                dataLabels: {
+        //                    enabled: true,          // 开启数据标签
+        //                    format: '{y:.1f}'
+        //                },
+        //                enableMouseTracking: false // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+        //            }
+        //        },
+        //        legend: { enabled: false },
+        //        series: [{
+        //            data: [134816, 696584.7, 1758676.6, sumvote]
+        //        }]
+        //    });
+
+        //    //$('#chart-table').highcharts({
+        //    //    data: {
+        //    //        table: 'datatable'
+        //    //    },
+        //    //    chart: {
+        //    //        type: 'column'
+        //    //    },
+        //    //    title: {
+        //    //        text: '从 HTML 表格中提取数据并生成图表'
+        //    //    },
+        //    //    yAxis: {
+        //    //        allowDecimals: false,
+        //    //        title: {
+        //    //            text: '个',
+        //    //            rotation: 0
+        //    //        }
+        //    //    },
+        //    //    tooltip: {
+        //    //        formatter: function () {
+        //    //            return '<b>' + this.series.name + '</b><br/>' +
+        //    //                this.point.y + ' 个' + this.point.name.toLowerCase();
+        //    //        }
+        //    //    }
+        //    //});
+
+        //});
+    </script>
+
+</body>
+</html>
