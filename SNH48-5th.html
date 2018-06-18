@@ -1,27 +1,37 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SNH48 GROUP 第四届偶像年度人气总决选</title>
+    <title>SNH48 GROUP 第五届偶像年度人气总决选</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <style type="text/css">
         .row {
-            margin-bottom: 4em;
+            margin-top: 1.6em;
         }
 
         #team-color {
-            margin-bottom: 0;
+            margin-top: 0;
         }
 
             #team-color .teamName, #team-index .teamName {
                 width: calc(100% / 19);
                 float: left;
                 white-space: pre-line;
+            }
+
+        .table tr td, .table tr th {
+            font-weight: bolder;
+        }
+
+            .table tr td:nth-child(1) {
+                text-align: center;
+                width: 45px;
+                vertical-align: middle;
             }
     </style>
 </head>
@@ -30,19 +40,23 @@
         <div class="row" id="team-color"></div>
         <div class="row">
             <div class="col-xs-6">
-                <table id="vote-table-1" class="table">
+                <table id="vote-table-1" class="table table-bordered">
                     <tr>
+                        <th></th>
                         <th>所属队伍</th>
-                        <th>所属队伍</th>
+                        <th>原队伍</th>
+                        <th>成员姓名</th>
                         <th>得票数</th>
                     </tr>
                 </table>
             </div>
             <div class="col-xs-6">
-                <table id="vote-table-2" class="table">
+                <table id="vote-table-2" class="table table-bordered">
                     <tr>
+                        <th></th>
                         <th>所属队伍</th>
-                        <th>所属队伍</th>
+                        <th>原队伍</th>
+                        <th>成员姓名</th>
                         <th>得票数</th>
                     </tr>
                 </table>
@@ -100,31 +114,55 @@
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team NII",
-                color: "#AE86BA",
+                color: "#ae86bb",
                 id: "102",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team HII",
-                color: "#F49600",
+                color: "#f39800",
                 id: "103",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team X",
-                color: "#94D401",
+                color: "#a9cc29",
                 id: "104",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team XII",
                 color: "#03C070",
@@ -132,23 +170,41 @@
                 enabled: false,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team Ft",
-                color: "#e10164",
+                color: "#41b400",
                 id: "106",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "SNH48 预备生",
-                color: "#A8B0BB",
+                color: "#a7b0ba",
                 id: "150",
                 enabled: false,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }],
             vote: 0,
             _in: 0
@@ -157,36 +213,60 @@
             name: "BEJ48",
             teams: [{
                 name: "Team B",
-                color: "#EF1B52",
+                color: "#ff2471",
                 id: "201",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in:0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team E",
-                color: "#00C8C3",
+                color: "#0cc8c3",
                 id: "202",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team J",
-                color: "#006AB6",
+                color: "#006ab7",
                 id: "203",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "BEJ48 预备生",
-                color: "#a7b0ba",
+                color: "#ff2471",
                 id: "210",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }],
             vote: 0,
             _in: 0
@@ -195,35 +275,59 @@
             name: "GNZ48",
             teams: [{
                 name: "Team G",
-                color: "#9FBF40",
+                color: "#aac913",
                 id: "301", enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team NIII",
-                color: "#FFE249",
+                color: "#ffd700",
                 id: "302",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team Z",
-                color: "#EA617B",
+                color: "#ea627c",
                 id: "303",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "GNZ48 预备生",
-                color: "#a7b0ba",
+                color: "#aac913",
                 id: "304",
-                enabled: false,
+                enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }],
             vote: 0,
             _in: 0
@@ -231,37 +335,61 @@
             id: "40",
             name: "SHY48",
             teams: [{
-                name: "Team G",
-                color: "#9FBF40",
+                name: "Team SIII",
+                color: "#e60895",
                 id: "401",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
-                name: "Team NIII",
-                color: "#FFE249",
+                name: "Team HIII",
+                color: "#4d008c",
                 id: "402",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
-                name: "Team Z",
+                name: "Team Y",
                 color: "#EA617B",
                 id: "403",
-                enabled: true,
+                enabled: false,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
-                name: "GNZ48 预备生",
+                name: "SHY48 预备生",
                 color: "#a7b0ba",
                 id: "304",
                 enabled: false,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }],
             vote: 0,
             _in: 0
@@ -270,20 +398,46 @@
             name: "CKG48",
             teams: [{
                 name: "Team C",
-                color: "#96510E",
+                color: "#9e6124",
                 id: "501",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "Team K",
-                color: "#FF5043",
+                color: "#ff5043",
                 id: "502",
                 enabled: true,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
+            }, {
+                name: "Team GII",
+                color: "#ff5043",
+                id: "503",
+                enabled: true,
+                members: [],
+                vote: 0,
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }, {
                 name: "CKG48 预备生",
                 color: "#a7b0ba",
@@ -291,12 +445,27 @@
                 enabled: false,
                 members: [],
                 vote: 0,
-                _in: 0
+                _in: {
+                    sum: 0,
+                    t16: 0,
+                    t32: 0,
+                    t48: 0,
+                    t66: 0
+                }
             }],
             vote: 0,
             _in: 0
         }]
         var memberResponse = { total: 303, rows: [] }
+        //总票数
+        var sumvote = 0.0;
+
+        function getTeamColorByTeamId(teamId) {
+            let group = groups.find((g) => g.id == (teamId.substring(0, 1) + "0"));
+            return group.teams.find((t) => t.id == teamId).color;
+        }
+    </script>
+    <script type="text/javascript">
         var finalData = [
             {
                 name: "",
@@ -306,7 +475,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 66, vote: 0 }
+                _5th: { rank: 66, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -316,7 +485,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 65, vote: 0 }
+                _5th: { rank: 65, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -326,7 +495,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 64, vote: 0 }
+                _5th: { rank: 64, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -336,7 +505,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 63, vote: 0 }
+                _5th: { rank: 63, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -346,7 +515,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 62, vote: 0 }
+                _5th: { rank: 62, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -356,7 +525,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 61, vote: 0 }
+                _5th: { rank: 61, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -366,7 +535,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 60, vote: 0 }
+                _5th: { rank: 60, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -376,7 +545,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 59, vote: 0 }
+                _5th: { rank: 59, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -386,7 +555,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 58, vote: 0 }
+                _5th: { rank: 58, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -396,7 +565,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 57, vote: 0 }
+                _5th: { rank: 57, s: 0, z: 0, vote: 0 }
             },
 
 
@@ -408,7 +577,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 56, vote: 0 }
+                _5th: { rank: 56, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -418,7 +587,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 55, vote: 0 }
+                _5th: { rank: 55, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -428,7 +597,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 54, vote: 0 }
+                _5th: { rank: 54, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -438,7 +607,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 53, vote: 0 }
+                _5th: { rank: 53, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -448,7 +617,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 52, vote: 0 }
+                _5th: { rank: 52, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -458,7 +627,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 51, vote: 0 }
+                _5th: { rank: 51, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -468,7 +637,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 50, vote: 0 }
+                _5th: { rank: 50, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -477,7 +646,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 49, vote: 0 }
+                _5th: { rank: 49, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -487,7 +656,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 48, vote: 0 }
+                _5th: { rank: 48, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -497,7 +666,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 47, vote: 0 }
+                _5th: { rank: 47, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -507,7 +676,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 46, vote: 0 }
+                _5th: { rank: 46, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -517,7 +686,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 45, vote: 0 }
+                _5th: { rank: 45, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -527,7 +696,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 44, vote: 0 }
+                _5th: { rank: 44, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -537,7 +706,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 43, vote: 0 }
+                _5th: { rank: 43, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -547,7 +716,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 42, vote: 0 }
+                _5th: { rank: 42, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -557,7 +726,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 41, vote: 0 }
+                _5th: { rank: 41, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -567,7 +736,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 40, vote: 0 }
+                _5th: { rank: 40, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -577,7 +746,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 39, vote: 0 }
+                _5th: { rank: 39, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -587,7 +756,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 38, vote: 0 }
+                _5th: { rank: 38, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -597,7 +766,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 37, vote: 0 }
+                _5th: { rank: 37, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -607,7 +776,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 36, vote: 0 }
+                _5th: { rank: 36, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -617,7 +786,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 35, vote: 0 }
+                _5th: { rank: 35, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "袁雨桢",
@@ -627,7 +796,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 34, vote: 0 }
+                _5th: { rank: 34, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "洪珮雲",
@@ -637,7 +806,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 33, vote: 0 }
+                _5th: { rank: 33, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -647,7 +816,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 32, vote: 0 }
+                _5th: { rank: 32, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -657,7 +826,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 31, vote: 0 }
+                _5th: { rank: 31, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -667,7 +836,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 30, vote: 0 }
+                _5th: { rank: 30, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -677,7 +846,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 29, vote: 0 }
+                _5th: { rank: 29, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -687,7 +856,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 28, vote: 0 }
+                _5th: { rank: 28, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -697,7 +866,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 27, vote: 0 }
+                _5th: { rank: 27, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -707,7 +876,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 26, vote: 0 }
+                _5th: { rank: 26, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -717,7 +886,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 25, vote: 0 }
+                _5th: { rank: 25, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -727,7 +896,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 24, vote: 0 }
+                _5th: { rank: 24, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -737,7 +906,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 23, vote: 0 }
+                _5th: { rank: 23, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -747,7 +916,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 22, vote: 0 }
+                _5th: { rank: 22, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -757,7 +926,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 21, vote: 0 }
+                _5th: { rank: 21, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
@@ -767,57 +936,57 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 20, vote: 0 }
+                _5th: { rank: 20, s: 0, z: 0, vote: 0 }
             },
             {
-                name: "",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 19, vote: 0 }
-            },
-            {
-                name: "",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 18, vote: 0 }
-            },
-            {
-                name: "",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 17, vote: 0 }
-            },
-            {
-                name: "",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 16, s: 0, z: 0, vote: 0 }
-            },
-            {
-                name: "",
+                name: "姜杉",
                 team: "103",
-                original: "102",
+                original: "105",
                 _1st: { rank: outRank, vote: 0 },
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: outRank, vote: 0 },
                 _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 15, s: 0, z: 0, vote: 0 }
+                _5th: { rank: 19, s: 0, z: 0, vote: 0 }
+            },
+            {
+                name: "刘力菲",
+                team: "302",
+                original: "302",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 18, s: 8843.24, z: 0, vote: 0 }
+            },
+            {
+                name: "谢蕾蕾",
+                team: "301",
+                original: "301",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 17, s: 13445.46, z: 0, vote: 0 }
+            },
+            {
+                name: "郑丹妮",
+                team: "302",
+                original: "302",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 16, s: 14273.94, z: 0, vote: 0 }
+            },
+            {
+                name: "杨冰怡",
+                team: "104",
+                original: "104",
+                _1st: { rank: outRank, vote: 0 },
+                _2nd: { rank: outRank, vote: 0 },
+                _3rd: { rank: outRank, vote: 0 },
+                _4th: { rank: outRank, vote: 0 },
+                _5th: { rank: 15, s: 14768.28, z: 0, vote: 0 }
             },
             {
                 name: "李宇琪",
@@ -857,7 +1026,7 @@
                 _2nd: { rank: outRank, vote: 0 },
                 _3rd: { rank: 43, vote: 12477.2 },
                 _4th: { rank: 13, vote: 46825.4 },
-                _5th: { rank: 11, s: 11135.7, z: 13891.0, vote: 46825.4 }
+                _5th: { rank: 11, s: 2021.50, z: 13891.0, vote: 46825.4 }
             },
             {
                 name: "孔肖吟",
@@ -877,7 +1046,7 @@
                 _2nd: { rank: 15, vote: 17907.3 },
                 _3rd: { rank: 12, vote: 41511.8 },
                 _4th: { rank: 11, vote: 53569.1 },
-                _5th: { rank: 9, s: 2103.1, z: 11812.8, vote: 53569.1 }
+                _5th: { rank: 9, s: 0, z: 11812.8, vote: 53569.1 }
             },
             {
                 name: "许佳琪",
@@ -897,7 +1066,7 @@
                 _2nd: { rank: 5, vote: 32306.0 },
                 _3rd: { rank: 8, vote: 66867.5 },
                 _4th: { rank: 9, vote: 78345.6 },
-                _5th: { rank: 7, s: 3542.0, z: 7858.2, vote: 78345.6 }
+                _5th: { rank: 7, s: 4257.54, z: 7858.2, vote: 78345.6 }
             },
             {
                 name: "莫寒",
@@ -947,7 +1116,7 @@
                 _2nd: { rank: 4, vote: 35189.0 },
                 _3rd: { rank: 3, vote: 0 },
                 _4th: { rank: 3, vote: 165193.8 },
-                _5th: { rank: 2, s: 29027.3, z: 84353.2, vote: 165193.8 }
+                _5th: { rank: 2, s: 2097.52, z: 84353.2, vote: 165193.8 }
             },
             {
                 name: "李艺彤",
@@ -957,72 +1126,47 @@
                 _2nd: { rank: 3, vote: 47134.5 },
                 _3rd: { rank: 2, vote: 169971.4 },
                 _4th: { rank: 2, vote: 259478.6 },
-                _5th: { rank: 1, s: 6087.3, z: 112004.4, vote: 259478.6 }
+                _5th: { rank: 1, s: 19769.60, z: 112004.4, vote: 259478.6 }
             },
         ];
-        //总票数
-        var sumvote = 0.0;
         //各队颜色，饼图用
-        //var colors = [team[0].color, team[1].color, team[2].color, team[3].color, team[4].color, team[5].color, team[6].color, team[7].color, team[8].color, team[9].color, team[10].color, team[11].color, team[12].color];
+        var colors = [];
         //各队票数比例
-        //var series_all_percenter = [['Team SII', 0], ['Team NII', 0], ['Team HII', 0], ['Team X', 0], ['Team XII', 0], ['Team B', 0], ['Team E', 0], ['Team J', 0], ['Team G', 0], ['Team NIII', 0], ['Team Z', 0], ['Team SIII', 0], ['Team HIII', 0], ];
+        var series_all_percenter = [];
         //神7票数
-        //var seriesTop7 = [];
-        //圈内人数
-        //var series_all_in = [{
-        //    name: 'Team SII',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team NII',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team HII',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team X',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team XII',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team B',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team E',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team J',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team G',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team NIII',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team Z',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team SIII',
-        //    data: [0, 0, 0, 0, 0]
-        //}, {
-        //    name: 'Team HIII',
-        //    data: [0, 0, 0, 0, 0]
-        //}];
+        var seriesTop7 = [];
+        //圈内各组人数,1-16,17-32,33-48,49-66
+        var series_all_in = [];
         //top16排名变化
-        //var series_top16_rank = [];
+        var series_top16_rank = [];
         //top16名字
-        //var categories_top16 = [];
+        var categories_top16 = [];
         //top16票数增长数据
-        //var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
-        //var series_top16_increase = [{ name: '第三届票数', data: [] }, { name: '第四届票数增长', data: [] }];
+        var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
+        var series_top16_increase = [{ name: '第四届票数', data: [] }, { name: '第五届票数增长', data: [] }];
+
+        function addVote(targetTeam, vote, rank) {
+            let gid = targetTeam.id.substring(0, 1) + "0";
+            let group = groups.find((g) => g.id == gid);
+            ++group._in;
+            group.vote = (group.vote * 100 + vote * 100) / 100;
 
 
-        var main = function () {
+            targetTeam.vote = (targetTeam.vote * 100 + vote * 100) / 100;
+            ++targetTeam._in.sum;
+            if (rank > 48 && rank <= 66)
+                ++targetTeam._in.t66;
+            if (rank > 32 && rank <= 48)
+                ++targetTeam._in.t48;
+            if (rank > 16 && rank <= 32)
+                ++targetTeam._in.t32;
+            if (rank <= 16)
+                ++targetTeam._in.t16;
+        }
+
+        function main() {
             //成员归属队伍
             $.each(memberResponse.rows, function (i, m) {
-                //if (m.tid == 150)
-                //    m.tid = 101;
                 let teams = groups.find((g) => g.id == m.gid).teams;
 
                 teams.find((t) => t.id == m.tid).members.push({
@@ -1039,20 +1183,23 @@
                         $("#team-color").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + item.name.split(' ').join('<br />') + '</div>');
                 });
             });
-            
+
             //统计计算
             $(finalData.reverse()).each(function (i, item) {
-                let gid = item.team.substring(0, 2);
-                let teams = groups.find((g) => g.id == gid).teams;
-                teams.find((t) => t.id == item.team).vote += item.vote;
+                let gid = item.team.substring(0, 1) + "0";
+                let group = groups.find((g) => g.id == gid);
+                let targetTeam = group.teams.find((t) => t.id == item.team);
+                let originalTeam = group.teams.find((t) => t.id == item.original);
+                addVote(targetTeam, item._5th.vote, item._5th.rank);
 
-                if(item._5th.rank <= 33)
-                    $("#vote-table-1").append('<tr><td>' + item.team + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+                if (item._5th.rank <= 33)
+                    $("#vote-table-1").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
                 else
-                    $("#vote-table-2").append('<tr><td>' + item.team + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+                    $("#vote-table-2").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+
                 ////总票数相加
                 //series_all_percenter[item.team][1] = series_all_percenter[item.team][1] + item.vote;
-                //sumvote += item.vote;
+                sumvote += item._5th.vote;
                 ////神7票数
                 //if (this.rank <= 7) {
                 //    seriesTop7.push({
@@ -1063,26 +1210,42 @@
                 //        color: team[this.team].color
                 //    });
                 //}
-                //if (this.rank < 17) {
-                //    series_all_in[this.team].data[0] = (series_all_in[this.team].data[0] * 10 + 10) / 10;
-                //    //Top16票数增长
-                //    series_top16_rank.push({ color: team[this.team].color, name: this.name, data: [this.rank3rd, this.rank] });
-                //    categories_top16.push(this.name);
-                //    series_top16_123[0].data.push(Math.round(this.vote * 10 - this.vote_2 * 10) / 10);
-                //    series_top16_123[1].data.push(Math.round(this.vote_2 * 10 - this.vote_1 * 10) / 10);
-                //    series_top16_123[2].data.push(this.vote_1);
-                //    series_top16_increase[0].data.push(this.vote_3rd);
-                //    series_top16_increase[1].data.push(Math.round(this.vote * 10 - this.vote_3rd * 10) / 10);
-                //} else if (this.rank < 33) {
-                //    series_all_in[this.team].data[1] = (series_all_in[this.team].data[1] * 10 + 10) / 10;
-                //} else if (this.rank < 49) {
-                //    series_all_in[this.team].data[2] = (series_all_in[this.team].data[2] * 10 + 10) / 10;
-                //} else {
-                //    series_all_in[this.team].data[3] = (series_all_in[this.team].data[3] * 10 + 10) / 10;
-                //}
-                ////圈内总人数
-                //series_all_in[this.team].data[4] = (series_all_in[this.team].data[4] * 10 + 10) / 10;
+                if (item._5th.rank < 17) {
+                    //series_all_in[item.team].data[0] = (series_all_in[item.team].data[0] * 100 + 100) / 100;
+                    //Top16票数增长
+                    series_top16_rank.push({ color: getTeamColorByTeamId(item.team), name: item.name, data: [item._4th.rank, item._5th.rank] });
+                    categories_top16.push(item.name);
+
+                    series_top16_123[0].data.push(Math.round(item._5th.vote * 100 - item._5th.z * 100) / 100);
+                    series_top16_123[1].data.push(Math.round(item._5th.z * 100 - item._5th.s * 100) / 100);
+                    series_top16_123[2].data.push(item._5th.s);
+                    series_top16_increase[0].data.push(item._4th.vote);
+                    series_top16_increase[1].data.push(Math.round(item._5th.vote * 100 - item._4th.vote * 100) / 100);
+                } else if (item._5th.rank < 33) {
+                    //series_all_in[item.team].data[1] = (series_all_in[item.team].data[1] * 100 + 100) / 100;
+                } else if (item._5th.rank < 49) {
+                    //series_all_in[item.team].data[2] = (series_all_in[item.team].data[2] * 100 + 100) / 100;
+                } else {
+                    //series_all_in[item.team].data[3] = (series_all_in[item.team].data[3] * 100 + 100) / 100;
+                }
+                //圈内总人数
+                //series_all_in[item.team].data[4] = (series_all_in[item.team].data[4] * 100 + 100) / 100;
             });
+
+            //统计完毕之后的数据处理
+            $.each(groups, function (i, group) {
+                if (group._in > 0) {
+                    $.each(group.teams, function (j, team) {
+                        if (team._in.sum > 0) {
+                            series_all_in.push({
+                                name: team.name,
+                                data: [team._in.t16, team._in.t32, team._in.t48, team._in.t66, team._in.sum]
+                            })
+                            colors.push(getTeamColorByTeamId(team.id))
+                        }
+                    })
+                }
+            })
         }
         $(document).ready(function () {
             $.getJSON("http://query.yahooapis.com/v1/public/yql", {
@@ -1094,287 +1257,260 @@
                     var result = JSON.stringify(data.query.results);
                     memberResponse.rows = data.query.results.json.rows;
                     main();
+                    initChart();
                 } else {
                     alert('no such code: ' + code);
                 }
             });
         })
 
+        function removeEmptyItem(arr) {
+            for (var i = 8; i >= 0; i--) {
+                if (arr[i][1] === 0) {
+                    arr.splice(i, 1);
+                }
+            }
+        }
 
+        function initChart() {
+            series_top16_rank.reverse();
+            series_top16_123[0].data.reverse();
+            series_top16_123[1].data.reverse();
+            series_top16_123[2].data.reverse();
+            $('#chart-top16-123').highcharts({
+                credits: { enabled: false },
+                colors: ["#624A84", "#91CCEA", "A9CC29"],
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16速报中报终报票数分布图'
+                },
+                xAxis: {
+                    categories: categories_top16.reverse()
+                },
+                yAxis: {
+                    min: 0,
+                    max: 280000,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF',
+                    reversed: true
+                },
+                tooltip: {
+                    tooltip: {
+                        headerFormat: '<b>{point.key}</b>',
+                        pointFormat: '{series.name}: {point.y}',
+                        valueDecimals: 1
+                    },
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }, dataLabels: {
+                        enabled: true,
+                        format: '{y :.1f}'
+                    }
+                },
+                series: series_top16_123
+            });
+            series_top16_increase[0].data.reverse();
+            series_top16_increase[1].data.reverse();
+            $('#chart-top16-increase').highcharts({
+                credits: { enabled: false },
+                colors: ["#F6C964", "#624A84"],
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16票数增长量图'
+                },
+                xAxis: {
+                    categories: categories_top16
+                },
+                yAxis: {
+                    min: 0,
+                    max: 281000,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF'
+                },
+                tooltip: {
+                    headerFormat: '<b>{point.key}</b><br/>',
+                    pointFormat: '{series.name}: {point.y:.1f}',
+                    valueDecimals: 1
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{y :.1f}'
+                    }
+                },
+                series: series_top16_increase
+            });
+            $('#chart-history').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: '各届总选总票数'
+                },
+                xAxis: {
+                    categories: ['一选', '二选', '三选', '四选', '五选']
+                },
+                yAxis: {
+                    title: {
+                        enabled: false
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true,          // 开启数据标签
+                            format: '{y:.1f}'
+                        },
+                        enableMouseTracking: false // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                    }
+                },
+                legend: { enabled: false },
+                series: [{
+                    data: [134816, 696584.7, 1758676.6, 2770146.8, sumvote]
+                }]
+            });
 
-        //$(document).ready(function () {
+            $('#chart-top16-rank').highcharts({
+                credits: { enabled: false },
+                chart: { type: 'line' },
+                title: { text: '第五届的Top16成员-名次变化' },
+                xAxis: {
+                    categories: ['第四届', '第五届']
+                },
+                yAxis: { allowDecimals: false, title: { text: '' }, min: 1, max: 26, reversed: true },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
+                    }
+                },
+                legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0 },
+                series: series_top16_rank
+            });
 
+            $('#chart-all-in').highcharts({
+                credits: { enabled: false },
+                colors: colors,
+                chart: { type: 'column' },
+                title: { text: '各组人数' },
+                xAxis: {
+                    categories: ['1-16', '17-32', '33-48', '49-66', '圈内']
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                tooltip: {
+                    headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2, borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            color: "#000000",
+                            style: { fontWeight: 'bold' },
+                            formatter: function () { return this.y === 0 ? "" : this.y }
+                        }
+                    }
+                },
+                series: series_all_in
+            });
+            return;
+            $('#chart-all-percenter').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '各队票数总和比例'
+                },
+                colors: colors,
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, inside: true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
+                        showInLegend: true
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '票数占比',
+                        data: series_all_percenter
+                    }
+                ]
+            });
 
-        //    function removeEmptyItem(arr) {
-        //        for (var i = 8; i >= 0; i--) {
-        //            if (arr[i][1] === 0) {
-        //                arr.splice(i, 1);
-        //            }
-        //        }
-        //    }
-        //    $('#chart-all-percenter').highcharts({
-        //        credits: { enabled: false },
-        //        chart: {
-        //            plotBackgroundColor: null,
-        //            plotBorderWidth: null,
-        //            plotShadow: false
-        //        },
-        //        title: {
-        //            text: '各队票数总和比例'
-        //        },
-        //        colors: colors,
-        //        tooltip: {
-        //            headerFormat: "<b>{point.key}</b><br/>",
-        //            pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
-        //        },
-        //        plotOptions: {
-        //            pie: {
-        //                allowPointSelect: true,
-        //                cursor: 'pointer',
-        //                dataLabels: { enabled: true, inside: true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
-        //                showInLegend: true
-        //            }
-        //        },
-        //        series:
-        //        [
-        //            {
-        //                type: 'pie',
-        //                name: '票数占比',
-        //                data: series_all_percenter
-        //            }
-        //        ]
-        //    });
-
-        //    seriesTop7.reverse();
-        //    //$(seriesTop7).each(function () {
-        //    //    $("#statis1").append('<tr><td>' + this.rank + '</td><td>' + this.name + '</td><td>' + this.vote + '</td><td>' + (this.vote * 100 / sumvote).toFixed(3) + '%</td></tr>')
-        //    //});
-        //    $('#chart-top7-percenter').highcharts({
-        //        credits: { enabled: false },
-        //        chart: {
-        //            type: 'column'
-        //        },
-        //        title: {
-        //            text: 'Top7票数比例'
-        //        },
-        //        subtitle: {
-        //            text: '圈内票数总和：' + sumvote.toFixed(1)
-        //        },
-        //        xAxis: {
-        //            categories: [seriesTop7[0].name, seriesTop7[1].name, seriesTop7[2].name, seriesTop7[3].name, seriesTop7[4].name, seriesTop7[5].name, seriesTop7[6].name]
-        //        },
-        //        yAxis: { min: 0, title: { text: '' } },
-        //        plotOptions: {
-        //            column: {
-        //                cursor: 'pointer',
-        //                dataLabels: {
-        //                    enabled: true,
-        //                    style: {
-        //                        fontWeight: 'bold'
-        //                    },
-        //                    formatter: function () {
-        //                        return (this.y * 100 / sumvote).toFixed(3) + ' %<br/>' + this.y + ' 票';
-        //                    }
-        //                }
-        //            }
-        //        },
-        //        series:
-        //        [
-        //            {
-        //                name: ' ',
-        //                data: [{ y: seriesTop7[0].vote, color: seriesTop7[0].color }, { y: seriesTop7[1].vote, color: seriesTop7[1].color }, { y: seriesTop7[2].vote, color: seriesTop7[2].color }, { y: seriesTop7[3].vote, color: seriesTop7[3].color }, { y: seriesTop7[4].vote, color: seriesTop7[4].color }, { y: seriesTop7[5].vote, color: seriesTop7[5].color }, { y: seriesTop7[6].vote, color: seriesTop7[6].color }],
-        //                color: "white"
-        //            }
-        //        ]
-        //    });
-
-        //    $('#chart-all-in').highcharts({
-        //        credits: { enabled: false },
-        //        colors: colors,
-        //        chart: { type: 'column' },
-        //        title: { text: '各组人数' },
-        //        xAxis: {
-        //            categories: ['1-16', '17-32', '33-48', '49-66', '圈内']
-        //        },
-        //        yAxis: { min: 0, title: { text: '' } },
-        //        tooltip: {
-        //            headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}</span><table>',
-        //            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y}</b></td></tr>',
-        //            footerFormat: '</table>',
-        //            shared: true,
-        //            useHTML: true
-        //        },
-        //        plotOptions: {
-        //            column: {
-        //                pointPadding: 0.2, borderWidth: 0,
-        //                dataLabels: {
-        //                    enabled: true,
-        //                    color: "#000000",
-        //                    style: { fontWeight: 'bold' },
-        //                    formatter: function () { return this.y === 0 ? "" : this.y }
-        //                }
-        //            }
-        //        },
-        //        series: series_all_in
-        //    });
-
-        //    series_top16_rank.reverse();
-        //    series_top16_123[0].data.reverse();
-        //    series_top16_123[1].data.reverse();
-        //    series_top16_123[2].data.reverse();
-        //    $('#chart-top16-rank').highcharts({
-        //        credits: { enabled: false },
-        //        chart: { type: 'line' },
-        //        title: { text: '第四届的Top16成员-名次变化' },
-        //        xAxis: {
-        //            categories: ['第三届', '第四届']
-        //        },
-        //        yAxis: { allowDecimals: false, title: { text: '' }, min: 1, max: 26, reversed: true },
-        //        tooltip: {
-        //            formatter: function () {
-        //                return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
-        //            }
-        //        },
-        //        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0 },
-        //        series: series_top16_rank
-        //    });
-        //    $('#chart-top16-123').highcharts({
-        //        credits: { enabled: false },
-        //        colors: [team[0].color, team[4].color, team[5].color],
-        //        chart: {
-        //            type: 'bar'
-        //        },
-        //        title: {
-        //            text: 'Top16速报中报终报票数分布图'
-        //        },
-        //        xAxis: {
-        //            categories: categories_top16.reverse()
-        //        },
-        //        yAxis: {
-        //            min: 0,
-        //            max: 280000,
-        //            title: {
-        //                text: ' '
-        //            }
-        //        },
-        //        legend: {
-        //            backgroundColor: '#FFFFFF',
-        //            reversed: true
-        //        },
-        //        tooltip: {
-        //            tooltip: {
-        //                headerFormat: '<b>{point.key}</b>',
-        //                pointFormat: '{series.name}: {point.y}',
-        //                valueDecimals: 1
-        //            },
-        //        },
-        //        plotOptions: {
-        //            series: {
-        //                stacking: 'normal'
-        //            }, dataLabels: {
-        //                enabled: true,
-        //                format: '{y :.1f}'
-        //            }
-        //        },
-        //        series: series_top16_123
-        //    });
-        //    series_top16_increase[0].data.reverse();
-        //    series_top16_increase[1].data.reverse();
-        //    $('#chart-top16-increase').highcharts({
-        //        credits: { enabled: false },
-        //        colors: [team[0].color, team[4].color],
-        //        chart: {
-        //            type: 'bar'
-        //        },
-        //        title: {
-        //            text: 'Top16票数增长量图'
-        //        },
-        //        xAxis: {
-        //            categories: categories_top16
-        //        },
-        //        yAxis: {
-        //            min: 0,
-        //            max: 281000,
-        //            title: {
-        //                text: ' '
-        //            }
-        //        },
-        //        legend: {
-        //            backgroundColor: '#FFFFFF'
-        //        },
-        //        tooltip: {
-        //            headerFormat: '<b>{point.key}</b><br/>',
-        //            pointFormat: '{series.name}: {point.y:.1f}',
-        //            valueDecimals: 1
-        //        },
-        //        plotOptions: {
-        //            series: {
-        //                stacking: 'normal'
-        //            },
-        //            dataLabels: {
-        //                enabled: true,
-        //                format: '{y :.1f}'
-        //            }
-        //        },
-        //        series: series_top16_increase
-        //    });
-        //    $('#chart-history').highcharts({
-        //        credits: { enabled: false },
-        //        chart: {
-        //            type: 'line'
-        //        },
-        //        title: {
-        //            text: '各届总选总票数'
-        //        },
-        //        xAxis: {
-        //            categories: ['一选', '二选', '三选', '四选']
-        //        },
-        //        yAxis: {
-        //            title: {
-        //                enabled: false
-        //            }
-        //        },
-        //        plotOptions: {
-        //            line: {
-        //                dataLabels: {
-        //                    enabled: true,          // 开启数据标签
-        //                    format: '{y:.1f}'
-        //                },
-        //                enableMouseTracking: false // 关闭鼠标跟踪，对应的提示框、点击事件会失效
-        //            }
-        //        },
-        //        legend: { enabled: false },
-        //        series: [{
-        //            data: [134816, 696584.7, 1758676.6, sumvote]
-        //        }]
-        //    });
-
-        //    //$('#chart-table').highcharts({
-        //    //    data: {
-        //    //        table: 'datatable'
-        //    //    },
-        //    //    chart: {
-        //    //        type: 'column'
-        //    //    },
-        //    //    title: {
-        //    //        text: '从 HTML 表格中提取数据并生成图表'
-        //    //    },
-        //    //    yAxis: {
-        //    //        allowDecimals: false,
-        //    //        title: {
-        //    //            text: '个',
-        //    //            rotation: 0
-        //    //        }
-        //    //    },
-        //    //    tooltip: {
-        //    //        formatter: function () {
-        //    //            return '<b>' + this.series.name + '</b><br/>' +
-        //    //                this.point.y + ' 个' + this.point.name.toLowerCase();
-        //    //        }
-        //    //    }
-        //    //});
-
-        //});
+            seriesTop7.reverse();
+            //$(seriesTop7).each(function () {
+            //    $("#statis1").append('<tr><td>' + this.rank + '</td><td>' + this.name + '</td><td>' + this.vote + '</td><td>' + (this.vote * 1000 / sumvote).toFixed(3) + '%</td></tr>')
+            //});
+            $('#chart-top7-percenter').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Top7票数比例'
+                },
+                subtitle: {
+                    text: '圈内票数总和：' + sumvote.toFixed(1)
+                },
+                xAxis: {
+                    categories: [seriesTop7[0].name, seriesTop7[1].name, seriesTop7[2].name, seriesTop7[3].name, seriesTop7[4].name, seriesTop7[5].name, seriesTop7[6].name]
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                plotOptions: {
+                    column: {
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                fontWeight: 'bold'
+                            },
+                            formatter: function () {
+                                return (this.y * 1000 / sumvote).toFixed(3) + ' %<br/>' + this.y + ' 票';
+                            }
+                        }
+                    }
+                },
+                series:
+                [
+                    {
+                        name: ' ',
+                        data: [{ y: seriesTop7[0].vote, color: seriesTop7[0].color }, { y: seriesTop7[1].vote, color: seriesTop7[1].color }, { y: seriesTop7[2].vote, color: seriesTop7[2].color }, { y: seriesTop7[3].vote, color: seriesTop7[3].color }, { y: seriesTop7[4].vote, color: seriesTop7[4].color }, { y: seriesTop7[5].vote, color: seriesTop7[5].color }, { y: seriesTop7[6].vote, color: seriesTop7[6].color }],
+                        color: "white"
+                    }
+                ]
+            });
+        }
     </script>
 
 </body>
