@@ -1750,7 +1750,7 @@
             {
                 name: "刘增艳",
                 team: "101",
-                original: "101",
+                original: "105",
                 _1st: { rank: null, vote: 0 },
                 _2nd: { rank: null, vote: 0 },
                 _3rd: { rank: null, vote: 0 },
@@ -2117,9 +2117,9 @@
                 addVote(targetTeam, originalTeam, item._5th.vote, item._5th.rank);
 
                 if (item._5th.rank <= 33)
-                    $("#vote-table-1").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+                    $("#vote-table-1").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td style="color:' + (item._5th.vote < item._4th.vote ? "green":"red") + '">' + item._5th.vote + '</td><tr>')
                 else
-                    $("#vote-table-2").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
+                    $("#vote-table-2").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td style="color:' + (item._5th.vote < item._4th.vote ? "green" : "red") + '">' + item._5th.vote + '</td><tr>')
 
                 if (item._5th.rank < 17) {
                     series_top16_rank.push({
