@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,7 +19,7 @@
         }
 
             #team-color .teamName, #team-index .teamName {
-                width: calc(100% / 19);
+                width: calc(100% / 18);
                 float: left;
                 white-space: pre-line;
             }
@@ -67,7 +67,7 @@
                 <div id="chart-all-percenter"></div>
             </div>
             <div class="col-xs-6">
-                <div id="chart-top7-percenter"></div>
+                <div id="chart-origin-percenter"></div>
             </div>
         </div>
         <div class="row">
@@ -185,6 +185,7 @@
                     "name": "张语格"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -253,6 +254,7 @@
                     "name": "张雨鑫"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -333,6 +335,7 @@
                     "name": "曾晓雯"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -398,6 +401,7 @@
                     "name": "张嘉予"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -412,6 +416,7 @@
                 "enabled": false,
                 "members": [],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -465,6 +470,7 @@
                     "name": "张馨月"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -533,6 +539,7 @@
                     "name": "张梦慧"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -589,6 +596,7 @@
                     "name": "郑一凡"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -663,6 +671,7 @@
                     "name": "张韩紫陌"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -707,6 +716,7 @@
                     "name": "周湘"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -775,6 +785,7 @@
                     "name": "张琼予"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -849,6 +860,7 @@
                     "name": "郑悦"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -917,6 +929,7 @@
                     "name": "赵欣雨"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -982,6 +995,7 @@
                     "name": "张紫颖"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1145,6 +1159,7 @@
                     "name": "张羽涵"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1159,6 +1174,7 @@
                 "enabled": false,
                 "members": [],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1173,6 +1189,7 @@
                 "enabled": false,
                 "members": [],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1306,6 +1323,7 @@
                     "name": "赵泽慧"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1320,6 +1338,7 @@
                 "enabled": true,
                 "members": [],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1340,6 +1359,7 @@
                     "name": "余梦露"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1364,105 +1384,106 @@
         }
     </script>
     <script type="text/javascript">
+        //不统计非Top16 五选速报中报票数
         var finalData = [
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 66, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 65, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 64, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 63, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 62, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 61, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 60, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 59, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 58, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 57, s: 0, z: 0, vote: 0 }
             },
 
@@ -1471,470 +1492,460 @@
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 56, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 55, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 54, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 53, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 52, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 51, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 50, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101", original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 49, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 48, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 47, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 46, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 45, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 44, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 43, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 42, s: 0, z: 0, vote: 0 }
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
+                _5th: { rank: 26, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
+                _5th: { rank: 42, s: 0, z: 0, vote: 0 }
+            },
+            {
+                name: "苏杉杉",
+                team: "202",
+                original: "202",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: 21, vote: 32151.0 },
                 _5th: { rank: 41, s: 0, z: 0, vote: 0 }
             },
             {
                 name: "李钊",
                 team: "104",
                 original: "104",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 40, s: 2810.08, z: 11961.76, vote: 0 }
             },
             {
                 name: "马玉灵",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 39, s: 5947.08, z: 12025.56, vote: 0 }
             },
             {
                 name: "费沁源",
                 team: "103",
                 original: "105",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 38, s: 0, z: 11867.08, vote: 0 }
             },
             {
                 name: "谢妮",
                 team: "103",
                 original: "102",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 37, s: 0, z: 8112.66, vote: 0 }
             },
             {
                 name: "许杨玉琢",
                 team: "103",
                 original: "103",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 36, s: 0, z: 8777.80, vote: 0 }
             },
             {
                 name: "蒋芸",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 35, s: 0, z: 7239.38, vote: 0 }
             },
             {
                 name: "袁雨桢",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 34, s: 0, z: 7184.26, vote: 0 }
             },
             {
                 name: "李宇琪",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 33, s: 0, z: 12360.96, vote: 0 }
             },
             {
                 name: "胡晓慧",
                 team: "202",
                 original: "202",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 32, s: 0, z: 12497.72, vote: 0 }
             },
             {
                 name: "姜杉",
                 team: "103",
                 original: "105",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 31, s: 0, z: 13328.66, vote: 0 }
             },
             {
                 name: "冯思佳",
                 team: "202",
                 original: "202",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 30, s: 0, z: 14243.92, vote: 0 }
             },
             {
                 name: "张怡",
                 team: "102",
                 original: "105",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: 31, vote: 24303.8 },
                 _5th: { rank: 29, s: 0, z: 14673.92, vote: 0 }
             },
             {
                 name: "张雨鑫",
                 team: "102",
                 original: "102",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: 20, vote: 32986.2 },
                 _5th: { rank: 28, s: 0, z: 15271.90, vote: 0 }
             },
             {
                 name: "张丹三",
                 team: "104",
                 original: "104",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 27, s: 0, z: 17038.50, vote: 0 }
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: 16, vote: 28185.4 },
+                _4th: { rank: 53, vote: 17931.6 },
+                _5th: { rank: 27, s: 5106.54, z: 17038.50, vote: 0 }
             },
             {
                 name: "易嘉爱",
                 team: "102",
                 original: "102",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 26, s: 0, z: 17380.12, vote: 17380.12 }
+                _1st: { rank: 14, vote: 5653 },
+                _2nd: { rank: 8, vote: 30004.8 },
+                _3rd: { rank: 26, vote: 18046.0 },
+                _4th: { rank: 39, vote: 21002.6 },
+                _5th: { rank: 20, s: 0, z: 17380.12, vote: 21002.6 }
             },
             {
                 name: "刘增艳",
                 team: "101",
                 original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 25, s: 4236.24, z: 17593.98, vote: 17593.98 }
             },
             {
                 name: "刘力菲",
                 team: "302",
                 original: "302",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 24, s: 8843.24, z: 19048.10, vote: 19048.10 }
             },
             {
                 name: "万丽娜",
                 team: "103",
                 original: "103",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
                 _5th: { rank: 23, s: 0, z: 19314.32, vote: 19314.32 }
             },
             {
-                name: "杨冰怡",
-                team: "104",
-                original: "104",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 22, s: 14768.28, z: 21454.66, vote: 21454.66 }
-            },
-            {
-                name: "徐子轩",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 21, s: 0, z: 21737.04, vote: 21737.04 }
-            },
-            {
-                name: "钱蓓婷",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 20, s: 0, z: 23941.96, vote: 23941.96 }
-            },
-            {
-                name: "孔肖吟",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 19, s: 0, z: 24467.14, vote: 24467.14 }
-            },
-            {
-                name: "郑丹妮",
-                team: "302",
-                original: "302",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 18, s: 14273.94, z: 24889.92, vote: 24889.92 }
-            },
-            {
-                name: "",
-                team: "301",
-                original: "301",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 17, s: 0, z: 0, vote: 0 }
-            },
-            {
-                name: "韩家乐",
-                team: "302",
-                original: "302",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 16, s: 14273.94, z: 25290.86, vote: 25290.86 }
-            },
-            {
-                name: "孙芮",
-                team: "101",
-                original: "101",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: outRank, vote: 0 },
-                _4th: { rank: outRank, vote: 0 },
-                _5th: { rank: 15, s: 14768.28, z: 25679.72, vote: 25679.72 }
-            },
-            {
-                name: "段艺璇",
+                name: "李宇琪",
                 team: "101",
                 original: "101",
                 _1st: { rank: 11, vote: 6027 },
                 _2nd: { rank: 7, vote: 31215.9 },
                 _3rd: { rank: 20, vote: 21894.8 },
                 _4th: { rank: 16, vote: 40469.5 },
-                _5th: { rank: 14, s: 0, z: 25783.72, vote: 40469.5 }
+                _5th: { rank: 16, s: 0, z: 12360.96, vote: 40469.5 }
             },
             {
-                name: "林思意",
-                team: "103",
-                original: "102",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: 17, vote: 16050.5 },
-                _3rd: { rank: 13, vote: 38786.4 },
-                _4th: { rank: 14, vote: 45981.6 },
-                _5th: { rank: 12, s: 0, z: 25097.76, vote: 45981.6 }
+                name: "杨冰怡",
+                team: "104",
+                original: "104",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
+                _5th: { rank: 22, s: 14768.28, z: 21454.66, vote: 21454.66 }
+            },
+            {
+                name: "徐子轩",
+                team: "101",
+                original: "101",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
+                _5th: { rank: 17, s: 0, z: 21737.04, vote: 21737.04 }
+            },
+            {
+                name: "郑丹妮",
+                team: "302",
+                original: "302",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
+                _5th: { rank: 18, s: 14273.94, z: 24889.92, vote: 24889.92 }
+            },
+            {
+                name: "谢蕾蕾",
+                team: "301",
+                original: "301",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: 32, vote: 23927.8 },
+                _5th: { rank: 17, s: 13445.46, z: 36850.08, vote: 36850.08 }
+            },
+            {
+                name: "韩家乐",
+                team: "302",
+                original: "302",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: null, vote: 0 },
+                _5th: { rank: 20, s: 14273.94, z: 25290.86, vote: 35290.86 }
+            },
+            {
+                name: "钱蓓婷",
+                team: "101",
+                original: "101",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: 26, vote: 9407.5 },
+                _3rd: { rank: 28, vote: 17694 },
+                _4th: { rank: 26, vote: 27301.4 },
+                _5th: { rank: 15, s: 0, z: 23941.96, vote: 45496.8 }
+            },
+            {
+                name: "孙芮",
+                team: "101",
+                original: "101",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: null, vote: 0 },
+                _4th: { rank: 18, vote: 35453.6 },
+                _5th: { rank: 14, s: 14768.28, z: 25679.72, vote: 45804.7 }
+            },
+            {
+                name: "孔肖吟",
+                team: "101",
+                original: "101",
+                _1st: { rank: 15, vote: 5413 },
+                _2nd: { rank: 16, vote: 17658.9 },
+                _3rd: { rank: 25, vote: 18989.1 },
+                _4th: { rank: 12, vote: 49093.8 },
+                _5th: { rank: 13, s: 0, z: 24467.14, vote: 50297.4 }
             },
             {
                 name: "段艺璇",
                 team: "201",
                 original: "201",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: null, vote: 0 },
                 _3rd: { rank: 43, vote: 12477.2 },
                 _4th: { rank: 13, vote: 46825.4 },
                 _5th: { rank: 11, s: 2021.50, z: 25783.36, vote: 46825.4 }
             },
             {
-                name: "吴哲晗",
-                team: "101",
-                original: "101",
-                _1st: { rank: 1, vote: 19281 },
-                _2nd: { rank: outRank, vote: 0 },
-                _3rd: { rank: 23, vote: 19588.7 },
-                _4th: { rank: 15, vote: 41674.9 },
-                _5th: { rank: 10, s: 0, z: 34042.38, vote: 41674.9 }
-            },
-            {
-                name: "戴萌",
-                team: "101",
-                original: "101",
-                _1st: { rank: 13, vote: 5785 },
-                _2nd: { rank: 15, vote: 17907.3 },
-                _3rd: { rank: 12, vote: 41511.8 },
-                _4th: { rank: 11, vote: 53569.1 },
-                _5th: { rank: 9, s: 0, z: 34208.94, vote: 53569.1 }
+                name: "林思意",
+                team: "103",
+                original: "102",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: 17, vote: 16050.5 },
+                _3rd: { rank: 13, vote: 38786.4 },
+                _4th: { rank: 14, vote: 45981.6 },
+                _5th: { rank: 12, s: 0, z: 25097.76, vote: 45981.6 }
             },
             {
                 name: "张语格",
@@ -1944,7 +1955,27 @@
                 _2nd: { rank: 5, vote: 32306.0 },
                 _3rd: { rank: 8, vote: 66867.5 },
                 _4th: { rank: 9, vote: 78345.6 },
-                _5th: { rank: 7, s: 4257.54, z: 30200.68, vote: 78345.6 }
+                _5th: { rank: 10, s: 4257.54, z: 30200.68, vote: 78345.6 }
+            },
+            {
+                name: "吴哲晗",
+                team: "101",
+                original: "101",
+                _1st: { rank: 1, vote: 19281 },
+                _2nd: { rank: null, vote: 0 },
+                _3rd: { rank: 23, vote: 19588.7 },
+                _4th: { rank: 15, vote: 41674.9 },
+                _5th: { rank: 9, s: 0, z: 34042.38, vote: 41674.9 }
+            },
+            {
+                name: "戴萌",
+                team: "101",
+                original: "101",
+                _1st: { rank: 13, vote: 5785 },
+                _2nd: { rank: 15, vote: 17907.3 },
+                _3rd: { rank: 12, vote: 41511.8 },
+                _4th: { rank: 11, vote: 53569.1 },
+                _5th: { rank: 8, s: 0, z: 34208.94, vote: 53569.1 }
             },
             {
                 name: "许佳琪",
@@ -1954,7 +1985,17 @@
                 _2nd: { rank: 20, vote: 14351.7 },
                 _3rd: { rank: 11, vote: 41740.5 },
                 _4th: { rank: 10, vote: 54768.8 },
-                _5th: { rank: 8, s: 0, z: 43693.40, vote: 54768.8 }
+                _5th: { rank: 7, s: 0, z: 43693.40, vote: 54768.8 }
+            },
+            {
+                name: "赵粤",
+                team: "102",
+                original: "102",
+                _1st: { rank: null, vote: 0 },
+                _2nd: { rank: 11, vote: 25245.0 },
+                _3rd: { rank: 9, vote: 47563.5 },
+                _4th: { rank: 7, vote: 90929.7 },
+                _5th: { rank: 6, s: 0, z: 48801.36, vote: 90929.7 }
             },
             {
                 name: "莫寒",
@@ -1964,23 +2005,13 @@
                 _2nd: { rank: 13, vote: 20201.7 },
                 _3rd: { rank: 6, vote: 73362.6 },
                 _4th: { rank: 8, vote: 88034.2 },
-                _5th: { rank: 6, s: 0, z: 50341.30, vote: 88034.2 }
-            },
-            {
-                name: "赵粤",
-                team: "102",
-                original: "102",
-                _1st: { rank: outRank, vote: 0 },
-                _2nd: { rank: 11, vote: 25245.0 },
-                _3rd: { rank: 9, vote: 47563.5 },
-                _4th: { rank: 7, vote: 90929.7 },
-                _5th: { rank: 5, s: 0, z: 48801.36, vote: 90929.7 }
+                _5th: { rank: 5, s: 0, z: 50341.30, vote: 88034.2 }
             },
             {
                 name: "陆婷",
                 team: "102",
                 original: "102",
-                _1st: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
                 _2nd: { rank: 10, vote: 25669.2 },
                 _3rd: { rank: 7, vote: 71639.6 },
                 _4th: { rank: 5, vote: 126639.2 },
@@ -1990,7 +2021,7 @@
                 name: "冯薪朵",
                 team: "102",
                 original: "102",
-                _1st: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
                 _2nd: { rank: 12, vote: 22028.7 },
                 _3rd: { rank: 5, vote: 88598.8 },
                 _4th: { rank: 4, vote: 133607.1 },
@@ -2000,11 +2031,11 @@
                 name: "黄婷婷",
                 team: "102",
                 original: "102",
-                _1st: { rank: outRank, vote: 0 },
+                _1st: { rank: null, vote: 0 },
                 _2nd: { rank: 4, vote: 35189.0 },
                 _3rd: { rank: 3, vote: 0 },
                 _4th: { rank: 3, vote: 165193.8 },
-                _5th: { rank: 2, s: 2097.52, z: 217301.08, vote: 217301.08 }
+                _5th: { rank: 2, s: 2097.52, z: 217301.08, vote: 236336.08 }
             },
             {
                 name: "李艺彤",
@@ -2014,15 +2045,14 @@
                 _2nd: { rank: 3, vote: 47134.5 },
                 _3rd: { rank: 2, vote: 169971.4 },
                 _4th: { rank: 2, vote: 259478.6 },
-                _5th: { rank: 1, s: 19769.60, z: 284783.92, vote: 284783.92 }
+                _5th: { rank: 1, s: 19769.60, z: 284783.92, vote: 322381.92 }
             },
         ];
         //各队颜色，饼图用
         var colors = [];
         //各队票数比例
         var series_all_percenter = [];
-        //神7票数
-        var seriesTop7 = [];
+        var series_origin_percenter = [];
         //圈内各组人数,1-16,17-32,33-48,49-66
         var series_all_in = [];
         //top16排名变化
@@ -2033,14 +2063,15 @@
         var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
         var series_top16_increase = [{ name: '第四届票数', data: [] }, { name: '第五届票数增长', data: [] }];
 
-        function addVote(targetTeam, vote, rank) {
+        function addVote(targetTeam, originalTeam, vote, rank) {
             let gid = targetTeam.id.substring(0, 1) + "0";
             let group = groups.find((g) => g.id == gid);
             ++group._in;
             group.vote = (group.vote * 100 + vote * 100) / 100;
-
-
             targetTeam.vote = (targetTeam.vote * 100 + vote * 100) / 100;
+            //原归属队伍总票数相加
+            originalTeam.originVote = (originalTeam.originVote * 100 + vote * 100) / 100;
+
             ++targetTeam._in.sum;
             if (rank > 48 && rank <= 66)
                 ++targetTeam._in.t66;
@@ -2050,6 +2081,8 @@
                 ++targetTeam._in.t32;
             if (rank <= 16)
                 ++targetTeam._in.t16;
+
+            sumvote = (sumvote * 100 + vote * 100) / 100;
         }
 
         function main() {
@@ -2061,7 +2094,7 @@
 
             //    teams.find((t) => t.id == item.tid).members.push({
             //        sid: item.sid,
-            //        name: item.sname,           
+            //        name: item.sname,
             //    })
             //})
             //console.log(JSON.stringify(groups));
@@ -2080,46 +2113,26 @@
                 let group = groups.find((g) => g.id == gid);
                 let targetTeam = group.teams.find((t) => t.id == item.team);
                 let originalTeam = group.teams.find((t) => t.id == item.original);
-                addVote(targetTeam, item._5th.vote, item._5th.rank);
+                addVote(targetTeam, originalTeam, item._5th.vote, item._5th.rank);
 
                 if (item._5th.rank <= 33)
                     $("#vote-table-1").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
                 else
                     $("#vote-table-2").append('<tr><td>' + item._5th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td style="color:' + originalTeam.color + '">' + originalTeam.name + '</td><td>' + item.name + '</td><td>' + item._5th.vote + '</td><tr>')
 
-                ////总票数相加
-                //series_all_percenter[item.team][1] = series_all_percenter[item.team][1] + item.vote;
-                sumvote += item._5th.vote;
-                ////神7票数
-                //if (this.rank <= 7) {
-                //    seriesTop7.push({
-                //        rank: this.rank,
-                //        name: this.name,
-                //        vote: this.vote,
-                //        team: this.team,
-                //        color: team[this.team].color
-                //    });
-                //}
                 if (item._5th.rank < 17) {
-                    //series_all_in[item.team].data[0] = (series_all_in[item.team].data[0] * 100 + 100) / 100;
-                    //Top16票数增长
-                    series_top16_rank.push({ color: getTeamColorByTeamId(item.team), name: item.name, data: [item._4th.rank, item._5th.rank] });
+                    series_top16_rank.push({
+                        color: getTeamColorByTeamId(item.team),
+                        name: item.name,
+                        data: [item._1st.rank, item._2nd.rank, item._3rd.rank, item._4th.rank, item._5th.rank]
+                    });
                     categories_top16.push(item.name);
-
                     series_top16_123[0].data.push(Math.round(item._5th.vote * 100 - item._5th.z * 100) / 100);
                     series_top16_123[1].data.push(Math.round(item._5th.z * 100 - item._5th.s * 100) / 100);
                     series_top16_123[2].data.push(item._5th.s);
                     series_top16_increase[0].data.push(item._4th.vote);
                     series_top16_increase[1].data.push(Math.round(item._5th.vote * 100 - item._4th.vote * 100) / 100);
-                } else if (item._5th.rank < 33) {
-                    //series_all_in[item.team].data[1] = (series_all_in[item.team].data[1] * 100 + 100) / 100;
-                } else if (item._5th.rank < 49) {
-                    //series_all_in[item.team].data[2] = (series_all_in[item.team].data[2] * 100 + 100) / 100;
-                } else {
-                    //series_all_in[item.team].data[3] = (series_all_in[item.team].data[3] * 100 + 100) / 100;
                 }
-                //圈内总人数
-                //series_all_in[item.team].data[4] = (series_all_in[item.team].data[4] * 100 + 100) / 100;
             });
 
             //统计完毕之后的数据处理
@@ -2132,6 +2145,8 @@
                                 data: [team._in.t16, team._in.t32, team._in.t48, team._in.t66, team._in.sum]
                             })
                             colors.push(getTeamColorByTeamId(team.id))
+                            series_all_percenter.push([team.name, team.vote])
+                            series_origin_percenter.push([team.name, team.originVote])
                         }
                     })
                 }
@@ -2171,7 +2186,7 @@
             series_top16_123[2].data.reverse();
             $('#chart-top16-123').highcharts({
                 credits: { enabled: false },
-                colors: ["#624A84", "#91CCEA", "A9CC29"],
+                colors: ["#F49600", "#AE86BB", "#91CCEA"],
                 chart: {
                     type: 'bar'
                 },
@@ -2213,7 +2228,7 @@
             series_top16_increase[1].data.reverse();
             $('#chart-top16-increase').highcharts({
                 credits: { enabled: false },
-                colors: ["#F6C964", "#624A84"],
+                colors: ["#94D401", "#EF1B52"],
                 chart: {
                     type: 'bar'
                 },
@@ -2285,9 +2300,13 @@
                 chart: { type: 'line' },
                 title: { text: '第五届的Top16成员-名次变化' },
                 xAxis: {
-                    categories: ['第四届', '第五届']
+                    categories: ['第一届', '第二届', '第三届', '第四届', '第五届']
                 },
-                yAxis: { allowDecimals: false, title: { text: '' }, min: 1, max: 26, reversed: true },
+                yAxis: {
+                    allowDecimals: false,
+                    title: { text: '' },
+                    min: 1, max: 48, reversed: true
+                },
                 tooltip: {
                     formatter: function () {
                         return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
@@ -2326,7 +2345,6 @@
                 },
                 series: series_all_in
             });
-            return;
             $('#chart-all-percenter').highcharts({
                 credits: { enabled: false },
                 chart: {
@@ -2359,46 +2377,35 @@
                     }
                 ]
             });
-
-            seriesTop7.reverse();
-            //$(seriesTop7).each(function () {
-            //    $("#statis1").append('<tr><td>' + this.rank + '</td><td>' + this.name + '</td><td>' + this.vote + '</td><td>' + (this.vote * 1000 / sumvote).toFixed(3) + '%</td></tr>')
-            //});
-            $('#chart-top7-percenter').highcharts({
+            $('#chart-origin-percenter').highcharts({
                 credits: { enabled: false },
                 chart: {
-                    type: 'column'
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
                 },
                 title: {
-                    text: 'Top7票数比例'
+                    text: '大重组前分队情况下的各队票数总和比例'
                 },
-                subtitle: {
-                    text: '圈内票数总和：' + sumvote.toFixed(1)
+                colors: colors,
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
                 },
-                xAxis: {
-                    categories: [seriesTop7[0].name, seriesTop7[1].name, seriesTop7[2].name, seriesTop7[3].name, seriesTop7[4].name, seriesTop7[5].name, seriesTop7[6].name]
-                },
-                yAxis: { min: 0, title: { text: '' } },
                 plotOptions: {
-                    column: {
+                    pie: {
+                        allowPointSelect: true,
                         cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            style: {
-                                fontWeight: 'bold'
-                            },
-                            formatter: function () {
-                                return (this.y * 1000 / sumvote).toFixed(3) + ' %<br/>' + this.y + ' 票';
-                            }
-                        }
+                        dataLabels: { enabled: true, inside: true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
+                        showInLegend: true
                     }
                 },
                 series:
                 [
                     {
-                        name: ' ',
-                        data: [{ y: seriesTop7[0].vote, color: seriesTop7[0].color }, { y: seriesTop7[1].vote, color: seriesTop7[1].color }, { y: seriesTop7[2].vote, color: seriesTop7[2].color }, { y: seriesTop7[3].vote, color: seriesTop7[3].color }, { y: seriesTop7[4].vote, color: seriesTop7[4].color }, { y: seriesTop7[5].vote, color: seriesTop7[5].color }, { y: seriesTop7[6].vote, color: seriesTop7[6].color }],
-                        color: "white"
+                        type: 'pie',
+                        name: '票数占比',
+                        data: series_origin_percenter
                     }
                 ]
             });

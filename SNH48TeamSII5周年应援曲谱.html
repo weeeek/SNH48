@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNH48TeamSII五周年应援曲谱</title>
+    <meta name="author" title="kvn22" />
+    <meta name="keywords" content="SNH48,TeamSII,五周年,应援曲,曲谱" />
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />-->
+    <script src="https://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <!--<script src="//cdn.hcharts.cn/highcharts/highcharts.js"></script>-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: "Microsoft YaHei";
+            height: 100%;
+            font-size: 0;
+            overflow:hidden;
+        }
+
+        .container {
+            position: absolute;
+            left: 17.33vh;
+            width: calc(168vh * 27);
+            transition: all 1082s linear;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 17.33vh;
+            z-index: 1;
+        }
+
+        img {
+            float: left;
+        }
+
+        .play {
+            transform: translateX(-100%);
+        }
+
+        audio {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 17.33vh;
+            height: 3.3vh;
+        }
+
+        .line {
+            position: fixed;
+            left: 17.33vh;
+            top: 0;
+            width: 0;
+            border: 2px solid red;
+            box-shadow: 0 0 2px red;
+            z-index: 3;
+            animation: mymove 1082s linear;
+        }
+        @keyframes mymove {
+            0% {
+                left: 17.33vh;
+            }
+            0.1% {
+                left: 17.33vh;
+            }
+            1.8% {
+                left: 47vw;
+            }
+            99.5% {
+                left: 47vw;
+            }
+            100% {
+                left: 99vw;
+            }
+        }
+        @-webkit-keyframes mymove /* Safari 和 Chrome */
+        {
+            0% {
+                left: 17.33vh;
+            }
+            0.1% {
+                left: 17.33vh;
+            }
+            1.8% {
+                left: 30vw;
+            }
+            99.5% {
+                left: 30vw;
+            }
+
+            100% {
+                left: 99vw;
+            }
+        }
+
+        /*@-moz-keyframes mymove
+        {
+            0% {
+                left: 17.33vh;
+            }
+            0.02% {
+                left: 17.33vh;
+            }
+
+            1% {
+                left: 30vw;
+            }
+
+            99% {
+                left: 30vw;
+            }
+
+            100% {
+                left: 99vw;
+            }
+        }
+
+
+        @-o-keyframes mymove 
+        {
+            0% {
+                left: 17.33vh;
+            }
+            0.02% {
+                left: 17.33vh;
+            }
+
+            1% {
+                left: 30vw;
+            }
+
+            99% {
+                left: 30vw;
+            }
+
+            100% {
+                left: 99vw;
+            }
+        }*/
+    </style>
+</head>
+<body>
+    <div class="line"></div>
+    <audio src="SIIMedleyScore/SIIMedley.mp3" autoplay="" id="SIIMedley" onplay="start()"></audio>
+    <div class="fixed">
+        <img src="SIIMedleyScore/Sore0.png" />
+    </div>
+    <div class="container">
+    </div>
+    <script type="text/javascript">
+        function start() {
+            setTimeout(function () {
+                $(".container").addClass("play");
+            }, 19000)
+        }
+
+        $(document).ready(function () {
+            for (var i = 1; i < 28; i++) {
+                $(".container").append('<img src="SIIMedleyScore/Sore' + i + '.png" />');
+            }
+        })
+    </script>
+</body>
+</html>
