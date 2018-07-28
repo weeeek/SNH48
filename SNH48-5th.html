@@ -1073,6 +1073,7 @@
                     "name": "赵天杨"
                 }],
                 "vote": 0,
+                "originVote": 0,
                 "_in": {
                     "sum": 0,
                     "t16": 0,
@@ -1482,8 +1483,8 @@
                 original: "202",
                 _1st: { rank: null, vote: 0 },
                 _2nd: { rank: null, vote: 0 },
-                _3rd: { rank: null, vote: 0 },
-                _4th: { rank: null, vote: 0 },
+                _3rd: { rank: 27, vote: 0 },
+                _4th: { rank: 46, vote: 0 },
                 _5th: { rank: 57, s: 0, z: 0, vote: 14291.44 }
             },
             {
@@ -2048,7 +2049,8 @@
             },
         ];
         //各队颜色，饼图用
-        var colors = [];
+        var colors = [],colors2=[];
+        var XII_data;
         //各队票数比例
         var series_all_percenter = [];
         var series_origin_percenter = [];
@@ -2143,6 +2145,8 @@
                                 name: team.name,
                                 data: [team._in.t16, team._in.t32, team._in.t48, team._in.t66, team._in.sum]
                             })
+                            console.log(team.id)
+                            console.log(getTeamColorByTeamId(team.id))
                             colors.push(getTeamColorByTeamId(team.id))
                             series_all_percenter.push([team.name, team.vote])
                             series_origin_percenter.push([team.name, team.originVote])
@@ -2150,6 +2154,11 @@
                     })
                 }
             })
+            colors2 = colors.slice(0);
+            XII_data = groups.find(g => g.id == "10").teams.find(f => f.id == "105");
+            series_origin_percenter.splice(4, 0, [XII_data.name, XII_data.originVote]);
+            colors2.splice(4, 0, XII_data.color)
+
         }
         $(document).ready(function () {
             //$.getJSON("http://query.yahooapis.com/v1/public/yql", {
@@ -2197,7 +2206,7 @@
                 },
                 yAxis: {
                     min: 0,
-                    max: 360000,
+                    max: 410000,
                     title: {
                         text: ' '
                     }
@@ -2239,7 +2248,7 @@
                 },
                 yAxis: {
                     min: 0,
-                    max: 360000,
+                    max: 410000,
                     title: {
                         text: ' '
                     }
@@ -2386,7 +2395,7 @@
                 title: {
                     text: '大重组前分队情况下的各队票数总和比例'
                 },
-                colors: colors,
+                colors: colors2,
                 tooltip: {
                     headerFormat: "<b>{point.key}</b><br/>",
                     pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
