@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -2062,7 +2062,24 @@
         var categories_top16 = [];
         //top16票数增长数据
         var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
-        var series_top16_increase = [{ name: '第四届票数', data: [] }, { name: '第五届票数增长', data: [] }];
+
+        "#94D401", "#EF1B52"
+
+        var series_top16_increase = [{
+            name: '第四届票数',
+            dashStyle: "solid",
+            borderColor: "red",
+            color: 'rgba(239,27,82,1)',
+            data: [],
+            yAxis: 1,
+            pointPadding: 0.3
+        }, {
+            name: '第五届票数',
+            color: 'rgba(148,212,1,.8)',
+            data: [],
+            dashStyle: "solid",
+            yAxis: 1
+        }];
 
         function addVote(targetTeam, originalTeam, vote, rank) {
             let gid = targetTeam.id.substring(0, 1) + "0";
@@ -2132,7 +2149,8 @@
                     series_top16_123[1].data.push(Math.round(item._5th.z * 100 - item._5th.s * 100) / 100);
                     series_top16_123[2].data.push(item._5th.s);
                     series_top16_increase[0].data.push(item._4th.vote);
-                    series_top16_increase[1].data.push(Math.round(item._5th.vote * 100 - item._4th.vote * 100) / 100);
+                    //series_top16_increase[1].data.push(Math.round(item._5th.vote * 100 - item._4th.vote * 100) / 100);
+                    series_top16_increase[1].data.push(item._5th.vote);
                 }
             });
 
@@ -2236,9 +2254,9 @@
             series_top16_increase[1].data.reverse();
             $('#chart-top16-increase').highcharts({
                 credits: { enabled: false },
-                colors: ["#94D401", "#EF1B52"],
+                //colors: ["#94D401", "#EF1B52"],
                 chart: {
-                    type: 'bar'
+                    type: 'column'
                 },
                 title: {
                     text: 'Top16票数增长量图'
@@ -2246,24 +2264,38 @@
                 xAxis: {
                     categories: categories_top16
                 },
-                yAxis: {
+                yAxis: [{
                     min: 0,
                     max: 410000,
                     title: {
+                        show: false,
                         text: ' '
                     }
-                },
+                }, {
+                    min: 0,
+                    max: 410000,
+                    title: {
+                        show: false,
+                        text: ' '
+                    }
+                }],
                 legend: {
                     backgroundColor: '#FFFFFF'
                 },
                 tooltip: {
                     headerFormat: '<b>{point.key}</b><br/>',
-                    pointFormat: '{series.name}: {point.y:.1f}',
-                    valueDecimals: 1
+                    pointFormat: '{series.name}: {point.y:.2f}<br/>',
+                    valueDecimals: 2,
+                    shared: true,
                 },
                 plotOptions: {
-                    series: {
-                        stacking: 'normal'
+                    //series: {
+                    //    stacking: 'normal'
+                    //},
+                    column: {
+                        borderWidth: 1,
+                        grouping: false,
+                        shadow: false
                     },
                     dataLabels: {
                         enabled: true,
