@@ -2071,14 +2071,12 @@
             borderColor: "red",
             color: 'rgba(239,27,82,1)',
             data: [],
-            yAxis: 1,
             pointPadding: 0.3
         }, {
             name: '第五届票数',
             color: 'rgba(148,212,1,.8)',
             data: [],
             dashStyle: "solid",
-            yAxis: 1
         }];
 
         function addVote(targetTeam, originalTeam, vote, rank) {
@@ -2264,21 +2262,14 @@
                 xAxis: {
                     categories: categories_top16
                 },
-                yAxis: [{
+                yAxis: {
                     min: 0,
                     max: 410000,
                     title: {
                         show: false,
                         text: ' '
                     }
-                }, {
-                    min: 0,
-                    max: 410000,
-                    title: {
-                        show: false,
-                        text: ' '
-                    }
-                }],
+                },
                 legend: {
                     backgroundColor: '#FFFFFF'
                 },
