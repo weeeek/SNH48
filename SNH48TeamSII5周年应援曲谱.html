@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
@@ -19,7 +20,7 @@
             font-family: "Microsoft YaHei";
             height: 100%;
             font-size: 0;
-            overflow:hidden;
+            overflow: hidden;
         }
 
         .container {
@@ -65,34 +66,45 @@
             animation: mymove 1082s linear;
             display: none;
         }
+
         @keyframes mymove {
             0% {
                 left: 17.33vh;
             }
+
             0.1% {
                 left: 17.33vh;
             }
+
             1.8% {
                 left: 47vw;
             }
+
             99.5% {
                 left: 47vw;
             }
+
             100% {
                 left: 99vw;
             }
         }
-        @-webkit-keyframes mymove /* Safari 和 Chrome */
-        {
+
+        @-webkit-keyframes mymove
+
+        /* Safari 和 Chrome */
+            {
             0% {
                 left: 17.33vh;
             }
+
             0.1% {
                 left: 17.33vh;
             }
+
             1.8% {
                 left: 30vw;
             }
+
             99.5% {
                 left: 30vw;
             }
@@ -148,26 +160,25 @@
         }*/
     </style>
 </head>
+
 <body>
     <div class="line"></div>
-    <audio src="SIIMedleyScore/SIIMedley.mp3" autoplay="" id="SIIMedley" onplay="start()"></audio>
+    <audio src="SIIMedleyScore/SIIMedley.mp3" id="SIIMedley" autoplay onplay="start()"></audio>
     <div class="fixed">
         <img src="SIIMedleyScore/Sore0.png" />
     </div>
     <div class="container">
+        <img src="SIIMedleyScore/SoreAll1.png" />
+        <img src="SIIMedleyScore/SoreAll2.png" />
     </div>
     <script type="text/javascript">
         function start() {
+            console.log("start");
             setTimeout(function () {
                 $(".container").addClass("play");
             }, 19000)
         }
-
-        $(document).ready(function () {
-            for (var i = 1; i < 28; i++) {
-                $(".container").append('<img src="SIIMedleyScore/Sore' + i + '.png" />');
-            }
-        })
     </script>
 </body>
+
 </html>
