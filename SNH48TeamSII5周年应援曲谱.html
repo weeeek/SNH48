@@ -48,9 +48,9 @@
 
         audio {
             position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2;
+            top: 100px;
+            left: 100px;
+            z-index: 20;
             width: 17.33vh;
             height: 3.3vh;
         }
@@ -67,7 +67,7 @@
             display: none;
         }
         .line.play{
-            display: block;
+            display: none;
         }
 
         @keyframes mymove {
@@ -166,20 +166,32 @@
 
 <body>
     <div class="line"></div>
-    <audio src="SIIMedleyScore/SIIMedley.mp3" id="SIIMedley" autoplay onplay="start()"></audio>
+    <audio src="SIIMedleyScore/SIIMedley.mp3" id="SIIMedley" autoplay="autoplay" onplay="start()"></audio>
     <div class="fixed">
-        <img src="SIIMedleyScore/score0.png" />
+        <img src="SIIMedleyScore/Score0.png" />
     </div>
     <div class="container">
-        <img src="SIIMedleyScore/scoreAll1.png" />
-        <img src="SIIMedleyScore/scoreAll2.png" />
+        <img src="SIIMedleyScore/Score1.png" />
+        <img src="SIIMedleyScore/Score2.png" />
     </div>
-    <script type="text/javascript">
+    <script type="text/javascript">  
+        var player = $("#SIIMedley")[0];
+        $(document).ready(function(){
+            player.volume = 0.2;
+            player.preload = "auto";
+            setInterval(loop,1000)            
+        })
         function start() {
             $(".line").addClass("play");
             setTimeout(function () {
                 $(".container").addClass("play");
             }, 19000)
+        }
+        var loop = function (){
+            if(player.readyState === 4){
+                player.play();
+                clearInterval(loop);
+            }
         }
     </script>
 </body>
