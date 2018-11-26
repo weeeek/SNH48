@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNH48 GROUP 第四届年度金曲大赏歌曲总决选</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: "Microsoft YaHei";
+        }
+
+        .row {
+            margin-bottom: 4em;
+        }
+
+        .table span,
+        .table b {
+            margin: 0 8px 0 0;
+        }
+
+        .table tr td:nth-child(1),
+        .table tr td:nth-child(5) {
+            text-align: center;
+            width: 45px;
+            vertical-align: middle;
+        }
+
+        .table tr td,
+        .table tr th {
+            font-weight: bolder;
+        }
+
+        #team-color {
+            display: -webkit-flex;
+            /* Safari */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        #team-color div {
+            flex-basis: 1;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="team-color"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <div>
+                    <h4>年度金曲</h4>
+                    <table id="table-best" class="table table-bordered">
+                        <tr>
+                            <th>排名</th>
+                            <th>类型</th>
+                            <th>曲名</th>
+                            <th>出处</th>
+                            <th>原创</th>
+                            <th>阵容</th>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>曜阳组</h4>
+                    <table id="table-yy" class="table table-bordered">
+                        <tr>
+                            <th>排名</th>
+                            <th>类型</th>
+                            <th>曲名</th>
+                            <th>出处</th>
+                            <th>原创</th>
+                            <th>阵容</th>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>皓月组</h4>
+                    <table id="table-hy" class="table table-bordered">
+                        <tr>
+                            <th>排名</th>
+                            <th>类型</th>
+                            <th>曲名</th>
+                            <th>出处</th>
+                            <th>原创</th>
+                            <th>歌手</th>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>星辰组</h4>
+                    <table id="table-xc" class="table table-bordered">
+                        <tr>
+                            <th>排名</th>
+                            <th>类型</th>
+                            <th>曲名</th>
+                            <th>出处</th>
+                            <th>原创</th>
+                            <th>队伍</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div>
+                    <h4>combination</h4>
+                    <table id="table-combination" class="table table-bordered">
+                        <tr>
+                            <th>序号</th>
+                            <th>演唱歌曲</th>
+                            <th>出处</th>
+                            <th>原创</th>
+                            <th>组合</th>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div id="chart-new"></div>
+                    <div id="chart-from"></div>
+                    <div id="chart-lineup"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="chart-performance"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="SNH48GroupSongs.js"></script>
+    <script type="text/javascript">
+        //原创Vs复刻
+        var pieNew = [
+            ['原创曲', 0],
+            ['复刻曲', 0]
+        ];
+
+        $(document).ready(function () {
+            $(combination).each(function (index, group) {
+                var memberString = '';
+                $(group.members).each(function (i, member) {
+                    memberString += '<span style="color:' + team[member.team].color + '">' +
+                        member.name + '</span>';
+                });
+                $("#table-combination").append('<tr><td>' + (index + 1) + '</td><td style="color:' +
+                    team.find(
+                        t => t.index == group.performance.From[0]).color + '">' + group.performance
+                    .Title + '</td><td style="color:' + team.find(t => t.index == group.performance
+                        .From[0]).color + '">' + team.find(t => t.index == group.performance.From[0])
+                    .performance[group.performance.From[1]].name + '</td><td>' + calculateNew(group
+                        .performance, true) + '</td><td>' + memberString + '</td></tr>');
+            });
+
+            //最上面的各队颜色
+            $(team).each(function (i, c) {
+                if (c.enabled) {
+                    if (c.name == "Ft")
+                        $("#team-color").append('<div class="text-center" style="background:' + c.color +
+                            '"><span class="background:' + c.font + ';color:"#FFF">' + c.name +
+                            '</span></div>');
+                    else
+                        $("#team-color").append('<div class="text-center" style="color:' + c.font +
+                            ';background:' + c.color + '">' + c.name + '</div>');
+                }
+            });
+            //type:0队歌,1Unit,2Solo
+            //new:0复刻，1原创
+            //from:出处
+            //rank:排名
+            var finalData = [{
+                    Title: "春夏秋冬",
+                    Rank: 1,
+                    Type: 3,
+                    From: [102, 5],
+                    Member: [{
+                            Name: "苏杉杉",
+                            Team: 202
+                        },
+                        {
+                            Name: "王诗蒙",
+                            Team: 401
+                        },
+                        {
+                            Name: "冯思佳",
+                            Team: 102
+                        },
+                        {
+                            Name: "张丹三",
+                            Team: 104
+                        }
+                    ]
+                },
+                {
+                    Title: "光之轨迹",
+                    Rank: 2,
+                    Type: 0,
+                    From: [102, 5],
+                    Member: [{
+                        Name: "NII",
+                        Team: 102
+                    }]
+                },
+                {
+                    Title: "青涩的香蕉",
+                    Rank: 3,
+                    Type: 2,
+                    From: [101, 4],
+                    Member: [{
+                        Name: "陈珂",
+                        Team: 301
+                    }, {
+                        Name: "郑丹妮",
+                        Team: 302
+                    }]
+                }, {
+                    Title: "人间规则",
+                    Rank: 4,
+                    Type: 1,
+                    New: true,
+                    From: [105, 0],
+                    Member: [{
+                        Name: "李艺彤",
+                        Team: 102
+                    }]
+                },
+                {
+                    Title: "未接来电",
+                    Rank: 5,
+                    Type: 2,
+                    From: [102, 5],
+                    Member: [{
+                        Name: "唐莉佳",
+                        Team: 302
+                    }, {
+                        Name: "左婧媛",
+                        Team: 302
+                    }]
+                },
+                {
+                    Title: "猎梦",
+                    Rank: 6,
+                    Type: 3,
+                    From: [102, 5],
+                    Member: [{
+                        Name: "费沁源",
+                        Team: 105
+                    }, {
+                        Name: "杨惠婷",
+                        Team: 103
+                    }, {
+                        Name: "赵佳蕊",
+                        Team: 401
+                    }]
+                },
+                {
+                    Title: "9 to 9",
+                    Rank: 7,
+                    Type: 2,
+                    From: [301, 0],
+                    Member: [{
+                        Name: "戴萌",
+                        Team: 101
+                    }, {
+                        Name: "莫寒",
+                        Team: 101
+                    }]
+                },
+                {
+                    Title: "Monster",
+                    Rank: 8,
+                    Type: 1,
+                    From: [104, 0],
+                    Member: [{
+                        Name: "赵粤",
+                        Team: 102
+                    }]
+                },
+                {
+                    Title: "再爱一回",
+                    Rank: 9,
+                    Type: 3,
+                    From: [101, 0],
+                    Member: [{
+                        Name: "王雨煊",
+                        Team: 203
+                    }, {
+                        Name: "黄恩茹",
+                        Team: 203
+                    }, {
+                        Name: "袁一琦",
+                        Team: 103
+                    }, {
+                        Name: "沈梦瑶",
+                        Team: 103
+                    }]
+                },
+                {
+                    Title: "不曾后悔",
+                    Rank: 10,
+                    Type: 3,
+                    From: [101, 4],
+                    Member: [{
+                        Name: "李钊",
+                        Team: 104
+                    }, {
+                        Name: "李想",
+                        Team: 102
+                    }, {
+                        Name: "菅瑞静",
+                        Team: 401
+                    }, {
+                        Name: "王炯义",
+                        Team: 303
+                    }]
+                },
+                {
+                    Title: "Mad World",
+                    Rank: 11,
+                    Type: 2,
+                    From: [101, 6],
+                    Member: [{
+                            Name: "易嘉爱",
+                            Team: 102
+                        },
+                        {
+                            Name: "黄婷婷",
+                            Team: 102
+                        }
+                    ]
+                },
+                {
+                    Title: "灵魂使者",
+                    Rank: 12,
+                    Type: 3,
+                    From: [101, 6],
+                    Member: [{
+                            Name: "宋昕冉",
+                            Team: 104
+                        },
+                        {
+                            Name: "李梓",
+                            Team: 102
+                        },
+                        {
+                            Name: "刘胜男",
+                            Team: 102
+                        },
+                        {
+                            Name: "胡丽芝",
+                            Team: 201
+                        }
+                    ]
+                }, {
+                    Title: "夜蝶",
+                    Rank: 13,
+                    Type: 2,
+                    From: [101, 0],
+                    Member: [{
+                            Name: "许佳琪",
+                            Team: 101
+                        },
+                        {
+                            Name: "吴哲晗",
+                            Team: 101
+                        }
+                    ]
+                },
+                {
+                    Title: "爱的颜色",
+                    Rank: 14,
+                    Type: 3,
+                    From: [102, 1],
+                    Member: [{
+                            Name: "段艺璇",
+                            Team: 201
+                        },
+                        {
+                            Name: "张雨鑫",
+                            Team: 102
+                        },
+                        {
+                            Name: "苏杉杉",
+                            Team: 102
+                        },
+                        {
+                            Name: "张琼予",
+                            Team: 301
+                        },
+                        {
+                            Name: "王诗蒙",
+                            Team: 401
+                        },
+                        {
+                            Name: "李沁洁",
+                            Team: 301
+                        }
+                    ]
+                }, {
+                    Title: "Gravity",
+                    Rank: 15,
+                    Type: 0,
+                    From: [301, 0],
+                    Member: [{
+                        Name: "G",
+                        Team: 301
+                    }]
+                },
+                {
+                    Title: "暴走少女",
+                    Rank: 16,
+                    Type: 3,
+                    From: [302, 0],
+                    Member: [{
+                            Name: "黄婷婷",
+                            Team: 102
+                        },
+                        {
+                            Name: "陆婷",
+                            Team: 102
+                        },
+                        {
+                            Name: "姜杉",
+                            Team: 105
+                        },
+                        {
+                            Name: "韩家乐",
+                            Team: 401
+                        }
+                    ]
+                }, {
+                    Title: "少女的遗憾",
+                    Rank: 17,
+                    Type: 3,
+                    From: [103, 2],
+                    Member: [{
+                            Name: "刘增艳",
+                            Team: 105
+                        },
+                        {
+                            Name: "肖文铃",
+                            Team: 302
+                        },
+                        {
+                            Name: "任心怡",
+                            Team: 203
+                        }
+                    ]
+                },
+                {
+                    Title: "Remember You",
+                    Rank: 18,
+                    Type: 1,
+                    From: [102, 5],
+                    Member: [{
+                        Name: "林思意",
+                        Team: 102
+                    }]
+                }, {
+                    Title: "如果你能拥抱我",
+                    Rank: 19,
+                    Type: 3,
+                    From: [102, 1],
+                    Member: [{
+                            Name: "刘炅然",
+                            Team: 103
+                        },
+                        {
+                            Name: "袁雨桢",
+                            Team: 101
+                        },
+                        {
+                            Name: "罗雪丽",
+                            Team: 102
+                        }
+                    ]
+                }, {
+                    Title: "黑天鹅",
+                    Rank: 20,
+                    Type: 3,
+                    From: [102, 4],
+                    Member: [{
+                        Name: "张语格",
+                        Team: 101
+                    }, {
+                        Name: "孙歆文",
+                        Team: 104
+                    }, {
+                        Name: "陈欣妤",
+                        Team: 302
+                    }, {
+                        Name: "王晓佳",
+                        Team: 104
+                    }]
+                }, {
+                    Title: "美杜莎的温柔",
+                    Rank: 21,
+                    Type: 3,
+                    From: [301, 0],
+                    Member: [{
+                            Name: "杨韫玉",
+                            Team: 104
+                        },
+                        {
+                            Name: "胡晓慧",
+                            Team: 201
+                        },
+                        {
+                            Name: "冼燊楠",
+                            Team: 302
+                        }
+                    ]
+                }, {
+                    Title: "I'm not your girl",
+                    Rank: 22,
+                    Type: 3,
+                    From: [301, 0],
+                    Member: [{
+                            Name: "易嘉爱",
+                            Team: 102
+                        },
+                        {
+                            Name: "袁航",
+                            Team: 103
+                        },
+                        {
+                            Name: "郝婉晴",
+                            Team: 301
+                        },
+                        {
+                            Name: "邵雪聪",
+                            Team: 104
+                        },
+                        {
+                            Name: "沈梦瑶",
+                            Team: 103
+                        }
+                    ]
+                }, {
+                    Title: "自以为（粤语）",
+                    Rank: 23,
+                    Type: 3,
+                    From: [303, 0],
+                    Member: [{
+                            Name: "张盺",
+                            Team: 103
+                        },
+                        {
+                            Name: "冯嘉希",
+                            Team: 302
+                        },
+                        {
+                            Name: "杜秋霖",
+                            Team: 303
+                        },
+                        {
+                            Name: "陈慧婧",
+                            Team: 302
+                        },
+                        {
+                            Name: "高源婧",
+                            Team: 301
+                        },
+                        {
+                            Name: "陈雅钰",
+                            Team: 203
+                        }
+                    ]
+                }, {
+                    Title: "巧克力蜜语",
+                    Rank: 24,
+                    Type: 3,
+                    From: [103, 1],
+                    Member: [{
+                            Name: "黄婷婷",
+                            Team: 104
+                        },
+                        {
+                            Name: "费沁源",
+                            Team: 105
+                        },
+                        {
+                            Name: "刘力菲",
+                            Team: 302
+                        },
+                        {
+                            Name: "张凯祺",
+                            Team: 301
+                        }
+                    ]
+                }, {
+                    Title: "暗夜脚步声",
+                    Rank: 25,
+                    Type: 3,
+                    From: [202, 0],
+                    Member: [{
+                            Name: "冯晓菲",
+                            Team: 104
+                        },
+                        {
+                            Name: "杨冰怡",
+                            Team: 104
+                        },
+                        {
+                            Name: "赵晔",
+                            Team: 101
+                        },
+                        {
+                            Name: "黄彤扬",
+                            Team: 102
+                        }
+                    ]
+                }, {
+                    Title: "曲终人散",
+                    Rank: 26,
+                    Type: 3,
+                    From: [102, 1],
+                    Member: [{
+                            Name: "许杨玉琢",
+                            Team: 103
+                        },
+                        {
+                            Name: "陈思",
+                            Team: 101
+                        },
+                        {
+                            Name: "谢妮",
+                            Team: 103
+                        },
+                        {
+                            Name: "林嘉佩",
+                            Team: 301
+                        }
+                    ]
+                }, {
+                    Title: "暴风雨之夜",
+                    Rank: 27,
+                    Type: 3,
+                    From: [102, 0],
+                    Member: [{
+                            Name: "刘倩倩",
+                            Team: 302
+                        },
+                        {
+                            Name: "杨媛媛",
+                            Team: 303
+                        },
+                        {
+                            Name: "叶锦童",
+                            Team: 401
+                        },
+                        {
+                            Name: "熊心瑶",
+                            Team: 302
+                        }
+                    ]
+                }, {
+                    Title: "爱未央",
+                    Rank: 28,
+                    Type: 2,
+                    From: [101, 6],
+                    Member: [{
+                            Name: "段艺璇",
+                            Team: 201
+                        },
+                        {
+                            Name: "青钰雯",
+                            Team: 201
+                        }
+                    ]
+                }, {
+                    Title: "Blue Rose",
+                    Rank: 29,
+                    Type: 3,
+                    From: [103, 0],
+                    Member: [{
+                            Name: "洪珮雲",
+                            Team: 105
+                        },
+                        {
+                            Name: "於佳怡",
+                            Team: 105
+                        },
+                        {
+                            Name: "王诗蒙",
+                            Team: 401
+                        },
+                        {
+                            Name: "李媛媛",
+                            Team: 102
+                        }
+                    ]
+                }, {
+                    Title: "镜中圣女",
+                    Rank: 30,
+                    Type: 3,
+                    From: [101, 2],
+                    Member: [{
+                            Name: "陈问言",
+                            Team: 102
+                        },
+                        {
+                            Name: "程一心",
+                            Team: 301
+                        },
+                        {
+                            Name: "张梦慧",
+                            Team: 201
+                        },
+                        {
+                            Name: "陈美君",
+                            Team: 201
+                        },
+                        {
+                            Name: "陈楠茜",
+                            Team: 302
+                        }
+                    ]
+                }, {
+                    Title: "一千零一夜",
+                    Rank: 31,
+                    Type: 3,
+                    From: [202, 0],
+                    Member: [{
+                            Name: "张语格",
+                            Team: 101
+                        },
+                        {
+                            Name: "孙珍妮",
+                            Team: 103
+                        },
+                        {
+                            Name: "刘力菲",
+                            Team: 302
+                        }
+                    ]
+                }, {
+                    Title: "她和她",
+                    Rank: 32,
+                    Type: 2,
+                    From: [105, 0],
+                    Member: [{
+                            Name: "戴萌",
+                            Team: 101
+                        },
+                        {
+                            Name: "莫寒",
+                            Team: 101
+                        }
+                    ]
+                },
+                {
+                    Title: "虫之诗",
+                    Rank: 33,
+                    Type: 1,
+                    From: [102, 1],
+                    Member: [{
+                        Name: "孔肖吟",
+                        Team: 101
+                    }]
+                }, {
+                    Title: "雨中的钢琴师",
+                    Rank: 34,
+                    Type: 3,
+                    From: [103, 1],
+                    Member: [{
+                            Name: "谢蕾蕾",
+                            Team: 301
+                        },
+                        {
+                            Name: "卢静",
+                            Team: 302
+                        },
+                        {
+                            Name: "龙亦瑞",
+                            Team: 303
+                        }
+                    ]
+                }, {
+                    Title: "更衣室男孩",
+                    Rank: 35,
+                    Type: 3,
+                    From: [101, 1],
+                    Member: [{
+                            Name: "林忆宁",
+                            Team: 104
+                        },
+                        {
+                            Name: "张嘉予",
+                            Team: 104
+                        },
+                        {
+                            Name: "罗寒月",
+                            Team: 301
+                        },
+                        {
+                            Name: "李佳恩",
+                            Team: 105
+                        },
+                        {
+                            Name: "冯思佳",
+                            Team: 102
+                        }
+                    ]
+                }, {
+                    Title: "雨中动物园",
+                    Rank: 36,
+                    Type: 3,
+                    From: [103, 0],
+                    Member: [{
+                            Name: "刘佩鑫",
+                            Team: 103
+                        },
+                        {
+                            Name: "汪佳翎",
+                            Team: 104
+                        },
+                        {
+                            Name: "林歆源",
+                            Team: 105
+                        },
+                        {
+                            Name: "谢天依",
+                            Team: 104
+                        },
+                        {
+                            Name: "杨一帆",
+                            Team: 102
+                        },
+                        {
+                            Name: "左嘉欣",
+                            Team: 302
+                        },
+                        {
+                            Name: "叶苗苗",
+                            Team: 203
+                        },
+                        {
+                            Name: "陶波尔",
+                            Team: 105
+                        }
+                    ]
+                }, {
+                    Title: "地平线",
+                    Rank: 37,
+                    Type: 3,
+                    From: [101, 5],
+                    Member: [{
+                            Name: "严佼君",
+                            Team: 105
+                        },
+                        {
+                            Name: "张怡",
+                            Team: 105
+                        },
+                        {
+                            Name: "赖梓惜",
+                            Team: 401
+                        },
+                        {
+                            Name: "陈观慧",
+                            Team: 101
+                        },
+                        {
+                            Name: "徐诗琪",
+                            Team: 105
+                        }
+                    ]
+                }, {
+                    Title: "心型病毒",
+                    Rank: 38,
+                    Type: 3,
+                    From: [101, 1],
+                    Member: [{
+                            Name: "祁静",
+                            Team: 104
+                        },
+                        {
+                            Name: "张怡",
+                            Team: 105
+                        },
+                        {
+                            Name: "徐晗",
+                            Team: 103
+                        }
+                    ]
+                }, {
+                    Title: "灰姑娘的玻璃手机",
+                    Rank: 39,
+                    Type: 2,
+                    From: [202, 0],
+                    Member: [{
+                            Name: "易嘉爱",
+                            Team: 102
+                        },
+                        {
+                            Name: "赵粤",
+                            Team: 102
+                        }
+                    ]
+                }, {
+                    Title: "人鱼",
+                    Rank: 40,
+                    Type: 2,
+                    From: [104, 0],
+                    Member: [{
+                            Name: "黄婷婷",
+                            Team: 102
+                        },
+                        {
+                            Name: "李艺彤",
+                            Team: 102
+                        }
+                    ]
+                }, {
+                    Title: "木偶",
+                    Rank: 41,
+                    Type: 1,
+                    From: [102, 4],
+                    Member: [{
+                        Name: "孙珍妮",
+                        Team: 103
+                    }]
+                }, {
+                    Title: "天使的圈套",
+                    Rank: 42,
+                    Type: 2,
+                    From: [103, 3],
+                    Member: [{
+                            Name: "钱蓓婷",
+                            Team: 101
+                        },
+                        {
+                            Name: "孔肖吟",
+                            Team: 101
+                        }
+                    ]
+                }, {
+                    Title: "战歌",
+                    Rank: 43,
+                    Type: 0,
+                    From: [101, 6],
+                    Member: [{
+                        Name: "SII",
+                        Team: 101
+                    }]
+                }, {
+                    Title: "寒夜",
+                    Rank: 44,
+                    Type: 1,
+                    From: [101, 6],
+                    Member: [{
+                        Name: "邱欣怡",
+                        Team: 101
+                    }]
+                }, {
+                    Title: "合理失控",
+                    Rank: 45,
+                    Type: 1,
+                    From: [301, 0],
+                    Member: [{
+                        Name: "莫寒",
+                        Team: 101
+                    }]
+                }, {
+                    Title: "因为喜欢你",
+                    Rank: 46,
+                    Type: 0,
+                    From: [100, 6],
+                    Member: [{
+                        Name: "J",
+                        Team: 203
+                    }]
+                },
+                {
+                    Title: "天使与恶魔",
+                    Rank: 47,
+                    Type: 1,
+                    From: [100, 21],
+                    Member: [{
+                        Name: "徐晨辰",
+                        Team: 101
+                    }]
+                }, {
+                    Title: "To be continued",
+                    Rank: 48,
+                    Type: 0,
+                    From: [102, 1],
+                    Member: [{
+                        Name: "B",
+                        Team: 201
+                    }]
+                }, {
+                    Title: "花与火",
+                    Rank: 49,
+                    Type: 0,
+                    From: [103, 3],
+                    Member: [{
+                        Name: "HII",
+                        Team: 103
+                    }]
+                },
+                {
+                    Title: "黑夜女神",
+                    Rank: 50,
+                    Type: 1,
+                    From: [103, 3],
+                    Member: [{
+                        Name: "汪佳翎",
+                        Team: 104
+                    }]
+                }
+            ];
+
+            //曲目归属公演orEP
+            var pieFrom = [];
+            //曲目归属队伍
+            var pieTeam = [];
+            //公演的Categories
+            var performanceCategories = [];
+            //公演的performance柱子
+            var colPerformance = [];
+
+            function sum(arr) {
+                var result = 0;
+                $(arr).each(function (i, item) {
+                    result = (result * 10 + item.y * 10) / 10;
+                });
+                return result;
+            }
+
+            //初始化
+            function initChartData() {
+                $(team).each(function (i, t) {
+                    //出处总和y
+                    var y = sum(t.performance);
+                    if (t.enabled) {
+                        //
+                        if (y > 0) {
+                            pieFrom.push({
+                                name: t.name,
+                                color: t.color,
+                                y: y
+                            });
+                        }
+                        //纯SII组合数
+                        if (t.y > 0) {
+                            pieTeam.push({
+                                name: t.name,
+                                color: t.color,
+                                y: t.y
+                            });
+                        }
+                    } else {
+                        switch (t.name) {
+                            case "EP":
+                                pieFrom.push({
+                                    name: t.name,
+                                    color: t.color,
+                                    y: y
+                                });
+                                break;
+                            case "混合":
+                                pieTeam.push({
+                                    name: t.name,
+                                    color: t.color,
+                                    y: t.y
+                                });
+                                break;
+                            default:
+                                //console.log(t.name+"不计");
+                                break;
+                        }
+                    }
+
+                    $(t.performance).each(function (index, p) {
+                        colPerformance.push({
+                            name: p.name,
+                            y: p.y,
+                            color: t.color
+                        });
+                    });
+                });
+
+                //console.log('pieTeam', pieTeam);
+                pieTeam = $.grep(pieTeam, function (item) {
+                    return item.y > 0;
+                });
+                //console.log('pieFrom', pieFrom);
+                pieFrom = $.grep(pieFrom, function (item) {
+                    return item.y > 0;
+                });
+                colPerformance = $.grep(colPerformance, function (item) {
+                    if (item.y > 0) {
+                        performanceCategories.push(item.name);
+                        return true;
+                    } else return false;
+                })
+            }
+
+            //计数：公演归属
+            function calculateFrom(item) {
+                ++team.find(t => t.index == item.From[0]).performance[item.From[1]].y;
+                //console.log(item.Rank + item.Title + team.find(t => t.index == item.From[0]).name, team.find(t => t.index == item.From[0]).performance[item.From[1]].y)
+            }
+
+            //计数：阵容归属
+            function calculateLineup(item) {
+                var memberteam = item.Member[0].Team;
+                var sameTeam = true;
+                $.each(item.Member, function (index, item) {
+                    if (memberteam != item.Team) {
+                        sameTeam = false;
+                    }
+                });
+                if (sameTeam) {
+                    ++team.find(t => t.index == item.Member[0].Team).y;
+                } else {
+                    ++team.find(t => t.index == 1000).y;
+                }
+            }
+
+            //数据写入表格
+            function initTable(item) {
+                pushSong(item);
+                switch (item.Type) {
+                    //Unit
+                    case 3:
+                    case 2:
+                        //var member = "";                        
+                        // $(item.Member).each(function (i, m) {
+                        //     if (i == 0) {
+                        //         member += '<b style="color:' + getTeamInfo(m.Team).color + '">' + m.Name +
+                        //             '</b>';
+                        //     } else {
+                        //         member += '<b style="color:' + getTeamInfo(m.Team).color + '">' + m.Name +
+                        //             '</b>';
+                        //     }
+                        // });
+                        //计算歌曲归属（队伍or混合）
+                        calculateLineup(item);
+                        // $("#table-unit").append('<tr><td>' + item.Rank + '</td><td style="color:' + getTeamInfo(
+                        //         item.Member[
+                        //             0].Team).color + '">' + item.Title + '</td><td style="color:' +
+                        //     getTeamInfo(item.From[0]).color + '">' + getTeamInfo(item.From[
+                        //         0]).performance[item.From[1]].name + '</td><td>' + calculateNew(item, false) +
+                        //     '</td><td>' + member + '</td></tr>');
+                        break;
+                        //Solo
+                    case 1:
+                        ++team.find(t => t.index == item.Member[0].Team).y;
+                        // $("#table-solo").append('<tr><td>' + item.Rank + '</td><td style="color:' + getTeamInfo(
+                        //         item.Member[
+                        //             0].Team).color + '">' + item.Title + '</td><td style="color:' +
+                        //     getTeamInfo(item.From[0]).color + '">' + getTeamInfo(item.From[0]).performance[
+                        //         item.From[1]].name + '</td><td>' + calculateNew(item, false) +
+                        //     '</td><td style="color:' + getTeamInfo(item.Member[0].Team).color + '">' + item
+                        //     .Member[
+                        //         0].Name + '</td></tr>');
+                        break;
+                        //队歌
+                    case 0:
+                    default:
+                        ++team.find(t => t.index == item.Member[0].Team).y;
+                        // $("#table-team").append('<tr><td>' + item.Rank + '</td><td style="color:' + getTeamInfo(
+                        //         item.Member[
+                        //             0].Team).color + '">' + item.Title + '</td><td style="color:' +
+                        //     getTeamInfo(item.From[0]).color + '">' + getTeamInfo(item.From[
+                        //         0]).performance[item.From[1]].name + '</td><td>' + calculateNew(item, false) +
+                        //     '</td><td style="color:' + getTeamInfo(item.Member[0].Team).color + '">' + item
+                        //     .Member[
+                        //         0].Name + '</td></tr>');
+                        break;
+                }
+            }
+
+
+            $(finalData).each(function (index, item) {
+                initTable(item);
+                calculateFrom(item);
+            });
+            //console.log("result",songGroup);
+            initChartData();
+            drawTable();
+            //移除空数组
+            function removeEmptyItem(arr) {
+                for (var i = 16; i >= 0; i--) {
+                    if (arr[i][1] === 0) {
+                        arr.splice(i, 1);
+                    }
+                }
+            }
+
+            $('#chart-new').highcharts({
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '<b>原创曲/复刻曲</b>入选比例'
+                },
+                colors: [team[3].color, team[6].color],
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true,
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>： {point.y}首 | {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: "",
+                    pointFormat: '<b>{point.name}</b>： {point.y}首 | {point.percentage:.1f} %'
+                },
+                series: [{
+                    type: 'pie',
+                    data: pieNew
+                }]
+            });
+
+            $('#chart-from').highcharts({
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '<b>出处</b>比例'
+                },
+                colors: [team[0].color, team[1].color, team[2].color, "#434348", "#888"],
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true,
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>： {point.y}首 | {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: "",
+                    pointFormat: '<b>{point.name}</b>： {point.y}首 | {point.percentage:.1f} %'
+                },
+                series: [{
+                    type: 'pie',
+                    data: pieFrom
+                }]
+            });
+
+            $("#chart-lineup").highcharts({
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '<b>各队表演</b>曲目数量比例'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true,
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>： {point.y}首 | {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: "",
+                    pointFormat: '<b>{point.name}</b>： {point.y}首 | {point.percentage:.1f} %'
+                },
+                series: [{
+                    type: 'pie',
+                    data: pieTeam
+                }]
+            });
+
+            $('#chart-performance').highcharts({
+                credits: {
+                    enabled: false
+                },
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '曲目 in 各套公演(or EP)'
+                },
+                xAxis: {
+                    categories: performanceCategories
+                },
+                yAxis: {
+                    min: 0,
+                    max: 12,
+                    allowDecimals: false,
+                    title: {
+                        text: ' '
+                    }
+                },
+                tooltip: {
+                    enabled: false
+                },
+                plotOptions: {
+                    column: {
+                        dataLabels: {
+                            enabled: true,
+                            color: "#414141",
+                            style: {
+                                fontWeight: 'bold'
+                            },
+                            formatter: function () {
+                                return this.y;
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: " ",
+                    data: colPerformance,
+                    color: 'white'
+                }],
+                exporting: {
+                    enabled: false
+                }
+            });
+
+            //$('#chart-top16').highcharts({
+            //    credits: { enabled: false },
+            //    chart: { type: 'column' },
+            //    title: { text: 'Top16演出曲目数' },
+            //    xAxis: {
+            //        categories: ['鞠婧祎', '李艺彤', '黄婷婷', '曾艳芬', '冯薪朵', '莫寒', '陆婷', '张语格', '赵粤', '邱欣怡', '许佳琪', '戴萌', '林思意', '万丽娜', '刘炅然', '张丹三']
+            //    },
+            //    yAxis: {
+            //        min: 0,
+            //        max: 10,
+            //        allowDecimals: false,
+            //        title: {
+            //            text: ' '
+            //        }
+            //    },
+            //    tooltip: {
+            //        enabled: false
+            //    },
+            //    plotOptions: {
+            //        column: {
+            //            dataLabels: {
+            //                enabled: true,
+            //                color: "#414141",
+            //                style: {
+            //                    fontWeight: 'bold'
+            //                },
+            //                formatter: function () {
+            //                    return this.y;
+            //                }
+            //            }
+            //        },
+            //        showInLegend: false
+            //    },
+            //    series: [{
+            //        name: ' ',
+            //        color: 'white',
+            //        data: colShow16
+            //    }],
+            //    exporting: { enabled: false }
+            //});
+        });
+    </script>
+</body>
+
+</html>
