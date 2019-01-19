@@ -164,11 +164,7 @@ var team = [{
         index: 106,
         enabled: true,
         y: 0,
-        performance: [{
-            name: "代号XII",
-            y: 0,
-            new: true
-        }]
+        performance: []
     },
     {
         name: "B",
@@ -593,6 +589,22 @@ var team = [{
             new: true
         }, {
             name: "BlueV",
+            y: 0,
+            new: true
+        }]
+    },{
+        name:'影视',
+        color:'#CCC',
+        font: "#FFF",
+        index: 998,
+        enabled: false,
+        y: 0,
+        performance:[{
+            name: "魔天记",
+            y: 0,
+            new: true
+        },{
+            name: "贴身校花",
             y: 0,
             new: true
         }]
