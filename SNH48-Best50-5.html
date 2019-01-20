@@ -28,7 +28,7 @@
         }
 
         .table tr td:nth-child(1),
-        .table tr td:nth-child(5) {
+        .table tr td:nth-child(5),.w45 {
             text-align: center;
             width: 45px;
             vertical-align: middle;
@@ -66,7 +66,7 @@
                     <table id="table-best" class="table table-bordered">
                         <tr>
                             <th>排名</th>
-                            <th>类型</th>
+                            <th class="w45">类型</th>
                             <th>曲名</th>
                             <th>出处</th>
                             <th>原创</th>
@@ -79,7 +79,7 @@
                     <table id="table-yy" class="table table-bordered">
                         <tr>
                             <th>排名</th>
-                            <th>类型</th>
+                            <th class="w45">类型</th>
                             <th>曲名</th>
                             <th>出处</th>
                             <th>原创</th>
@@ -92,7 +92,7 @@
                     <table id="table-hy" class="table table-bordered">
                         <tr>
                             <th>排名</th>
-                            <th>类型</th>
+                            <th class="w45">类型</th>
                             <th>曲名</th>
                             <th>出处</th>
                             <th>原创</th>
@@ -105,7 +105,7 @@
                     <table id="table-xc" class="table table-bordered">
                         <tr>
                             <th>排名</th>
-                            <th>类型</th>
+                            <th class="w45">类型</th>
                             <th>曲名</th>
                             <th>出处</th>
                             <th>原创</th>
@@ -115,18 +115,6 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <div>
-                    <h4>SNH48 FAMILY GROUP</h4>
-                    <table id="table-combination" class="table table-bordered">
-                        <tr>
-                            <th>序号</th>
-                            <th>演唱歌曲</th>
-                            <th>出处</th>
-                            <th>原创</th>
-                            <th>组合</th>
-                        </tr>
-                    </table>
-                </div>
                 <div>
                     <h4>新组合</h4>
                     <table id="table-new-combination" class="table table-bordered">
@@ -160,40 +148,20 @@
 
         var _7members = [
             {
-                name: "吴哲晗",
-                team: 101,
-                birth: Date.UTC(1995, 7, 26),
-                tall: 173
-            }, {
-                name: "张昕",
-                team: 103,
-                birth: Date.UTC(1995, 9, 19),
-                tall: 168
-            }, {
                 name: "徐子轩",
                 team: 101,
                 birth: Date.UTC(1998, 2, 30),
                 tall: 176
-            }, {
+            },{
+                name: "吴哲晗",
+                team: 101,
+                birth: Date.UTC(1995, 7, 26),
+                tall: 173
+            },  {
                 name: "袁一琦",
                 team: 103,
                 birth: Date.UTC(2000, 2, 19),
                 tall: 167
-            }, {
-                name: "沈梦瑶",
-                team: 103,
-                birth: Date.UTC(1998, 7, 14),
-                tall: 167
-            }, {
-                name: "张琼予",
-                team: 301,
-                birth: Date.UTC(1997, 0, 21),
-                tall: 163
-            }, {
-                name: "张丹三",
-                team: 103,
-                birth: Date.UTC(1997, 3, 28),
-                tall: 162
             }, {
                 name: "杨冰怡",
                 team: 104,
@@ -204,6 +172,16 @@
                 team: 102,
                 birth: Date.UTC(1994, 5, 22),
                 tall: 164
+            }, {
+                name: "张丹三",
+                team: 103,
+                birth: Date.UTC(1997, 3, 28),
+                tall: 162
+            }, {
+                name: "张琼予",
+                team: 301,
+                birth: Date.UTC(1997, 0, 21),
+                tall: 163
             }
         ]
 
@@ -238,7 +216,7 @@
                 if (c.enabled) {
                     if (c.name == "Ft")
                         $("#team-color").append('<div class="text-center" style="background:' + c.color +
-                            '"><span class="background:' + c.font + ';color:"#FFF">' + c.name +
+                            '"><span style="padding:0 5px;background:' + c.font + ';color:#FFF">' + c.name +
                             '</span></div>');
                     else
                         $("#team-color").append('<div class="text-center" style="color:' + c.font +
@@ -261,8 +239,7 @@
                 {
                     Name: "莫寒",
                     Team: 101
-                }
-                ]
+                }]
             },
             {
                 Title: "笨",
@@ -280,15 +257,34 @@
                 Type: 2,
                 From: [201, 0],
                 Member: [{
-                    Name: "许佳琪",
+                    Name: "吴哲晗",
                     Team: 101
                 }, {
-                    Name: "吴哲晗",
+                    Name: "许佳琪",
                     Team: 101
                 }]
             }, {
-                Title: "9 to 9",
+                Title: "Zen",
                 Rank: 4,
+                Type: 0,
+                From: [303, 1],
+                Member: [{
+                    Name: "Z",
+                    Team: 303
+                }]
+            },
+            {
+                Title: "钢铁之翼",
+                Rank: 5,
+                Type: 1,
+                From: [104, 1],
+                Member: [{
+                    Name: "戴萌",
+                    Team: 101
+                }]
+            },{
+                Title: "9 to 9",
+                Rank: 6,
                 Type: 2,
                 From: [301, 0],
                 Member: [{
@@ -298,10 +294,92 @@
                     Name: "孔肖吟",
                     Team: 101
                 }]
+            },{
+                Title: "人间规则",
+                Rank: 7,
+                Type: 3,
+                From: [105, 0],
+                Member: [{
+                    Name: "刘一菲",
+                    Team: 203
+                },
+                {
+                    Name: "孙语姗",
+                    Team: 203
+                },
+                {
+                    Name: "柏欣妤",
+                    Team: 501
+                }]
+            },{
+                Title: "巧克力之吻",
+                Rank: 8,
+                Type: 3,
+                From: [103, 2],
+                Member: [{
+                    Name: "钱蓓婷",
+                    Team: 101
+                },
+                {
+                    Name: "袁雨桢",
+                    Team: 101
+                },
+                {
+                    Name: "张怀瑾",
+                    Team: 303
+                }]
             },
             {
+                Title: "深海之声",
+                Rank: 9,
+                Type: 3,
+                From: [104, 1],
+                Member: [{
+                    Name: "卢静",
+                    Team: 302
+                }, {
+                    Name: "陈倩楠",
+                    Team: 202
+                }, {
+                    Name: "罗寒月",
+                    Team: 301
+                }]
+            },{
+                Title: "初日",
+                Rank: 10,
+                Type: 0,
+                From: [101, 2],
+                Member: [{
+                    Name: "SII",
+                    Team: 101
+                }]
+            },
+            {
+                Title: "无声的探戈",
+                Rank: 11,
+                Type: 2,
+                From: [103, 4],
+                Member: [{
+                    Name: "郑丹妮",
+                    Team: 302
+                }, {
+                    Name: "陈珂",
+                    Team: 301
+                }]
+            },
+            {
+                Title: "春夏秋冬",
+                Rank: 12,
+                Type: 1,
+                From: [102, 5],
+                Member: [{
+                    Name: "万丽娜",
+                    Team: 103
+                }]
+            }, 
+            {
                 Title: "My Boy",
-                Rank: 5,
+                Rank: 13,
                 Type: 2,
                 From: [203, 0],
                 Member: [{
@@ -313,8 +391,21 @@
                 }]
             },
             {
+                Title: "夜蝶",
+                Rank: 14,
+                Type: 2,
+                From: [101, 0],
+                Member: [{
+                    Name: "青钰雯",
+                    Team: 201
+                }, {
+                    Name: "陈美君",
+                    Team: 201
+                }]
+            },
+            {
                 Title: "双生花",
-                Rank: 7,
+                Rank: 15,
                 Type: 2,
                 From: [104, 1],
                 Member: [{
@@ -324,525 +415,272 @@
                     Name: "刘力菲",
                     Team: 302
                 }]
-            },
-            {
-                Title: "再爱一回",
-                Rank: 9,
-                Type: 3,
-                From: [101, 0],
-                Member: [{
-                    Name: "王雨煊",
-                    Team: 203
-                }, {
-                    Name: "黄恩茹",
-                    Team: 203
-                }, {
-                    Name: "袁一琦",
-                    Team: 103
-                }, {
-                    Name: "沈梦瑶",
-                    Team: 103
-                }]
-            },
-            {
-                Title: "不曾后悔",
-                Rank: 10,
-                Type: 3,
-                From: [101, 4],
-                Member: [{
-                    Name: "李钊",
-                    Team: 104
-                }, {
-                    Name: "李想",
-                    Team: 102
-                }, {
-                    Name: "菅瑞静",
-                    Team: 401
-                }, {
-                    Name: "王炯义",
-                    Team: 303
-                }]
-            },
-            {
-                Title: "灵魂使者",
-                Rank: 12,
-                Type: 3,
-                From: [101, 6],
-                Member: [{
-                    Name: "宋昕冉",
-                    Team: 104
-                },
-                {
-                    Name: "李梓",
-                    Team: 102
-                },
-                {
-                    Name: "刘胜男",
-                    Team: 102
-                },
-                {
-                    Name: "胡丽芝",
-                    Team: 201
-                }
-                ]
-            }, {
-                Title: "夜蝶",
-                Rank: 13,
+            },{
+                Title: "青涩的香蕉",
+                Rank: 16,
                 Type: 2,
-                From: [101, 0],
-                Member: [{
-                    Name: "许佳琪",
-                    Team: 101
-                },
-                {
-                    Name: "吴哲晗",
-                    Team: 101
-                }
-                ]
-            },
-            {
-                Title: "爱的颜色",
-                Rank: 14,
-                Type: 3,
-                From: [102, 1],
+                From: [101, 4],
                 Member: [{
                     Name: "段艺璇",
                     Team: 201
                 },
                 {
-                    Name: "张雨鑫",
-                    Team: 102
+                    Name: "胡晓慧",
+                    Team: 201
+                }]
+            }, {
+                Title: "人鱼",
+                Rank: 17,
+                Type: 2,
+                From: [105, 0],
+                Member: [
+                    {
+                        Name: "杨晔",
+                        Team: 203
+                    },
+                    {
+                        Name: "王雨煊",
+                        Team: 203
+                    }
+                ]
+            },
+            {
+                Title: "荣耀勋章",
+                Rank: 18,
+                Type: 1,
+                From: [999, 3],
+                Member: [{
+                    Name: "莫寒",
+                    Team: 101
+                }]
+            }, {
+                Title: "Super Logic",
+                Rank: 19,
+                Type: 3,
+                From: [103, 4],
+                Member: [{
+                    Name: "李钊",
+                    Team: 104
                 },
                 {
-                    Name: "苏杉杉",
-                    Team: 102
+                    Name: "农燕萍",
+                    Team: 303
+                },
+                {
+                    Name: "王偲越",
+                    Team: 303
+                },
+                {
+                    Name: "何梦瑶",
+                    Team: 303
+                }]
+            },
+            {
+                Title: "Deal",
+                Rank: 20,
+                Type: 1,
+                From: [203, 0],
+                Member: [{
+                    Name: "阳青颖",
+                    Team: 301
+                },{
+                    Name: "金锣赛",
+                    Team: 203
+                },
+                {
+                    Name: "黄黎蓉",
+                    Team: 301
+                },
+                {
+                    Name: "许婉玉",
+                    Team: 203
+                },
+                {
+                    Name: "刘一菲",
+                    Team: 203
+                },
+                {
+                    Name: "叶苗苗",
+                    Team: 203
+                }]
+            }, {
+                Title: "One Life",
+                Rank: 21,
+                Type: 3,
+                From: [302, 1],
+                Member: [{
+                    Name: "闫明筠",
+                    Team: 201
+                },
+                {
+                    Name: "张茜",
+                    Team: 105
+                },
+                {
+                    Name: "杨鑫",
+                    Team: 201
+                },
+                {
+                    Name: "田倩兰",
+                    Team: 501
+                }]
+            }, {
+                Title: "NaCl",
+                Rank: 22,
+                Type: 3,
+                From: [303, 1],
+                Member: [{
+                    Name: "谢蕾蕾",
+                    Team: 301
+                },
+                {
+                    Name: "刘倩倩",
+                    Team: 302
                 },
                 {
                     Name: "张琼予",
                     Team: 301
                 },
                 {
-                    Name: "王诗蒙",
-                    Team: 401
-                },
-                {
-                    Name: "李沁洁",
-                    Team: 301
-                }
-                ]
-            }, {
-                Title: "Zen",
-                Rank: 15,
-                Type: 0,
-                From: [303, 1],
-                Member: [{
-                    Name: "Z",
-                    Team: 303
-                }]
-            },
-            {
-                Title: "暴走少女",
-                Rank: 16,
-                Type: 3,
-                From: [302, 0],
-                Member: [{
-                    Name: "黄婷婷",
-                    Team: 102
-                },
-                {
-                    Name: "陆婷",
-                    Team: 102
-                },
-                {
-                    Name: "姜杉",
-                    Team: 105
-                },
-                {
-                    Name: "韩家乐",
-                    Team: 401
-                }
-                ]
-            }, {
-                Title: "少女的遗憾",
-                Rank: 17,
-                Type: 3,
-                From: [103, 2],
-                Member: [{
-                    Name: "刘增艳",
-                    Team: 105
-                },
-                {
-                    Name: "肖文铃",
-                    Team: 302
-                },
-                {
-                    Name: "任心怡",
-                    Team: 203
-                }
-                ]
-            },
-            {
-                Title: "Remember You",
-                Rank: 18,
-                Type: 1,
-                From: [102, 5],
-                Member: [{
-                    Name: "林思意",
-                    Team: 102
-                }]
-            }, {
-                Title: "如果你能拥抱我",
-                Rank: 19,
-                Type: 3,
-                From: [102, 1],
-                Member: [{
-                    Name: "刘炅然",
-                    Team: 103
-                },
-                {
-                    Name: "袁雨桢",
-                    Team: 101
-                },
-                {
-                    Name: "罗雪丽",
-                    Team: 102
-                }
-                ]
-            }, {
-                Title: "美杜莎的温柔",
-                Rank: 21,
-                Type: 3,
-                From: [301, 0],
-                Member: [{
-                    Name: "杨韫玉",
-                    Team: 104
-                },
-                {
-                    Name: "胡晓慧",
-                    Team: 201
-                },
-                {
-                    Name: "冼燊楠",
-                    Team: 302
-                }
-                ]
-            }, {
-                Title: "自以为（粤语）",
-                Rank: 23,
-                Type: 3,
-                From: [303, 0],
-                Member: [{
-                    Name: "张盺",
-                    Team: 103
-                },
-                {
-                    Name: "冯嘉希",
-                    Team: 302
-                },
-                {
-                    Name: "杜秋霖",
-                    Team: 303
-                },
-                {
-                    Name: "陈慧婧",
-                    Team: 302
-                },
-                {
-                    Name: "高源婧",
-                    Team: 301
-                },
-                {
-                    Name: "陈雅钰",
-                    Team: 203
-                }
-                ]
-            }, {
-                Title: "巧克力蜜语",
-                Rank: 24,
-                Type: 3,
-                From: [103, 1],
-                Member: [{
-                    Name: "黄婷婷",
-                    Team: 104
-                },
-                {
-                    Name: "费沁源",
-                    Team: 105
-                },
-                {
-                    Name: "刘力菲",
-                    Team: 302
-                },
-                {
-                    Name: "张凯祺",
-                    Team: 301
-                }
-                ]
-            }, {
-                Title: "暗夜脚步声",
-                Rank: 25,
-                Type: 3,
-                From: [202, 0],
-                Member: [
-                    {
-                        Name: "赵晔",
-                        Team: 101
-                    },
-                    {
-                        Name: "黄彤扬",
-                        Team: 102
-                    }
-                ]
-            }, {
-                Title: "曲终人散",
-                Rank: 26,
-                Type: 3,
-                From: [102, 1],
-                Member: [{
-                    Name: "许杨玉琢",
-                    Team: 103
-                },
-                {
-                    Name: "陈思",
-                    Team: 101
-                },
-                {
-                    Name: "谢妮",
-                    Team: 103
-                },
-                {
-                    Name: "林嘉佩",
-                    Team: 301
-                }
-                ]
-            }, {
-                Title: "暴风雨之夜",
-                Rank: 27,
-                Type: 3,
-                From: [102, 0],
-                Member: [{
-                    Name: "刘倩倩",
-                    Team: 302
-                },
-                {
                     Name: "杨媛媛",
                     Team: 303
-                },
-                {
-                    Name: "叶锦童",
-                    Team: 401
+                }]
+            },  {
+                Title: "结伴",
+                Rank: 23,
+                Type: 3,
+                From: [303, 1],
+                Member: [{
+                    Name: "左婧媛",
+                    Team: 302
                 },
                 {
                     Name: "熊心瑶",
                     Team: 302
-                }
-                ]
-            }, {
-                Title: "爱未央",
-                Rank: 28,
-                Type: 2,
-                From: [101, 6],
-                Member: [{
-                    Name: "段艺璇",
-                    Team: 201
                 },
                 {
-                    Name: "青钰雯",
-                    Team: 201
-                }
-                ]
-            }, {
-                Title: "Blue Rose",
-                Rank: 29,
-                Type: 3,
-                From: [103, 0],
-                Member: [{
-                    Name: "洪珮雲",
-                    Team: 105
-                },
-                {
-                    Name: "於佳怡",
-                    Team: 105
-                },
-                {
-                    Name: "王诗蒙",
-                    Team: 401
-                },
-                {
-                    Name: "李媛媛",
-                    Team: 102
-                }
-                ]
-            }, {
-                Title: "镜中圣女",
-                Rank: 30,
-                Type: 3,
-                From: [101, 2],
-                Member: [{
-                    Name: "陈问言",
-                    Team: 102
-                },
-                {
-                    Name: "程一心",
-                    Team: 301
-                },
-                {
-                    Name: "张梦慧",
-                    Team: 201
-                },
-                {
-                    Name: "陈美君",
-                    Team: 201
-                },
-                {
-                    Name: "陈楠茜",
+                    Name: "冯嘉希",
                     Team: 302
-                }
-                ]
-            }, {
-                Title: "一千零一夜",
-                Rank: 31,
-                Type: 3,
-                From: [202, 0],
-                Member: [{
-                    Name: "张语格",
-                    Team: 101
-                },
-                {
-                    Name: "孙珍妮",
-                    Team: 103
-                },
-                {
-                    Name: "刘力菲",
-                    Team: 302
-                }
-                ]
-            }, {
-                Title: "她和她",
-                Rank: 32,
-                Type: 2,
-                From: [105, 0],
-                Member: [{
-                    Name: "戴萌",
-                    Team: 101
-                },
-                {
-                    Name: "莫寒",
-                    Team: 101
-                }
-                ]
-            },
-            {
-                Title: "春夏秋冬",
-                Rank: 33,
-                Type: 1,
-                From: [102, 5],
-                Member: [{
-                    Name: "完丽娜",
-                    Team: 103
                 }]
             }, {
-                Title: "雨中的钢琴师",
-                Rank: 34,
+                Title: "Fire Touch",
+                Rank: 24,
                 Type: 3,
-                From: [103, 1],
+                From: [102, 5],
                 Member: [{
-                    Name: "谢蕾蕾",
-                    Team: 301
-                },
-                {
-                    Name: "卢静",
-                    Team: 302
-                },
-                {
-                    Name: "龙亦瑞",
-                    Team: 303
-                }
-                ]
-            }, {
-                Title: "更衣室男孩",
-                Rank: 35,
-                Type: 3,
-                From: [101, 1],
-                Member: [{
-                    Name: "林忆宁",
-                    Team: 104
-                },
-                {
-                    Name: "张嘉予",
-                    Team: 104
-                },
-                {
-                    Name: "罗寒月",
-                    Team: 301
-                },
-                {
-                    Name: "李佳恩",
-                    Team: 105
-                },
-                {
-                    Name: "冯思佳",
-                    Team: 102
-                }
-                ]
-            }, {
-                Title: "雨中动物园",
-                Rank: 36,
-                Type: 3,
-                From: [103, 0],
-                Member: [{
-                    Name: "刘佩鑫",
+                    Name: "宋雨珊",
                     Team: 103
                 },
                 {
-                    Name: "汪佳翎",
-                    Team: 104
+                    Name: "郝婧怡",
+                    Team: 502
                 },
                 {
-                    Name: "林歆源",
-                    Team: 105
+                    Name: "蒋舒婷",
+                    Team: 103
+                },
+                {
+                    Name: "徐楚雯",
+                    Team: 501
+                }
+                ]
+            }, {
+                Title: "错过奇迹",
+                Rank: 25,
+                Type: 3,
+                From: [100, 5],
+                Member: [
+                {
+                    Name: "张雨鑫",
+                    Team: 102
+                },
+                {
+                    Name: "曾艾佳",
+                    Team: 301
+                },{
+                    Name: "金莹玥",
+                    Team: 102
+                }]
+            }, {
+                Title: "新航路",
+                Rank: 26,
+                Type: 0,
+                From: [104, 1],
+                Member: [{
+                    Name: "X",
+                    Team: 104
+                }]
+            },{
+                Title: "不放手",
+                Rank: 27,
+                Type: 0,
+                From: [302, 1],
+                Member: [{
+                    Name: "NIII",
+                    Team: 302
+                }]
+            }, {
+                Title: "期待之翼",
+                Rank: 28,
+                Type: 3,
+                From: [203, 0],
+                Member: [{
+                    Name: "林舒晴",
+                    Team: 502
+                },
+                {
+                    Name: "陈雅钰",
+                    Team: 203
+                },
+                {
+                    Name: "王露皎",
+                    Team: 502
+                },
+                {
+                    Name: "李瑜璇",
+                    Team: 502
                 },
                 {
                     Name: "谢天依",
                     Team: 104
                 },
                 {
-                    Name: "杨一帆",
-                    Team: 102
-                },
-                {
-                    Name: "左嘉欣",
-                    Team: 302
-                },
-                {
-                    Name: "叶苗苗",
-                    Team: 203
-                },
-                {
-                    Name: "陶波尔",
-                    Team: 105
-                }
-                ]
+                    Name: "邓倩",
+                    Team: 502
+                }]
             }, {
-                Title: "地平线",
-                Rank: 37,
+                Title: "玛利亚",
+                Rank: 29,
+                Type: 2,
+                From: [202, 1],
+                Member: [{
+                    Name: "孔肖吟",
+                    Team: 101
+                },
+                {
+                    Name: "孙芮",
+                    Team: 101
+                }]
+            }, {
+                Title: "Good Time",
+                Rank: 30,
                 Type: 3,
                 From: [101, 5],
                 Member: [{
-                    Name: "严佼君",
-                    Team: 105
+                    Name: "刘胜男",
+                    Team: 202
                 },
                 {
-                    Name: "张怡",
-                    Team: 105
-                },
-                {
-                    Name: "赖梓惜",
+                    Name: "卢天惠",
                     Team: 401
                 },
                 {
-                    Name: "陈观慧",
-                    Team: 101
+                    Name: "陈俊宏",
+                    Team: 301
+                },
+                {
+                    Name: "余芷媛",
+                    Team: 303
                 },
                 {
                     Name: "徐诗琪",
@@ -850,61 +688,109 @@
                 }
                 ]
             }, {
-                Title: "心型病毒",
-                Rank: 38,
+                Title: "一天天一点点",
+                Rank: 31,
                 Type: 3,
-                From: [101, 1],
+                From: [201, 0],
                 Member: [{
-                    Name: "祁静",
+                    Name: "谢妮",
+                    Team: 103
+                },
+                {
+                    Name: "杨可璐",
+                    Team: 303
+                },
+                {
+                    Name: "江真仪",
+                    Team: 102
+                },
+                {
+                    Name: "冼燊楠",
+                    Team: 302
+                },
+                {
+                    Name: "张嘉予",
+                    Team: 104
+                }]
+            }, {
+                Title: "蒲公英的脚印",
+                Rank: 32,
+                Type: 2,
+                From: [100, 23],
+                Member: [{
+                    Name: "陈珂",
+                    Team: 301
+                },
+                {
+                    Name: "郑丹妮",
+                    Team: 302
+                }]
+            }, {
+                Title: "最后的曙光",
+                Rank: 33,
+                Type: 3,
+                From: [104, 1],
+                Member: [{
+                    Name: "谢蕾蕾",
+                    Team: 301
+                },
+                {
+                    Name: "韩家乐",
+                    Team: 401
+                },
+                {
+                    Name: "柏欣妤",
+                    Team: 501
+                },
+                {
+                    Name: "冯思佳",
+                    Team: 202
+                }]
+            }, {
+                Title: "Blue Rose",
+                Rank: 34,
+                Type: 3,
+                From: [103, 0],
+                Member: [{
+                    Name: "汪佳翎",
                     Team: 104
                 },
                 {
-                    Name: "张怡",
+                    Name: "陈琳",
+                    Team: 104
+                },
+                {
+                    Name: "李慧",
+                    Team: 401
+                },
+                {
+                    Name: "黄楚茵",
+                    Team: 301
+                }
+                ]
+            }, 
+            {
+                Title: "暴走少女",
+                Rank: 35,
+                Type: 3,
+                From: [302, 0],
+                Member: [{
+                    Name: "马玉灵",
+                    Team: 202
+                },
+                {
+                    Name: "陈珂",
+                    Team: 301
+                },
+                {
+                    Name: "李星羽",
                     Team: 105
                 },
                 {
-                    Name: "徐晗",
-                    Team: 103
-                }
-                ]
-            }, {
-                Title: "灰姑娘的玻璃手机",
-                Rank: 39,
-                Type: 2,
-                From: [202, 0],
-                Member: [{
-                    Name: "易嘉爱",
-                    Team: 102
-                },
-                {
-                    Name: "赵粤",
-                    Team: 102
-                }
-                ]
-            }, {
-                Title: "天使的圈套",
-                Rank: 42,
-                Type: 2,
-                From: [103, 3],
-                Member: [{
-                    Name: "钱蓓婷",
-                    Team: 101
-                },
-                {
-                    Name: "孔肖吟",
-                    Team: 101
-                }
-                ]
-            }, {
-                Title: "初日",
-                Rank: 43,
-                Type: 0,
-                From: [101, 2],
-                Member: [{
-                    Name: "SII",
-                    Team: 101
+                    Name: "王雨煊",
+                    Team: 203
                 }]
-            },{
+            }, {
                 Title: "Battle Cry",
                 Rank: 36,
                 Type: 2,
@@ -922,15 +808,15 @@
                     Team: 201
                 }]
             },  {
-                Title: "不锈钢",
+                Title: "不秀钢",
                 Rank: 37,
                 Type: 3,
-                From: [101, 6],
+                From: [303, 1],
                 Member: [{
                     Name: "孙歆文",
                     Team: 104
                 },{
-                    Name: "陈韫灵",
+                    Name: "陈韫凌",
                     Team: 104
                 },{
                     Name: "张羽涵",

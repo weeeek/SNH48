@@ -160,7 +160,7 @@ var team = [{
     {
         name: "Ft",
         color: "#41b400",
-        font: "##E10164",
+        font: "#E10164",
         index: 106,
         enabled: true,
         y: 0,
@@ -188,6 +188,10 @@ var team = [{
         y: 0,
         performance: [{
             name: "奇幻加冕礼",
+            y: 0,
+            new: true
+        },{
+            name: 'Universe',
             y: 0,
             new: true
         }]
@@ -627,6 +631,10 @@ var team = [{
             name: "2ND（725）总选演唱会",
             y: 0,
             new: false
+        },{
+            name: 'BEJ48成军一周年',
+            y:0,
+            new: true
         }]
     },
     {
