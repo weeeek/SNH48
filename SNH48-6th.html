@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNH48 GROUP 第六届偶像年度人气总决选</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="SNH48GroupMemebers.js"></script>
+    <style type="text/css">
+        .row {
+            margin-top: 1.6em;
+        }
+
+        #team-color {
+            margin-top: 0;
+        }
+
+            #team-color .teamName, #team-index .teamName {
+                width: calc(100% / 10);
+                float: left;
+                white-space: pre-line;
+            }
+
+        .table tr td, .table tr th {
+            font-weight: bolder;
+        }
+
+            .table tr td:nth-child(1) {
+                text-align: center;
+                width: 45px;
+                vertical-align: middle;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="team-color"></div>
+        <div class="row">
+            <div class="col-xs-6">
+                <table id="vote-table-1" class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th>所属队伍</th>
+                        <th>成员姓名</th>
+                        <th>得票数</th>
+                        <th>名次升降</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-6">
+                <table id="vote-table-2" class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th>所属队伍</th>
+                        <th>成员姓名</th>
+                        <th>得票数</th>
+                        <th>名次升降</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-all-percenter"></div>
+            </div>
+            <div class="col-xs-6">                
+                <div id="chart-history"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="chart-all-in"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-top16-123"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="chart-top16-increase"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="chart-top16-rank"></div>
+            </div>
+            <div class="col-xs-6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 text-right">
+                传送门：
+            </div>
+            <div class="col-xs-11">
+                <a href="https://weeeek.github.io/SNH48/SNH48-5th.html" target="_blank">SNH48 GROUP 第四届偶像年度人气总决选排名统计</a>
+                <br>
+                <a href="https://weeeek.github.io/SNH48/SNH48-Best50-5.html" target="_blank">SNH48 GROUP 第四届SNH48 Group 金曲大赏排名统计</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="SNH48GroupMemebers.js"></script>
+    <script type="text/javascript">
+        var outRank = 49;
+        var memberResponse = { total: 303, rows: [] }
+        //总票数
+        var sumvote = 0.0;
+        // 第一名的票数
+        var maxVote = 0;
+        function getTeamColorByTeamId(teamId) {
+            let group = groups.find((g) => g.id == (teamId.substring(0, 1) + "0"));
+            return group.teams.find((t) => t.id == teamId).color;
+        }
+    </script>
+    <script type="text/javascript">
+        //不统计非Top16 五选速报中报票数
+        var finalData = [];
+        //各队颜色，饼图用
+        var colors = [], colors2 = [];
+        var XII_data;
+        //各队票数比例
+        var series_all_percenter = [];
+        var series_origin_percenter = [];
+        //圈内各组人数,1-16,17-32,33-48,49-66
+        var series_all_in = [];
+        //top16排名变化
+        var series_top16_rank = [];
+        //top16名字
+        var categories_top16 = [];
+        //top16票数增长数据
+        var series_top16_123 = [{ name: '终报增长', data: [] }, { name: '中报增长', data: [] }, { name: '速报增长', data: [] }];
+
+        "#94D401", "#EF1B52"
+
+        var series_top16_increase = [{
+            name: '第五届票数',
+            dashStyle: "solid",
+            borderColor: "red",
+            color: 'rgba(239,27,82,1)',
+            data: [],
+            pointPadding: 0.3
+        }, {
+            name: '第六届票数（换算后）',
+            color: 'rgba(148,212,1,.8)',
+            data: [],
+            dashStyle: "solid",
+        }];
+
+        function addVote(targetTeam, originalTeam, vote, rank) {
+            let gid = targetTeam.id.substring(0, 1) + "0";
+            let group = groups.find((g) => g.id == gid);
+            ++group._in;
+            group.vote = (group.vote * 100 + vote * 100) / 100;
+            targetTeam.vote = (targetTeam.vote * 100 + vote * 100) / 100;
+            //原归属队伍总票数相加
+            //originalTeam.originVote = (originalTeam.originVote * 100 + vote * 100) / 100;
+
+            ++targetTeam._in.sum;
+            // if (rank > 48 && rank <= 66)
+            //     ++targetTeam._in.t66;
+            if (rank > 32 && rank <= 48)
+                ++targetTeam._in.t48;
+            if (rank > 16 && rank <= 32)
+                ++targetTeam._in.t32;
+            if (rank <= 16)
+                ++targetTeam._in.t16;
+
+            sumvote = (sumvote * 100 + vote * 100) / 100;
+        }
+
+        function main() {
+            //成员归属队伍
+            //$.each(memberResponse.rows, function (i, item) {
+            //    //if (item.tid == "150")
+            //    //    item.tid = "101";
+            //    let teams = groups.find((g) => g.id == item.gid).teams;
+
+            //    teams.find((t) => t.id == item.tid).members.push({
+            //        sid: item.sid,
+            //        name: item.sname,
+            //    })
+            //})
+            //console.log(JSON.stringify(groups));
+            //最上面的各队颜色
+            $(groups).each(function (i, g) {
+                $(g.teams).each(function (index, item) {                    
+                    item.enabled = item.enabled && item.members.length > 0;
+                    if (item.enabled)
+                        $("#team-color").append('<div class="teamName text-center" style="color:#FFF;background:' + item.color + '">' + item.name.split(' ').join('<br />') + '</div>');
+                });
+            });
+
+            //统计计算
+            $(finalData).each(function (i, item) {
+                let gid = item.team.substring(0, 1) + "0";
+                let group = groups.find((g) => g.id == gid);
+                let targetTeam = group.teams.find((t) => t.id == item.team);
+                let originalTeam = null
+                addVote(targetTeam, originalTeam, item._6th.vote, item._6th.rank);
+                // console.log(item.name)
+                // console.log(item._5th.rank)
+                // console.log(item._6th.rank)
+
+                var voteUp = item._6th.vote / 10 > item._5th.vote
+                var indexUp = false
+                if(item._5th.rank == null)
+                    indexUp = true
+                else if(item._5th.rank == item._6th.rank)
+                    indexUp = voteUp
+                else if(item._5th.rank > item._6th.rank)
+                    indexUp = true
+                
+                var td = '<tr><td>' + item._6th.rank + '</td><td style="color:' + targetTeam.color + '">' + targetTeam.name + '</td><td>' + item.name + '</td><td style="color:' + (voteUp ? "red" : "green") + '">' + item._6th.vote + '</td><td style="color:' + (indexUp ? "red" : "green") + '">' + (indexUp ? '↑' : '↓') + Math.abs(item._6th.rank - (item._5th.rank==null?48:item._5th.rank)) + '</td><tr>'
+                if (item._6th.rank <= 24)
+                    $("#vote-table-1").append(td)
+                else
+                    $("#vote-table-2").append(td)
+
+                if (item._6th.rank < 17) {
+                    series_top16_rank.push({
+                        color: getTeamColorByTeamId(item.team),
+                        name: item.name,
+                        data: [item._1st.rank, item._2nd.rank, item._3rd.rank, item._4th.rank, item._5th.rank, item._6th.rank]
+                    });
+                    categories_top16.push(item.name);
+                    series_top16_123[0].data.push(Math.round(item._6th.vote * 100 - item._6th.z * 100) / 100);
+                    series_top16_123[1].data.push(Math.round(item._6th.z * 100 - item._6th.s * 100) / 100);
+                    series_top16_123[2].data.push(item._6th.s);
+                    series_top16_increase[0].data.push(item._5th.vote);
+                    //series_top16_increase[1].data.push(Math.round(item._6th.vote * 100 - item._5th.vote * 100) / 100);
+                    series_top16_increase[1].data.push(item._6th.vote / 10);
+                }
+            });
+
+            //统计完毕之后的数据处理
+            $.each(groups, function (i, group) {
+                if (group._in > 0) {
+                    $.each(group.teams, function (j, team) {
+                        if (team._in.sum > 0) {
+                            series_all_in.push({
+                                name: team.name,
+                                //data: [team._in.t16, team._in.t32, team._in.t48, team._in.t66, team._in.sum]
+                                data: [team._in.t16, team._in.t32, team._in.t48, team._in.sum]
+                            })
+                            //console.log(team.id)
+                            //console.log(getTeamColorByTeamId(team.id))
+                            colors.push(getTeamColorByTeamId(team.id))
+                            series_all_percenter.push([team.name, team.vote])
+                            //series_origin_percenter.push([team.name, team.originVote])
+                        }
+                    })
+                }
+            })
+            colors2 = colors.slice(0);
+            XII_data = groups.find(g => g.id == "10").teams.find(f => f.id == "105");
+            //series_origin_percenter.splice(4, 0, [XII_data.name, XII_data.originVote]);
+            colors2.splice(4, 0, XII_data.color)
+
+        }
+        $(document).ready(function () {            
+            var arr = [];
+            groups.map((g)=>{
+                g.teams.map((t)=>{
+                    t.members.map((m)=>{
+                        if(m._6th && m._6th.rank){
+                            if(m._6th.rank === 1)
+                                maxVote = m._6th.vote
+                            m.team = t.id
+                            arr.push(m)
+                        }
+                    })
+                })
+            })
+            finalData = arr.sort(function(a,b){
+                return a._6th.rank - b._6th.rank
+            })
+            
+            main();
+            initChart();
+        })
+
+        function removeEmptyItem(arr) {
+            for (var i = 8; i >= 0; i--) {
+                if (arr[i][1] === 0) {
+                    arr.splice(i, 1);
+                }
+            }
+        }
+
+        function initChart() {
+            series_top16_rank.reverse();
+            series_top16_123[0].data.reverse();
+            series_top16_123[1].data.reverse();
+            series_top16_123[2].data.reverse();
+            $('#chart-top16-123').highcharts({
+                credits: { enabled: false },
+                colors: ["#F49600", "#AE86BB", "#91CCEA"],
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Top16速报中报终报票数分布图'
+                },
+                xAxis: {
+                    categories: categories_top16.reverse()
+                },
+                yAxis: {
+                    min: 0,
+                    max: maxVote,
+                    title: {
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF',
+                    reversed: true
+                },
+                tooltip: {
+                    tooltip: {
+                        headerFormat: '<b>{point.key}</b>',
+                        pointFormat: '{series.name}: {point.y}',
+                        valueDecimals: 1
+                    },
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }, dataLabels: {
+                        enabled: true,
+                        format: '{y :.1f}'
+                    }
+                },
+                series: series_top16_123
+            });
+            series_top16_increase[0].data.reverse();
+            series_top16_increase[1].data.reverse();
+            $('#chart-top16-increase').highcharts({
+                credits: { enabled: false },
+                //colors: ["#94D401", "#EF1B52"],
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Top16票数增长量图'
+                },
+                xAxis: {
+                    categories: categories_top16
+                },
+                yAxis: {
+                    min: 0,
+                    max: maxVote / 10,
+                    title: {
+                        show: false,
+                        text: ' '
+                    }
+                },
+                legend: {
+                    backgroundColor: '#FFFFFF'
+                },
+                tooltip: {
+                    headerFormat: '<b>{point.key}</b><br/>',
+                    pointFormat: '{series.name}: {point.y:.2f}<br/>',
+                    valueDecimals: 2,
+                    shared: true,
+                },
+                plotOptions: {
+                    //series: {
+                    //    stacking: 'normal'
+                    //},
+                    column: {
+                        borderWidth: 1,
+                        grouping: false,
+                        shadow: false
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{y :.1f}'
+                    }
+                },
+                series: series_top16_increase
+            });
+            $('#chart-history').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: '各届总选总票数'
+                },
+                xAxis: {
+                    categories: ['一选', '二选', '三选', '四选', '五选', '六选（换算后）']
+                },
+                yAxis: {
+                    title: {
+                        enabled: false
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true,          // 开启数据标签
+                            format: '{y:.1f}'
+                        },
+                        enableMouseTracking: false // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                    }
+                },
+                legend: { enabled: false },
+                series: [{
+                    data: [134816, 696584.7, 1758676.6, 2770146.8, 2972581.5, 22868017 / 10]
+                }]
+            });
+
+            $('#chart-top16-rank').highcharts({
+                credits: { enabled: false },
+                chart: { type: 'line' },
+                title: { text: '第六届的Top16成员-名次变化' },
+                xAxis: {
+                    categories: ['第一届', '第二届', '第三届', '第四届', '第五届', '第六届']
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: { text: '' },
+                    min: 1, max: 66, reversed: true
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
+                    }
+                },
+                legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0 },
+                series: series_top16_rank.reverse()
+            });
+
+            $('#chart-all-in').highcharts({
+                credits: { enabled: false },
+                colors: colors,
+                chart: { type: 'column' },
+                title: { text: '各组人数' },
+                xAxis: {
+                    categories: ['1-16', '17-32', '33-48', '49-66', '圈内']
+                },
+                yAxis: { min: 0, title: { text: '' } },
+                tooltip: {
+                    headerFormat: '<span style="font-size:1em;font-weight:bolder;">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2, borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            color: "#000000",
+                            style: { fontWeight: 'bold' },
+                            formatter: function () { return this.y === 0 ? "" : this.y }
+                        }
+                    }
+                },
+                series: series_all_in
+            });
+            $('#chart-all-percenter').highcharts({
+                credits: { enabled: false },
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '各队票数总和比例'
+                },
+                colors: colors,
+                tooltip: {
+                    headerFormat: "<b>{point.key}</b><br/>",
+                    pointFormat: '{series.name}：<b>{point.percentage:.1f}%</b><br />票数合计：<b>{point.y:.1f}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: { enabled: true, inside: true, color: '#000000', connectorColor: 'transparent', format: '<b>{point.name}</b>: {point.percentage:.1f} %' },
+                        showInLegend: true
+                    }
+                },
+                series:
+                [
+                    {
+                        type: 'pie',
+                        name: '票数占比',
+                        data: series_all_percenter
+                    }
+                ]
+            });            
+        }
+    </script>
+</body>
+</html>
