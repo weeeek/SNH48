@@ -4,7 +4,6 @@ var team = [{
         font: "#FFF",
         index: 101,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
                 name: "最后的钟声响起",
@@ -54,7 +53,6 @@ var team = [{
         font: "#FFF",
         index: 102,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
                 name: "剧场女神",
@@ -99,7 +97,6 @@ var team = [{
         font: "#FFF",
         index: 103,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
                 name: "青春派对",
@@ -134,7 +131,6 @@ var team = [{
         font: "#FFF",
         index: 104,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
                 name: "梦想的旗帜",
@@ -154,7 +150,6 @@ var team = [{
         font: "#FFF",
         index: 105,
         enabled: false,
-        canceled:true,
         y: 0,
         performance: [{
             name: "代号XII",
@@ -168,7 +163,6 @@ var team = [{
         font: "#E10164",
         index: 106,
         enabled: true,
-        canceled: true,
         y: 0,
         performance: []
     },
@@ -178,7 +172,6 @@ var team = [{
         font: "#FFF",
         index: 201,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
             name: "Be A Fighter",
@@ -192,7 +185,6 @@ var team = [{
         font: "#FFF",
         index: 202,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
             name: "奇幻加冕礼",
@@ -210,7 +202,6 @@ var team = [{
         font: "#FFF",
         index: 203,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{ name: "HAKUNA MATATA", y: 0, new: true }]
     },
@@ -220,7 +211,6 @@ var team = [{
         "font": "#FFFFFF",
         index: 210,
         enabled: false,
-        canceled:false,
         y: 0,
         performance: []
     },
@@ -230,7 +220,6 @@ var team = [{
         font: "#FFF",
         index: 301,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
             name: "双面偶像",
@@ -244,7 +233,6 @@ var team = [{
         font: "#FFF",
         index: 302,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
             name: "第一人称",
@@ -262,7 +250,6 @@ var team = [{
         font: "#FFF",
         index: 303,
         enabled: true,
-        canceled:false,
         y: 0,
         performance: [{
             name: "代号-林和西",
@@ -280,7 +267,6 @@ var team = [{
         font: "#FFFFFF",
         index: "304",
         enabled: false,
-        canceled:false,
         y: 0,
         performance: []
     },
@@ -290,7 +276,6 @@ var team = [{
         font: "#FFF",
         index: 401,
         enabled: true,
-        canceled:true,
         y: 0,
         performance: [{
             name: "Idol.S",
@@ -304,7 +289,6 @@ var team = [{
         font: "#FFF",
         index: 402,
         enabled: true,
-        canceled:true,
         y: 0,
         performance: []
     }, {
@@ -313,7 +297,6 @@ var team = [{
         font: "#FFFFFF",
         index: 403,
         enabled: false,
-        canceled:true,
         y: 0,
         performance: []
     }, {
@@ -322,7 +305,6 @@ var team = [{
         font: "#FFFFFF",
         index: 404,
         enabled: false,
-        canceled:true,
         y: 0,
         performance: []
     },
@@ -332,7 +314,6 @@ var team = [{
         font: "#FFF",
         index: 501,
         enabled: true,
-        canceled:true,
         y: 0,
         performance: []
     },
@@ -342,7 +323,6 @@ var team = [{
         font: "#FFF",
         index: 502,
         enabled: true,
-        canceled:true,
         y: 0,
         performance: []
     },
@@ -352,7 +332,6 @@ var team = [{
         font: "transparent",
         index: 503,
         enabled: false,
-        canceled:true,
         y: 0,
         performance: []
     },

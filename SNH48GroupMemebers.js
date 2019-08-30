@@ -1080,7 +1080,7 @@ var groups = [{
             _1st: { rank: null, vote: 0 },
             _2nd: { rank: null, vote: 0 },
             _3rd: { rank: null, vote: 0 },
-            _4th: { rank: null, vote: 0 },
+            _4th: { rank: 50, vote: 18351.3 },
             _5th: { rank: 36, vote: 23293.72 },
             _6th: { rank: 11, s: 0, z: 207463, vote: 637152 }
         }, {

@@ -49,32 +49,9 @@
             align-items: stretch;
         }
 
-        .grayscale{
-            /* animation: name duration timing-function delay iteration-count direction */
-            animation: grayscale 10s linear 1s infinite alternate
-        }
-
         #team-color div {
             flex-basis: 1;
             width: 100%;
-        }
-
-        @keyframes grayscale{
-            0% {
-                filter: grayscale(0%);
-                -webkit-filter: grayscale(0%);
-            }
-            20% {
-                filter: grayscale(100%);
-                -webkit-filter: grayscale(100%);
-            }
-            80% {
-                filter: grayscale(100%);
-                -webkit-filter: grayscale(100%);
-            }
-            100% {
-                opacity: 0
-            }
         }
     </style>
 </head>
@@ -237,13 +214,12 @@
             //最上面的各队颜色
             $(team).each(function (i, c) {
                 if (c.enabled) {
-                    var grayscale = c.canceled ? 'grayscale' : '';
                     if (c.name == "Ft")
-                        $("#team-color").append('<div class="text-center ' + grayscale + '" style="background:' + c.color +
+                        $("#team-color").append('<div class="text-center" style="background:' + c.color +
                             '"><span style="padding:0 5px;background:' + c.font + ';color:#FFF">' + c.name +
                             '</span></div>');
                     else
-                        $("#team-color").append('<div class="text-center ' + grayscale + '" style="color:' + c.font +
+                        $("#team-color").append('<div class="text-center" style="color:' + c.font +
                             ';background:' + c.color + '">' + c.name + '</div>');
                 }
             });
