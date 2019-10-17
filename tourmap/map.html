@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>『坐标』接力解锁 | 逆转世界，决不妥协</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			box-sizing: border-box;
+		}
+
+		body {
+			background-image: url(img/map_balck_whole_bg.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		a,
+		img {
+			border: 0;
+			text-decoration: none;
+		}
+
+		.clearfix:after {
+			visibility: hidden;
+			display: block;
+			font-size: 0;
+			content: " ";
+			clear: both;
+			height: 0
+		}
+
+		.clearfix {
+			height: 1%
+		}
+
+
+		.map-service {
+			display: flex;
+			width: 100%;
+			height: 100%;
+		}
+
+		.map-container {
+			position: fixed;
+			left: 0;
+		}
+
+		.info-container {
+			width: 100%;
+			padding-left: 480px;
+			padding-top: 8em;
+		}
+
+		.content-container {
+			width: 100%;
+		}
+
+		.china-map {
+			width: 748px;
+			height: 618px;
+			background: url(img/map_black_bg.png) center no-repeat;
+			position: fixed;
+			left: -300px;
+			top: 2em;
+		}
+
+		.region-list {
+			position: absolute;
+		}
+
+		.region-list span {
+			cursor: pointer;
+		}
+
+		@-webkit-keyframes warn {
+			0% {
+				-webkit-transform: scale(0);
+				transform: scale(0);
+				opacity: 1
+			}
+
+			100% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+				opacity: 0
+			}
+		}
+
+		@-moz-keyframes warn {
+			0% {
+				-moz-transform: scale(0);
+				transform: scale(0);
+				opacity: 1
+			}
+
+			100% {
+				-moz-transform: scale(1);
+				transform: scale(1);
+				opacity: 0
+			}
+		}
+
+		@-o-keyframes warn {
+			0% {
+				-o-transform: scale(0);
+				transform: scale(0);
+				opacity: 1
+			}
+
+			100% {
+				-o-transform: scale(1);
+				transform: scale(1);
+				opacity: 0
+			}
+		}
+
+		@keyframes warn {
+			0% {
+				-webkit-transform: scale(0);
+				-moz-transform: scale(0);
+				-o-transform: scale(0);
+				transform: scale(0);
+				opacity: 1
+			}
+
+			100% {
+				-webkit-transform: scale(1);
+				-moz-transform: scale(1);
+				-o-transform: scale(1);
+				transform: scale(1);
+				opacity: 0
+			}
+		}
+
+		.area-box .dot {
+			position: absolute;
+			left: 0;
+			width: 10px;
+			height: 10px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background: #a2a9b4;
+			opacity: 1;
+			filter: alpha(opacity=100)
+		}
+
+		.area-box .pulse {
+			position: absolute;
+			top: -30px;
+			left: -30px;
+			height: 66px;
+			width: 66px;
+			border: 2px solid #b7b7b7;
+			-webkit-border-radius: 48px;
+			-moz-border-radius: 48px;
+			border-radius: 48px;
+			-webkit-box-shadow: 0 0 4px #82878f, 0 0 10px #82878f inset;
+			-moz-box-shadow: 0 0 4px #82878f, 0 0 10px #82878f inset;
+			box-shadow: 0 0 4px #82878f, 0 0 10px #82878f inset;
+			opacity: .12;
+			filter: alpha(opacity=0);
+			-webkit-animation: warn 2s ease-out both;
+			-moz-animation: warn 2s ease-out both;
+			-o-animation: warn 2s ease-out both;
+			animation: warn 2s ease-out both;
+			-webkit-animation-iteration-count: infinite;
+			-moz-animation-iteration-count: infinite;
+			-o-animation-iteration-count: infinite;
+			animation-iteration-count: infinite;
+			background: 0 0
+		}
+
+		.area-box .delay-01 {
+			-webkit-animation-delay: 0;
+			-moz-animation-delay: 0;
+			-o-animation-delay: 0;
+			animation-delay: 0
+		}
+
+		.area-box .delay-02 {
+			-webkit-animation-delay: .4s;
+			-moz-animation-delay: .4s;
+			-o-animation-delay: .4s;
+			animation-delay: .4s
+		}
+
+		.area-box .delay-03 {
+			-webkit-animation-delay: .8s;
+			-moz-animation-delay: .8s;
+			-o-animation-delay: .8s;
+			animation-delay: .8s
+		}
+
+		.area-box .delay-04 {
+			-webkit-animation-delay: 1.2s;
+			-moz-animation-delay: 1.2s;
+			-o-animation-delay: 1.2s;
+			animation-delay: 1.2s
+		}
+
+		.area-box .delay-05 {
+			-webkit-animation-delay: 1.6s;
+			-moz-animation-delay: 1.6s;
+			-o-animation-delay: 1.6s;
+			animation-delay: 1.6s
+		}
+
+		.area-box .delay-06 {
+			-webkit-animation-delay: 2s;
+			-moz-animation-delay: 2s;
+			-o-animation-delay: 2s;
+			animation-delay: 2s
+		}
+
+		.area-box .delay-07 {
+			-webkit-animation-delay: 2.4s;
+			-moz-animation-delay: 2.4s;
+			-o-animation-delay: 2.4s;
+			animation-delay: 2.4s
+		}
+
+		.area-box .delay-08 {
+			-webkit-animation-delay: -.4s;
+			-moz-animation-delay: -.4s;
+			-o-animation-delay: -.4s;
+			animation-delay: -.4s
+		}
+
+		.area-box .delay-09 {
+			-webkit-animation-delay: -.8s;
+			-moz-animation-delay: -.8s;
+			-o-animation-delay: -.8s;
+			animation-delay: -.8s
+		}
+
+		.area-box .delay-10 {
+			-webkit-animation-delay: -1.2s;
+			-moz-animation-delay: -1.2s;
+			-o-animation-delay: -1.2s;
+			animation-delay: -1.2s
+		}
+
+		.area-box .delay-11 {
+			-webkit-animation-delay: 4s;
+			-moz-animation-delay: 4s;
+			-o-animation-delay: 4s;
+			animation-delay: 4s
+		}
+
+		.region-list.active .area-box .dot {
+			background: #009fd9
+		}
+
+		.region-list.active .area-box .pulse {
+			border-color: #009fd9;
+			top: -39px;
+			left: -39px;
+			height: 88px;
+			width: 88px;
+			-webkit-box-shadow: 0 0 12px #0080d9, 0 0 20px #0080d9 inset;
+			-moz-box-shadow: 0 0 12px #0080d9, 0 0 20px #0080d9 inset;
+			box-shadow: 0 0 12px #0080d9, 0 0 20px #0080d9 inset
+		}
+
+		.region-list.waite .area-box .dot {
+			background: #f90
+		}
+
+		.region-list.waite .area-box .pulse {
+			border-color: #f90
+		}
+
+		.show-regin {
+			position: absolute;
+			left: 2px;
+			height: 0;
+			top: 0;
+			width: 11px;
+			opacity: 0;
+			-o-transition: all .5s ease-in-out;
+			-webkit-transition: all .5s ease-in-out;
+			-moz-transition: all .5s ease-in-out;
+			transition: all .5s ease-in-out
+		}
+
+		.online-node .show-regin,
+		.region-list:hover .show-regin,
+		.underline-node .show-regin,
+		.waite-node .show-regin {
+			height: 127px;
+			opacity: 1
+		}
+
+		.show-regin span {
+			width: 40px;
+			position: absolute;
+			left: 0px;
+			top: -11px;
+			padding: 6px 10px;
+			font-size: 14px;
+			color: #ccc;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			text-align: left;
+			white-space: nowrap;
+		}
+
+		.postition-shenzhen .show-regin span {
+			left: 0
+		}
+
+		.postition-guangzhou .show-regin span {
+			left: -56px;
+			text-align: right;
+		}
+
+		.area-box {
+			z-index: 77
+		}
+
+		.show-regin {
+			z-index: 66
+		}
+
+		.region-list.active .show-regin span {
+			position: relative;
+			color: #ccc
+		}
+
+		.region-list.waite .show-regin span {
+			color: #ccc
+		}
+
+		.postition-1 {
+			left: 302px;
+			top: 308px
+		}
+
+		.postition-shanghai {
+			left: 650px;
+			top: 385px;
+		}
+
+		.postition-3 {
+			left: 358px;
+			top: 516px
+		}
+
+		.postition-nanjing {
+			left: 613px;
+			top: 369px;
+		}
+
+		.postition-nanjing .info {
+			position: absolute;
+			left: 40px;
+			top: -120px;
+			width: 400px;
+			height: auto;
+		}
+
+		.postition-hubei {
+			left: 526px;
+			top: 394px
+		}
+
+		.postition-guangzhou {
+			left: 543px;
+			top: 529px
+		}
+
+		.postition-haerbin {
+			left: 660px;
+			top: 110px;
+		}
+
+		.postition-haerbin.region-list.active .area-box .pulse {
+			top: -50px;
+			left: -50px;
+			width: 110px;
+			height: 110px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%
+		}
+
+		.postition-beijing {
+			left: 559px;
+			top: 229px
+		}
+
+		.postition-9 {
+			left: 637px;
+			top: 371px
+		}
+
+		.postition-9.region-list.active .area-box .pulse {
+			top: -50px;
+			left: -50px;
+			width: 110px;
+			height: 110px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%
+		}
+
+		.postition-shenzhen {
+			left: 553px;
+			top: 538px;
+		}
+
+		.postition-changsha {
+			left: 520px;
+			top: 440px
+		}
+
+		.postition-chongqing {
+			left: 432px;
+			top: 427px;
+		}
+
+		.postition-hangzhou {
+			left: 635px;
+			top: 400px;
+		}
+
+		.postition-chengdu {
+			left: 395px;
+			top: 405px;
+		}
+
+		.douhao {
+			width: 0
+		}
+	</style>
+	<style>
+		.stepper {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			padding: 2em 0;
+			width: 100%;
+			background-repeat: no-repeat;
+			display: flex;
+			justify-content: space-around;
+			height: 8em;
+			line-height: 4em;
+			z-index: 1;
+		}
+
+		.stepper.stepper-horizontal {
+			background-image: linear-gradient(#2c2f34 20%, #87cdeb 50%, #2c2f34 80%);
+			background-position: center;
+			background-size: 100% 8em;
+			flex-direction: row;
+		}
+
+		.stepper.stepper-vertical {
+			background-image: linear-gradient(to right, #2c2f34 20%, #87cdeb 50%, #2c2f34 80%);
+			background-size: 8em 100%;
+			background-position: center;
+			flex-direction: column;
+		}
+
+		.stepper>.node {
+			color: black;
+			flex-basis: 4em;
+			height: 100%;
+			border-radius: 50%;
+			text-align: center;
+			background: #87cdeb;
+			border: 2px solid white;
+			box-shadow: 0 0 1px #000, 0 0 2px #91cdeb, 0 0 3px #91cdeb, 0 0 4px #91cdeb, 0 0 5px #91cdeb
+		}
+
+		.node.locked {
+			color: gray;
+		}
+
+		.node.active {
+			color: red;
+		}
+
+		article {
+			color: white
+		}
+
+		article>section>p {
+			text-indent: 2em;
+			margin: 1em 0;
+		}
+
+		article>section>p.img-desc {
+			text-align: center;
+			color: #CCC;
+		}
+
+		article>section>p.subtitle {
+			font-size: 1.4em;
+			text-align: center;
+		}
+
+		article>section>p.pic-con {
+			text-align: center;
+		}
+
+		article>section>p.pic-con>img {
+			max-width: 100%;
+			object-fit: contain;
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stepper stepper-horizontal">
+		<div class="node active" data-date="131118" title="《这一年，我们追的SNH48》演唱会 广州国际体育演艺中心">广州</div>
+		<div class="node locked" data-step="2">北京</div>
+		<div class="node locked" data-step="3">南京</div>
+		<div class="node locked" data-step="4">成都</div>
+		<div class="node locked" data-step="5">北京</div>
+		<div class="node locked" data-step="6">广州</div>
+		<div class="node locked" data-step="7">武汉</div>
+		<div class="node locked" data-step="8">重庆</div>
+		<div class="node locked" data-step="9">哈尔滨</div>
+		<div class="node locked" data-step="10">深圳</div>
+		<div class="node locked" data-step="11">成都</div>
+		<div class="node locked" data-step="12">深圳</div>
+		<div class="node locked" data-step="13">上海</div>
+	</div>
+	<div class="china-map">
+		<div class="region-list waite postition-shanghai online-node">
+			<div class="area-box">
+				<span class="dot"></span>
+				<span class="pulse delay-06"></span>
+				<span class="pulse delay-05"></span>
+				<span class="pulse delay-04"></span>
+			</div>
+			<div class="show-regin"><span>上海</span></div>
+		</div>
+
+		<a class="region-list waite postition-nanjing waite-node">
+			<div class="area-box">
+				<span class="dot"></span>
+				<span class="pulse delay-01"></span>
+				<span class="pulse delay-02"></span>
+			</div>
+			<div class="show-regin"><span>南京</span></div>
+		</a>
+
+		<div class="region-list waite postition-beijing online-node">
+			<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+				<span class="pulse delay-05"></span>
+				<span class="pulse delay-04"></span></span></div>
+			<div class="show-regin"><span>北京</span></div>
+		</div>
+
+		<div class="region-list waite postition-hangzhou online-node">
+			<div class="area-box">
+				<span class="dot"></span>
+				<span class="pulse delay-04"></span>
+				<span class="pulse delay-05"></span>
+				<span class="pulse delay-03"></span></div>
+			<div class="show-regin"><span>杭州</span></div>
+		</div>
+
+		<div class="region-list waite postition-chengdu waite-node">
+			<div class="area-box">
+				<span class="dot"></span>
+				<span class="pulse delay-01"></span>
+				<span class="pulse delay-02"></span>
+			</div>
+			<div class="show-regin"><span>成都</span></div>
+		</div>
+
+		<div class="region-list waite postition-hubei waite-node">
+			<div class="area-box">
+				<span class="dot"></span>
+				<span class="pulse delay-01"></span>
+				<span class="pulse delay-02"></span>
+			</div>
+			<div class="show-regin"><span>武汉</span></div>
+		</div>
+
+		<div class="region-list waite postition-chongqing waite-node">
+			<div class="area-box">
+				<span class="dot"></span>
+				<span class="pulse delay-01"></span>
+				<span class="pulse delay-02"></span>
+			</div>
+			<div class="show-regin"><span>重庆</span></div>
+		</div>
+
+		<div id="point-guangzhou" class="region-list active postition-guangzhou online-node">
+			<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+				<span class="pulse delay-05"></span>
+				<span class="pulse delay-04"></span></div>
+			<div class="show-regin"><span>广州</span></div>
+		</div>
+
+		<div class="region-list waite postition-changsha online-node">
+			<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+				<span class="pulse delay-05"></span>
+				<span class="pulse delay-04"></span></div>
+			<div class="show-regin"><span>长沙</span></div>
+		</div>
+
+		<div class="region-list waite postition-haerbin online-node">
+			<div class="area-box"><span class="dot"></span><span class="pulse delay-10"></span>
+				<span class="pulse delay-09"></span>
+				<span class="pulse delay-08"></span></div>
+			<div class="show-regin"><span>哈尔滨</span></div>
+		</div>
+
+		<div class="region-list waite postition-shenzhen online-node">
+			<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+				<span class="pulse delay-05"></span>
+				<span class="pulse delay-04"></span></div>
+			<div class="show-regin"><span>深圳</span></div>
+		</div>
+	</div>
+	<div class="info-container">
+		<div class="content-container">
+			<div class="infos info-guangzhou" style="opacity: 1; transition: opacity 1s linear;">
+				<article>
+					<section data-type="rtext">
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100400668.png" /></p>
+
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100400740.png" />
+						</p>
+
+						<p class="pic-con"><img
+								src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100400606.png">
+						</p>
+
+						<p>2013年11月16日，由广州移动公司,滚石移动和上海久尚演艺共同举办的中国大型女子偶像组合—SNH48出道以来首场万人规模大型专场演唱会“这一年，我们追的SNH48”在广州国际体育演艺中心热力唱响！
+						</p>
+						<p class="subtitle">SNH48首现32人超级大团同台献唱广州</p>
+						<p>作为全球首创基于O2O-SNS社区的大型女子偶像团体，SNH48在国内率先实践了
+							“可面对面的偶像”模式。本次万人演唱会现场，SNH48一期生，二期生和来自AKB48的留学生成员共计32位成员首次同场演出，为粉丝献上经过精心排练的多达20余首代表曲目，以亚洲流行白金单曲、超强视觉冲击力的Live舞曲、风格百变的团队组合曲三种表演形式轮番登场，其中近半数为首次献演的新曲，更有国内仅见的32名美少女同台献唱的壮观场景。
+						</p>
+						<p class="subtitle">震撼歌舞轮番上演 C-POP狂热首现</p>
+						<p>SNH48当日首演的《Beginner》，是一度风靡亚洲、销售达百万的歌曲。歌曲向人们传达了少女追逐梦想时不畏艰险勇于抗争的正能量，音乐中大量电音的加入让全曲充满震撼力。舞蹈方面则融入了大量的街舞元素，狂放、帅气、的肢体动作对献演者有着极高的要求，一首《Beginner》，让观众首次体会到了中国特色的流行歌舞，C-POP在广州国际体育演艺中心的舞台上首现。另外，SNH48还表演了《剧场女神》剧目中的多首经典曲目，以及SOLO神曲《都是夜风惹的祸》、可爱萝莉塔风的《初恋你好》、激烈帅气的《激流之战》、性感可爱的《马尾与发圈》、魔幻神奇的《飞翔入手》、动人心扉的《生命之风》还有最近全民大热的“搓火球”《爱的幸运曲奇》等歌曲，新派C-POP有望由此诞生。
+						</p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100405833.png" /></p>
+
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100405571.png" /></p>
+
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100416351.png"
+								data-alt="国际造型师打造梦幻少女海" />
+							<p class="img-desc">国际造型师打造梦幻少女海</p>
+						</p>
+						<p>在舞美和视觉呈现方面，“这一年我们一起追过的SNH48”演唱会上无论是服装造型、舞台设计还是现场灯光效果，都以国际水准呈现：服装方面，邀请了亚洲天团AKB48的御用服装设计师为本次演唱会倾力打造了数十套演出服装，每一套都根据参演成员的特点进行了不同的设计；舞台设计也采用了国内首创的双层舞台搭建，可容纳32人同台演出。当SNH48全员出现在舞台上时，现场观众都被美少女展览馆般的奇景所震撼，全场观众从始至终如同徜徉在美少女海洋中。
+						</p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100416495.png" /></p>
+
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100416537.png" /></p>
+
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100431801.png"
+								data-alt="粉丝互动成主演 上演“用生命在应援”" />
+							<p class="img-desc">粉丝互动成主演 上演“用生命在应援”</p>
+						</p>
+						<p>在演唱会现场，于近日刚分成TeamSII和TeamNII两队的SNH48成员首次以分组的形式登台。而在舞台下，大量歌迷以专为成员定制的“特攻服”霸气现身应援，来自不同地区的粉丝也自发组织各色应援舞，粉丝们不再是安安静静坐在台下看成员们表演，当32人同台献唱最新专辑主打歌曲《爱的幸运曲奇》时，在成员的带领下全场上万粉丝起身与成员一起热跳“搓火球”舞蹈，容纳了一万多人的场馆热闹纷繁，现场互动效果极为震撼。
+						</p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100431439.png" /></p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100431594.png" /></p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100431170.png"
+								data-alt="万人场馆座无虚席 新生团体潜力无限">
+							<p class="img-desc">万人场馆座无虚席 新生团体潜力无限</p>
+						</p>
+						<p>广州国际体育演艺中心是目前华南地区唯一按NBA标准建成的综合性场馆，曾举办过2010年NBA中国赛、王菲演唱会、张学友世界巡回演唱会、周杰伦世界巡演、等大型娱乐演出。这次中国大型女子偶像团体SNH48作为新生代的第一个代表，站在承载过王菲、张学友、周杰伦等亚洲超级巨星的舞台上，努力唱响最具青春活力的音乐浪潮,预示着国内音乐界“正能量新生代”音乐偶像的时代已经到来。
+						</p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100431894.png" /></p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100432114.png" /></p>
+						<p class="pic-con">
+							<img src="//himg2.huanqiucdn.cn/attachment2010/2013/1118/20131118100437412.png"
+								data-alt="广州唱罢 上海万人演唱会接踵而至" />
+							<p class="img-desc">广州唱罢 上海万人演唱会接踵而至</p>
+						</p>
+						<p>由于在年轻用户人群中极高的人气，SNH48获得中国移动的亲睐，出道仅一年就获得了在国内一流场馆举办万人演唱会的机会。不仅如此，在此次演唱会上，SNH48也公布了一个重磅消息，SNH48第二场万人演唱会将于2014年1月18日在上海举行。在即将举行的1.18上海演唱会将采用全新的“歌舞大对决”的全新演出方式呈现。
+						</p>
+						<p class="pic-con">
+							<img src="https://wx2.sinaimg.cn/large/005Kobofly1g816qr6278j30m80etwkd.jpg" />
+							<img src="https://wx3.sinaimg.cn/large/005Kobofly1g816qj0dsaj30m80etgq4.jpg" />
+							<img src="https://wx2.sinaimg.cn/large/005Kobofly1g816qjalovj30m80etq6i.jpg" />
+						</p>
+					</section>
+				</article>
+			</div>
+			<div class="infos info-nanjing" style="opacity: 0; transition: opacity 1s linear;">
+				<!-- <div style="background-image: url('img/星梦中国行.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover;"></div> -->
+				<div class="text-center">
+					<img src="img/星梦中国行.jpg">
+				</div>
+				<p>
+					SNH48 出征！星梦中国行
+				</p>
+			</div>
+			<div class="infos info-shenzhen" style="opacity: 0; transition: opacity 1s linear;">
+				<!-- <div style="background-image: url('img/星梦中国行.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover;"></div> -->
+				<div class="text-center">
+					<img src="img/星梦中国行.jpg">
+				</div>
+				<p>
+					燃烧吧！团魂
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+	<script>
+		$(function () {
+			$(".node").on("click", function () {
+				$(".region-list").removeClass("active").addClass("waite")
+				$("#" + $(this).attr("data-date")).addClass("active")
+			})
+		})
+	</script>
+</body>
+
+</html>
