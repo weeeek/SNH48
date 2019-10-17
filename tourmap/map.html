@@ -445,6 +445,13 @@
 		}
 	</style>
 	<style>
+		.exchequer{
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 240px;
+		}
+
 		.stepper {
 			position: fixed;
 			top: 0;
@@ -475,6 +482,8 @@
 		}
 
 		.stepper>.node {
+			font-weight: bolder;
+			cursor: pointer;
 			color: black;
 			flex-basis: 4em;
 			height: 100%;
@@ -486,7 +495,7 @@
 		}
 
 		.node.locked {
-			color: gray;
+			color: white;
 		}
 
 		.node.active {
@@ -540,6 +549,7 @@
 		<div class="node locked" data-step="12">深圳</div>
 		<div class="node locked" data-step="13">上海</div>
 	</div>
+	<img class="exchequer" src="img/小金库.jpg"/>
 	<div class="china-map">
 		<div class="region-list waite postition-shanghai online-node">
 			<div class="area-box">
@@ -633,7 +643,7 @@
 	</div>
 	<div class="info-container">
 		<div class="content-container">
-			<div class="infos info-guangzhou" style="opacity: 1; transition: opacity 1s linear;">
+			<div id="date-131118" class="infos info-guangzhou" style="opacity: 1; transition: opacity 1s linear;">
 				<article>
 					<section data-type="rtext">
 						<p class="pic-con">
@@ -738,7 +748,7 @@
 		$(function () {
 			$(".node").on("click", function () {
 				$(".region-list").removeClass("active").addClass("waite")
-				$("#" + $(this).attr("data-date")).addClass("active")
+				$("#date-" + $(this).attr("data-date")).addClass("active")
 			})
 		})
 	</script>
